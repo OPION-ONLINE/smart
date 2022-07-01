@@ -1,6 +1,7 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
+// require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
 
 $pages = $environment_link . 'templates/pages/';
 

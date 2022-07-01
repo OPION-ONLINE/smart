@@ -14,7 +14,7 @@ header {
     background: rgb(34, 33, 31);
     background-blend-mode: overlay;
     border-radius: 2rem;
-    box-shadow: 0 0 20px #36363659;
+    box-shadow: 0 0 20px var(--shadow);
 
     color: var(--primary-color);
 
@@ -31,7 +31,7 @@ header .bg-image, header .overlay {
 }
 
 header .overlay {
-    background: #000000de;
+    background: var(--overlay);
 }
 
 header h1 {
@@ -45,7 +45,7 @@ h1 span {
 
 header .header-input {
     margin: 1.5rem 0;
-    box-shadow: 0 0 20px #36363659;
+    box-shadow: 0 0 20px var(--shadow);
     width: max-content;
     border-radius: 5rem;
 }
@@ -98,7 +98,7 @@ header .dropdown {
 
 
 .homecard {
-    background: rgb(211, 211, 211);
+    background: var(--primary-color);
     border-radius: 20px;
     width: 280px;
     height: 340px;
@@ -123,6 +123,7 @@ header .dropdown {
 
 .homecard .card-price {
     background: var(--secondary-color);
+    box-shadow: 0 0 20px var(--shadow);
     top: 10px;
     left: 10px;
 }
