@@ -1,10 +1,12 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
+//require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
+
 
 $pages = $environment_link . 'templates/pages/';
 
-require_once $pages . 'homepage/index.php';
+require_once $pages . 'facility_page/index.php';
 
 
 
