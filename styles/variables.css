@@ -1,9 +1,10 @@
 *{
     --primary-color: #ffffff;
-    --secondary-color: #ff3f4c;
+     --secondary-color: #ff3f4c;
     --tetiary-color: #5f07cb;
     --overlay: #000000de;
-    --shadow: #363659;
+    --shadow: #36363659;
+    --white-overlay: whitesmoke;
 }
 
 input {
