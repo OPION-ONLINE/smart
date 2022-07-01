@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;900&display=swap');
+@import url('../variables.css');
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+header {
+    background: rgb(34, 33, 31);
+    background-blend-mode: overlay;
+    border-radius: 2rem;
+    box-shadow: 0 0 20px #36363659;
+
+    color: white;
+
+    height: 80vh;
+    width: 90vw;
+
+    left: 50%;
+    margin-top: .75rem;
+    transform: translateX(-50%);
+}
+
+header .bg-image, header .overlay {
+    border-radius: 2rem;
+}
+
+header .overlay {
+    background: #000000de;
+}
+
+header h1 {
+    font-weight: 900;
+    font-size: 290%;
+}
+
+h1 span {
+    color: #ff3f4c;
+}
+
+header .header-input {
+    margin: 1.5rem 0;
+    box-shadow: 0 0 20px #36363659;
+    width: max-content;
+    border-radius: 5rem;
+}
+
+header input {
+    border-radius: 5rem 0 0 5rem;
+    height: 55px;
+    padding: 1rem;
+    width: 600px;
+    font-size: 120%;
+}
+
+header .dropdown {
+    background: #ff3f4c;
+    border-radius: 0 5rem 5rem 0;
+    color: #fff;
+    width: 200px;
+    height: 55px;
+}
+
+.dropdown .options {
+    background: #fff;
+    border-radius: 0 20px 20px 20px;
+    color: #222;
+
+    display: none;
+    opacity: 0;
+    /* transition: opacity .3s ease-in-out .5s, display 0s ease 0s; */
+}
+
+.dropdown .option {
+    cursor: pointer;
+    text-align: start;
+    padding: .5rem;
+}
+
+.option:hover {
+    background: #5f07cb;
+    color: #fff;
+}
+
+.dropdown:hover .options {
+    display: block;
+    opacity: 1;
+}
+
+.dropdown:hover .bi {
+    transform: rotateX(180deg);
+}
+
+
+.homecard {
+    background: rgb(211, 211, 211);
+    border-radius: 20px;
+    width: 280px;
+    height: 340px;
+}
+
+.homecard .card-img {
+    background: #ff3f4c;
+    height: 70%;
+}

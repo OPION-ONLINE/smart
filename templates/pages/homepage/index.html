@@ -1,0 +1,40 @@
+<header class = 'p-rel'>
+
+    <div class = 'header-content p-rel z-3 full-hw flex-col flex-center text-center'>
+        <div class = 'header-title'>
+            <h1><span>AFFORDABLE</span> HOUSING AT YOUR <br> FINGER <span>TIPS</span></h1>
+        </div>
+
+        <div class = 'header-input flex-row'>
+            <input type = 'text' name = 'search' placeholder="Search for your oasis..." oninput = "console.log('user searching')">
+            <div class = 'dropdown p-rel'>
+                <div class = 'placeholder flex-row flex-around full-hw'>
+                    <span class = 'value'>HOSTELS</span>
+                    <i class = 'bi bi-chevron-down'></i>
+                </div>
+
+                <div class = 'options p-abs full-w ov-hidden'>
+                    <div class = 'option full-w'>HOMESTELS</div>
+                    <div class = 'option full-w'>HOTELS</div>
+                    <div class = 'option full-w'>GUESTHOUSES</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class = 'bg-image p-abs top-left full-hw ov-hidden z-1'>
+        <img src = '<?php echo $environment_link . 'images/opion_header_image.jpg';?>' class = 'obj-fit'>
+    </div>
+
+    <div class = 'overlay p-abs top-left full-hw ov-hidden z-2'></div>
+</header>
+
+<section>
+    <div class = 'homecard ov-hidden'>
+        <div class = 'card-img p-rel'>
+            <img src = '<?php echo $environment_link . 'images/opion_header_image.jpg';?>' class = 'obj-fit'>
+        </div>
+        <div class = 'card-txt'></div>
+        <div class = 'card-price'></div>
+    </div>
+</section>

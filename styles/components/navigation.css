@@ -1,0 +1,20 @@
+@import url('../variables.css');
+
+nav {
+    background: var(--primary-color);
+    /* border: 1px solid; */
+    padding: 1rem 4rem;
+}
+
+nav .nav-link {
+    border: .5px solid #00000000;
+    border-radius: 10rem;
+    cursor: pointer;
+    padding: .7rem 1rem;
+    margin: 0 .5rem;
+    min-width: 120px;
+}
+
+nav .nav-link:hover {
+    border: .5px solid #000;
+}
