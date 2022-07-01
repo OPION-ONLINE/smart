@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration
 
 $pages = $environment_link . 'templates/pages/';
 
-require_once $pages . 'homepage/index.php';
+require_once $pages . 'facility_page/index.php';
 
 
 
