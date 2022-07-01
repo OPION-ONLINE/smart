@@ -40,7 +40,7 @@ header h1 {
 }
 
 h1 span {
-    color: #ff3f4c;
+    color: var(--secondary-color);
 }
 
 header .header-input {
@@ -105,6 +105,14 @@ header .dropdown {
 }
 
 .homecard .card-img {
-    background: #ff3f4c;
+    background: var(--secondary-color);
     height: 70%;
+}
+
+.homecard .card-txt {
+    
+}
+
+.homecard h3 {
+    font-weight: 400;
 }
