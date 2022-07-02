@@ -75,6 +75,32 @@ header .dropdown {
     opacity: 1;
 }
 
+.search-result .tab {
+    cursor: pointer;
+    text-align: start;
+    padding: .7rem 1rem;
+}
+
+.search-result .tab small {
+    color: var(--dark-fade);
+    font-size: 90%;
+
+}
+
+.search-result .tab:last-of-type {
+    border-radius: 0 0 1rem 1rem;
+
+}
+
+.search-result .tab:hover {
+    background: var(--tetiary-color);
+    color: var(--primary-color);
+}
+
+.search-result .tab:hover small {
+    color: var(--primary-color);
+}
+
 @media (max-width: 970px) {
     header input {
         width: 50vw;

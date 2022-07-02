@@ -1,7 +1,22 @@
+<?php
+
+if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
+    header('location: signup');
+}
+
+$facility_name = $GET['facility_name'];
+$facility_type = $GET['facility_type'];
+$facility_location = $GET['facility_location'];
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php require_once $environment_link . "templates/components/head.php";?>
+    <?php
+        require_once $environment_link . "templates/components/head.php";
+     ?>
     <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/pages/booking_page/index.css';?>'>
     <!-- <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/components/homecard.css';?>'> -->
     <!-- <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/components/footer.css';?>'> -->

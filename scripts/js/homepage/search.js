@@ -19,7 +19,11 @@ function search(query) {
                 result.innerHTML = '';
                 
                 data.forEach( facility =>  {
-                    
+                    result.innerHTML += `
+                    <div class = 'tab flex-col' onclick = 'location.href = "booking?facility_name=${facility['facility_name']}&facility_type=${facility['facility_type']}&facility_location=${facility['facility_location']}"'>
+                        <span>${facility['facility_name']}</span>
+                        <small>${facility['facility_location']}</span>
+                    </div>`;
                 })
             }
             else {
