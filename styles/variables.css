@@ -5,6 +5,7 @@
     --overlay: #000000de;
     --shadow: #36363659;
     --white-overlay: whitesmoke;
+    --sub-header: rgb(51, 51, 51);
 }
 
 input {
