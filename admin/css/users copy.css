@@ -1,0 +1,606 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.wrapper {
+    overflow: hidden;
+}
+
+main {
+    background: rgba(249, 254, 255, 0.913);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    font-family: 'Poppins', sans-serif;
+}
+
+main > .left {
+    background: white;
+    border-right: 1px solid lightgrey;
+}
+
+main > .right {
+    background: white;
+    overflow-y: scroll;
+}
+
+.menu {
+    margin-top: 5em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.menu-item {
+    border-left: 4px solid rgba(51, 51, 51, 0);
+    padding: .75em 1em;
+    margin: 1em 0;
+}
+
+.menu-item:hover {
+    background: #111;
+    box-shadow: 0 0 15px #0000000f;
+    border-left: 4px solid #777;
+    cursor: pointer;
+    color: white;
+}
+
+.menu-item.active {
+    border-left: 4px solid #111;
+}
+
+.menu-item .icon {
+    font-size: 150%;
+    margin: 0 1em;
+}
+
+.menu-item .item {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.top-bar {
+    height: 3em;
+    box-shadow: 0 0 5px lightgrey;
+}
+
+.date-btn {
+    margin: .75em 0;
+}
+
+.date-btn.start-btn .btn {
+    background: rgb(213, 127, 51);
+}
+
+.date-btn .btn {
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: .75em 2em;
+    transform: scale(.9);
+    font-weight: bold;
+}
+
+.date-btn .value {
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding: .75em 2em;
+    transform: scale(.9);
+    text-align: center;
+}
+
+.left .close-btn {
+    display: none;
+}
+
+
+/* Supplier Code */
+
+.nav-bar {
+    box-shadow: 0 0 5px rgba(136, 136, 136, 0.26);
+    height: 70px;
+    padding: 5px;
+
+}
+
+.nav-bar .date-btn {
+    background: #222;
+    box-shadow: 0 0 5px rgba(136, 136, 136, 0.26);
+    border-radius: 3rem;
+    color: white;
+    height: 50px;
+    width: max-content;
+    padding: .5rem 2rem;
+    transform: scale(.8);
+}
+
+.nav-bar .date-btn span {
+    padding: 0 .5rem;
+}
+
+.nav-bar .panel-name {
+    padding: 0 1rem;
+    font-weight: bold;
+}
+
+.tool-bar {
+    padding: 1rem 1.7rem;
+}
+
+.tool-bar .input {
+    margin: .5rem;
+    box-shadow: 0 0 5px rgba(153, 153, 153, 0.353);
+    border-radius: 10rem;
+    padding: 0 1rem;
+    overflow: hidden;
+}
+
+.tool-bar .input .icon {
+    font-size: 130%;
+}
+
+.tool-bar input {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font-size: 90%;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.table {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.table-head, .table-entry {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 1rem 1.45rem;
+    text-align: center;
+}
+
+.table-entry {
+    background: #f0f0f0;
+    font-size: 80%;
+    transition: .2s;
+}
+
+.table-entry:hover {
+    background: #444 !important;
+    color: white;
+    letter-spacing: .75px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+
+.table-entry:nth-of-type(2n) {
+    background: #ffffff;
+}
+
+.table-entry .te {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.te .btn {
+    background: #333;
+    border-radius: 5rem;
+    color: white;
+    width: 60px;
+    min-width: 60px;
+    padding: .5em 0em
+}
+
+.te .btn:hover {
+    background: rgb(56, 51, 65);
+    border: 2px solid black;
+    border-top: none;
+    border-bottom: none;
+}
+
+.calender {
+    background: #fff;
+    position: fixed;
+    top: 0;
+    right: -200vw;
+    width: 300px;
+}
+
+.calender.active {
+    right: 0;
+}
+
+.menu-btn {
+    font-size: 150%;
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* User Element Styling begins */
+
+.users{
+     height: calc(100% - 80px);
+    width: 100%;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding-left: 20px;
+ }
+
+ 
+
+.edit{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgb(44, 44, 44);
+    color: white;
+    width: 60px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.233);
+    transition: .2s ease;
+    cursor: pointer;
+    
+
+}
+
+.edit:hover{
+    border: 1px solid rgb(207, 207, 207);
+    background: rgb(207, 207, 207);
+    color: black;
+    box-shadow: black;
+}
+
+.userDetails{
+     margin-top: 30px;
+}
+.lableInfo p{
+    font-size: 12px;
+    color: rgb(44, 44, 44);
+}
+
+.element{
+    margin-top: 20px;
+}
+
+.userTransactions{
+    margin-top: 50px;
+
+
+}
+.history{
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 50px;
+    margin-left: -20px;
+}
+
+.history .line, .colomnHeaders, .history h3{
+    margin-left: 20px;
+}
+
+.colomnHeaders, .historyList{
+    display: grid;
+    font-size: 9px;
+    width: 100%;
+    margin-top: 15px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+}
+.historyList{
+    font-size: 11px;
+    background: rgba(0, 0, 0, 0.164);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;  
+    
+}
+
+.line{
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.829), transparent);
+}
+
+.cover2{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    transition: .2s ease;
+}
+
+.cover2.active{
+    overflow: visible;
+    position: absolute;
+    z-index: 44356;
+    width: 95vw;
+    height: 95vh;
+    overflow-y: auto;
+    left: 2vw;
+    top: 2vh;
+    background: rgb(255, 255, 255);
+    padding-left: 10px;
+    box-shadow: 0 0 20px 6px rgba(0, 0, 0, 0.329);
+    border-radius: 4px;
+ 
+ }
+
+ .updateButton{
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin-top: 40px;
+     margin-bottom: 20px;
+
+ }
+
+ .uBtn{
+     height: 40px;
+     width: 100px;
+     background: rgb(39, 39, 39);
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border-radius: 4px;
+     cursor: pointer;
+     
+ }
+
+ .uBtn:hover{
+     background: black;
+     box-shadow: 0 0 12px 2px rgb(141, 141, 141);
+ }
+
+  
+
+    .history2{
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .element2{
+        margin-left: 70px;
+    }
+
+    .history2:first-child{
+        margin-left: -50px;
+    }
+
+    .header h6{
+        font-weight: 900;
+        font-size: 12px;
+    }
+    .item{
+        margin-top: 7px;
+    }
+
+    .item p{
+        font-weight: 100;
+        font-size: 10px;
+
+     }
+
+     .history{
+         margin-bottom: 15px;
+     }
+
+     .uBtn:nth-child(2){
+         color: black;
+         border: 1px solid rgb(82, 82, 82);
+         background: transparent;
+         margin-left: 10px;
+      }
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 945px) {
+    .colomnHeaders, .historyList{
+        display: flex;
+    }
+
+  .shift{
+    margin-left: 50px;
+ }
+
+ .listItem{
+     margin-left: 70px;
+  }
+
+  .listItem:first-child{
+      margin-left: -60px;
+   }
+
+ 
+
+
+    
+    main {
+        grid-template-columns: 3fr;
+        justify-content: center;
+    }
+
+    main > .left {
+        position: fixed;
+        width: 320px;
+        left: -200vw;
+        top: 0;
+    }
+
+    main > .left .close-btn {
+        display: flex;
+    }
+
+    main > .left.active {
+        left: 0;
+        z-index: 10;
+    }
+
+    .menu-btn {
+        display: flex;
+    }
+
+}
+
+@media (max-width: 685px) {
+    
+    .th {
+        font-size: 80%;
+        font-weight: bolder;
+    }
+
+    .table-entry {
+        font-size: 60%;
+        white-space: nowrap;
+    }
+
+    .table-head, .table {
+        width: 685px;
+    }
+
+    .table-container {
+        width: 100vw;
+        overflow-y: scroll;
+    }
+    
+}
+
+@media (max-width: 460px) {
+    .search-bar {
+        transform: scale(.8);
+        width: 80vw;
+    }
+}
+
+
+
+
+/* userlist    */
+
+.listTitle{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+     width: 100%;
+     left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.658);
+    color: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 7px;
+
+ }
+
+.uList{
+     height: calc(100% - 210px);
+     
+     
+
+}
+
+ 
+
+.uDetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    padding-left: 10px;
+    margin-left: -20px;
+    overflow-y: auto;
+ 
+}
+.uDetails h6{
+    font-weight: 200;
+}
+
+.uDetails:hover{
+    background: rgba(0, 0, 0, 0.616);
+    color: white;
+    text-transform: uppercase;
+}
+
+.search input{
+    float: right;
+    border: none;
+    height: 50px;
+    box-shadow: 0 0 6px 2px rgba(0, 0, 0, 0.24);
+    border-radius: 20px;
+    margin: 15px;
+    width: 150px;
+    padding-left: 20px;
+    outline: none;
+    
+}
+
+@media (max-width: 750px){
+    .listTitle{
+        font-size: 10px;
+    }
+
+.uDetails{
+     
+    padding-left: 0px;
+ }
+.overF{
+    overflow-x: auto;
+    
+ }
+
+ .uBooked, .uDate, .uBooked{
+     overflow-x: auto;
+  }
+
+}

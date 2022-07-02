@@ -5,6 +5,8 @@ error_reporting(E_ALL);
 // require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
 
+// $environment_link = str_replace('/opt/lampp/htdocs/', '', $environment_link);
+
 $pages = $environment_link . 'templates/pages/';
 
 // PHP_URL_SCHEME, PHP_URL_HOST, PHP_URL_PORT, PHP_URL_USER, PHP_URL_PASS, PHP_URL_PATH, PHP_URL_QUERY or PHP_URL_FRAGMENT 
@@ -17,7 +19,7 @@ $url .= $_SERVER['REQUEST_URI'];
 
 $path = parse_url($url, PHP_URL_PATH);
 $path = str_replace('/projects/hcube/smart', '', $path);
-echo $environment_link;
+
 
 
 $hander = [];
@@ -47,11 +49,19 @@ $handler['booking_page'] = function() {
     require_once $pages . 'booking_page/index.php';
 };
 
+$handler['leasing_page'] = function() {
+    global $pages, $environment_link;
+
+    require_once $pages . 'leasing_page/index.php';
+};
+
 $router = [
     '/'              => $handler['home_page'],
     '/signup'              => $handler['signup_page'],
     '/facilities'    => $handler['facility_page'],
     '/booking'       => $handler['booking_page'],
+    '/leasing'       => $handler['leasing_page'],
+
 ];
 
 isset($router[$path])? $router[$path]() : $router['/']();

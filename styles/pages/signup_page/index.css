@@ -1,11 +1,16 @@
 .signup-box > div {
-    --width: 30%;
+    --width: 450px;
 }
 
 
 
 .right {
-    background: linear-gradient(0deg, var(--secondary-color), var(--tetiary-color));
+    /* background: linear-gradient(0deg, var(--secondary-color), var(--tetiary-color)); */
+    width: var(--width);
+    overflow-y: scroll;
+}
+
+.btn {
     width: var(--width);
 }
 
@@ -15,13 +20,19 @@
 
 .overlay {
     background: var(--overlay);
+    justify-content: center;
     
+    padding: 2rem;
+}
+
+.overlay .btn {
+    width: 200px;
+    border-radius: 1rem;
 }
 
 h1 {
     color: var(--primary-color);
     font-size: 390%;
-    padding: 2rem;
 }
 
 h1 span {
@@ -36,9 +47,10 @@ form {
     background: var(--primary-color);
     box-shadow: 0 0 20px var(--shadow);
     border-radius: 20px;
-    width: 95%;
+    width: 100%;
     min-height: 600px;
     padding: 2rem;
+    transform: scale(.9);
 }
 
 form h3 {
@@ -50,4 +62,86 @@ form p {
     font-size: 80%;
     font-weight: 300;
     color: var(--dark-fade);
+}
+
+.top {
+    margin-bottom: 3rem;
+}
+
+.input {
+    margin: 1rem 0;
+}
+
+.input label {
+    font-size: 85%;
+}
+
+input , select {
+    background: var(--primary-color);
+    box-shadow: 0 0 20px var(--card-shadow);
+    border: 2px solid var(--dark-fade);
+    border-radius: 10px;
+    height: 47px;
+    padding: 1rem;
+    margin: .35rem 0;
+    font-family: "Poppins", sans-serif;
+}
+
+select {
+    padding: 0;
+}
+
+.btn {
+    background: var(--secondary-color);
+    box-shadow: 0 0 20px var(--card-shadow);
+    color: var(--primary-color);
+    padding: .75rem 1rem;
+}
+
+@media (max-width: 930px) {
+    h1 {
+        font-size: 300%;
+    }
+}
+
+@media (max-width: 835px) {
+    h1 {
+        font-size: 210%;
+    }
+}
+
+@media (max-width: 730px) {
+    h1, .overlay .btn {
+        display: none;
+    }
+
+    .left, .right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 4;
+    }
+
+    .right {
+        background: var(--primary-color);
+        z-index: 5;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 450px) {
+    
+    .right {
+        padding: 0;
+    }
+
+    form {
+        transform: scale(1);
+        border-radius: 0;
+    }
 }

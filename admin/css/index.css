@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+.wrapper {
+    overflow: hidden;
+}
+
+main {
+    background: rgba(249, 254, 255, 0.913);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    font-family: 'Poppins', sans-serif;
+}
+
+main > div {
+    
+}
+
+main > .left {
+    background: white;
+    border-right: 1px solid lightgrey;
+}
+
+main > .right {
+    background: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    
+}
+
+main > .right .info {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: 0px;
+    padding-bottom: 3rem;
+}
+
+main > .right .calender {
+    /* background: aliceblue; */
+    border-left: 1px solid lightgrey;
+}
+
+.menu {
+    margin-top: 5em;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.menu-item {
+    border-left: 4px solid rgba(51, 51, 51, 0);
+    padding: .75em 1em;
+    margin: 1em 0;
+}
+
+.menu-item:hover {
+    background: #111;
+    box-shadow: 0 0 15px #0000000f;
+    border-left: 4px solid #777;
+    cursor: pointer;
+    color: white;
+}
+
+.menu-item.active {
+    border-left: 4px solid #111;
+}
+
+.menu-item .icon {
+    font-size: 150%;
+    margin: 0 1em;
+}
+
+.menu-item .item {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.info .main-info, .info .order-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.info .item {
+    background: rgba(225, 224, 229, 0.559);
+    border-radius: 1em;
+    padding: 2em;
+    margin: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* width: 320px; */
+}
+
+.info .item:hover {
+    background: white;
+    box-shadow: 0 0 20px rgba(153, 153, 153, 0.144);
+    cursor: pointer;
+}
+
+.info .order-info .item {
+    padding: 1em 2em;
+}
+
+.info .item .item-left div {
+    color: #555;
+    margin-top: 1em;
+    margin-bottom: 1.2em;
+    font-size: 75%;
+    white-space: nowrap;
+
+}
+
+.info .order-info .item-left b {
+    margin: .5em 0;
+}
+
+.info .item .item-right .icon {
+    border: 1px solid lightgrey;
+    border-radius: 100%;
+    height: 80px;
+    width: 80px;
+    font-size: 280%;
+}
+
+.info .item:hover .item-right .icon i{
+    animation: iconate 3s linear infinite;
+    transform: rotate(0deg);
+
+}
+
+.info .order-info .item .item-right .icon {
+    height: 60px;
+    width: 60px;
+    font-size: 240%;
+}
+
+.top-bar {
+    height: 4em;
+    box-shadow: 0 0 5px lightgrey;
+    padding: .5rem;
+}
+
+.top-bar .date-btn {
+    background: #222;
+    box-shadow: 0 0 5px rgba(136, 136, 136, 0.26);
+    border-radius: 3rem;
+    color: white;
+    height: 50px;
+    width: max-content;
+    padding: .5rem 2rem;
+    transform: scale(.8);
+    display: none;
+}
+
+.top-bar .date-btn span {
+    padding: 0 .5rem;
+}
+
+.top-bar .menu-btn {
+    font-size: 150%;
+    display: none;
+}
+
+
+@keyframes iconate {
+    0%,50%,100%{
+        transform: translateY(0%);
+    }
+
+    25%{
+        transform: translateY(-2px);
+    }
+
+    75% {
+        transform: translateY(-2px);
+
+    }
+}
+
+.info h2 {
+    padding: 1em 1em;
+}
+
+.date-btn {
+    margin: .75em 0;
+}
+
+.close-btn {
+    font-size: 120%;
+    font-weight: bolder;
+    display: none;
+}
+
+.date-btn.start-btn .btn {
+    background: rgb(213, 127, 51);
+}
+
+.date-btn .btn {
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: .75em 2em;
+    transform: scale(.9);
+    font-weight: bold;
+}
+
+.date-btn .value {
+    width: 100%;
+    border: 1px solid lightgrey;
+    padding: .75em 2em;
+    transform: scale(.9);
+    text-align: center;
+}
+
+@media (max-width: 1170px) {
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    main > .right {
+        background: rgb(255, 255, 255);
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .info .main-info, .info .order-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 330px);
+        justify-content: center;
+    }
+
+    .calender {
+        background: white;
+        position: fixed;
+        top: 0;
+        right: -200vh;
+        height: 100vh;
+        width: 320px;
+    }
+
+    .calender .close-btn {
+        display: flex;
+    }
+
+    .calender.active {
+        right: 0;
+    }
+
+    .top-bar .date-btn {
+        display: flex;
+    }
+}
+
+@media (max-width: 945px) {
+    main {
+        grid-template-columns: 3fr;
+        justify-content: center;
+    }
+
+    main > .left {
+        position: fixed;
+        width: 320px;
+        left: -200vw;
+        top: 0;
+    }
+
+    main > .left .close-btn {
+        display: flex;
+    }
+
+    main > .left.active {
+        left: 0;
+        z-index: 10;
+    }
+
+    .top-bar .menu-btn {
+        display: flex;
+    }
+
+    main > .right {
+        grid-template-columns: 1fr;
+    }
+
+    .info .main-info, .info .order-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 330px);
+        justify-content: center;
+    }
+
+    /* .info {
+        left: 50%;
+        position: relative;
+        transform: translateX(-35%);
+    } */
+
+}
+
+@media (max-width: 908px) {
+    .info .main-info, .info .order-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 330px);
+        justify-content: center;
+    }
+}
+
+@media (max-width: 350px) {
+    .info .main-info, .info .order-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+
+    .main-info .item {
+        transform: scale(.8);
+        margin: 0;
+    }
+}

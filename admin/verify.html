@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify</title>
+    <link rel = 'stylesheet' href = 'css/general.css'>
+    <link rel = 'stylesheet' href = 'css/verify.css'>
+</head>
+<body>
+    <div class = 'loader p-fix top-left full-vhw z-5 flex-center'>
+        <div class = 'img' style = 'width: auto; height: 60px'>
+            <img src = 'images/loading-icon-transparent-background-12.gif' class = 'full-h'>
+        </div>
+    </div>
+    
+    <div class = 'wrapper flex-center'>
+        <div class = 'verfiy-box flex-col p-2'>
+            <div>
+                <input type = 'text' name = 'id' placeholder="Booking ID...">
+            </div>
+            <div>
+                <div class = 'btn verify-btn' onclick = 'verify();'>Verify Payment</div>
+            </div>
+        </div>
+    </div>
+    <script src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src = 'js/index.js'></script>
+    <script src = '../backend/handlers/booking_handler/js/verify.js'></script>
+</body>
+</html>

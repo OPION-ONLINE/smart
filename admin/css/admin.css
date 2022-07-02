@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.topBar{
+    width: 100vw;
+    background: #1e8cbe;
+    height: 60px;
+    display: flex;
+    align-items: center;
+ }
+
+ .topBar h4{
+     font-weight: 300;
+     margin-left: 40px;
+     color: white;
+     font-size: 17px;
+ }
+
+ .content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e9eff3;
+    width: 100vw;
+    height: calc(100vh - 60px);
+    flex-direction: column;
+    overflow-y: auto;
+ }
+
+ .form{
+    height: max-content;
+    width: 390px;
+    background: white;
+    border: 1px solid rgb(218, 218, 218);
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.096);
+ }
+
+ .element{
+    display: flex;
+    flex-direction: column;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 40px;
+ }
+
+ label{
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(65, 65, 65);
+    
+ }
+
+ .first{
+   margin-top: 30px;
+ }
+
+ .element input{
+      background: rgba(224, 196, 144, 0.26);
+      height: 40px;
+      border: 1px solid rgba(100, 100, 100, 0.144);
+      border-radius: 4px;
+      margin-top: 5px;
+      outline: none;
+      padding-left: 20px;
+ }
+
+ .mid{
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 60px;
+
+ }
+
+ .mid input{
+   width: 80%;
+   height: 30px;
+   background: #19a0fa;
+   border: 1px solid rgba(22, 54, 52, 0.164);
+   border-radius: 4px;
+   color: white;
+   height: 40px;
+   font-weight: 900;
+   font-size: 14px;
+   cursor: pointer;
+}
+
+.options{
+   margin-top: 40px;
+   color: rgb(160, 160, 160);
+ }

@@ -108,3 +108,30 @@ create table images (
 ) default charset 'utf8';
 
 
+create table rooms {
+    id int not null auto_increment primary key,
+    facility_name varchar(200) not null,
+    facility_type varchar(200) not null,
+    facility_location varchar(200) not null,
+    floor_name varchar(200) not null,
+    facility_block varchar(200) not null,
+    gender varchar(100) not null default all,
+    room_type varchar(200) not null,
+    outer_image varchar(500) not null,
+    room_image varchar(500) not null,
+    lavatory_image varchar(500) not null,
+    room_count int not null default 0,
+}
+
+create table plans {
+    id int not null auto_increment primary key,
+    facility_name varchar(200) not null,
+    facility_type varchar(200) not null,
+    facility_location varchar(200) not null,
+    floor_name varchar(200) not null,
+    facility_block varchar(200) not null,
+    gender varchar(100) not null default all,
+    room_type varchar(200) not null,
+    plan_info_one varchar(200) not null, 
+    plan_info_two varchar(200) not null, 
+}

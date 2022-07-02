@@ -1,0 +1,91 @@
+
+<div class = 'signup-box full-vhw flex-row'>
+    <div class = 'left full-h p-rel'>
+
+        <div class = 'bg-image p-abs top-left full-hw ov-hidden '>
+            <img src = '<?php echo 'images/opion_header_image.jpg';?>' class = 'obj-fit p-rel z-1'>
+            <div class = 'overlay p-abs top-left full-hw z-1 flex-col'>
+                <h1>
+                    <span>GIVE YOUR</span> <br>
+                     PROPERTY  <br>
+                     UP FOR <span>RENT</span>
+                </h1>
+
+                <div class = 'btn'>
+                    Learn More
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = 'right full-h p-1 p-rel'>
+        <form method = 'POST' action = '<?php echo "conn/leasing_page/leasing_page.php"; ?>'>
+            <div class = 'top'>
+                <h3>Leasing Form</h3>
+                <p>Give your property up for rent</p>
+            </div>
+
+            <div class = 'form'>
+                <div class = 'input flex-col'>
+                    <label>Full Name [Property Manager]</label>
+                    <input type = 'text' name = 'name_manager' placeholder = 'Jack Sparrow..'>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Phone Number [Property Manager]</label>
+                    <input type = 'tel' name = 'phone_manager' placeholder = '+233550555055'>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Email [Property Manager]</label>
+                    <input type = 'email' name = 'email_manager' placeholder = 'Email..'>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Full Name [Property Owner]</label>
+                    <input type = 'text' name = 'name_owner' placeholder = 'Stephen Glen...'>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Phone Number [Property Owner]</label>
+                    <input type = 'tel' name = 'phone_owner' placeholder = '+233550555055'>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Email [Property Owner]</label>
+                    <input type = 'email' name = 'email_owner' placeholder = 'Email..'>
+                </div>
+
+
+                <div class = 'input flex-col'>
+                    <label>Property Name</label>
+                    <input type = 'text' name = 'property_name' placeholder = 'Good Man Hostel ...'>
+                </div>
+
+              
+                <div class = 'input flex-col'>
+                    <label>Property Type</label>
+                    <select name = 'type' type="text">
+                        <option selected>Hostel</option>
+                        <option>Hotel</option>
+                        <option>Homestel</option>
+                        <option>Guest House</option>
+                    </select>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Property Location</label>
+                    <input type = 'text' name = 'location' placeholder = 'Ayeduase..'>
+                </div>
+
+
+ 
+
+                <div class = 'input flex-col'>
+                </div>
+                
+                <button type = 'submit' style = 'visibility: hidden;'></button>
+            </div>
+        </form>
+        <div class = 'btn p-fix bottom-right full-w' onclick = 'click_itm("button")'>Submit</div>
+    </div>
+</div>
