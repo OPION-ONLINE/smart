@@ -1,12 +1,11 @@
 create table users (
     user_id int not null auto_increment primary key,
     user_name varchar(100) not null,
-    index uname(user_name),
     user_email varchar(100) not null unique key,
-    index uemail(user_email),
     user_number varchar(20) not null,
-    index unumber(user_number),
     user_password varchar(100) not null,
+    user_status varchar(100) not null,
+    user_gender varchar(100) not null,
     user_role varchar(100) not null default 'user',
     user_permission varchar(50) not null default 'user',
     user_date date default current_date not null
