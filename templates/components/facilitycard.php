@@ -1,12 +1,11 @@
 <?php
 
 function facilitycard($facility_name, $facility_loc, $facility_price, $facility_image, $type, $rating) {
-    global $environment_link;
     echo "
     <div class='card' >
     <div class='image'>
 
-        <img src='$environment_link"."$facility_image'>
+        <img src='$facility_image'>
 
     </div>
     <div class='description'>
