@@ -5,9 +5,16 @@
             <h1><span>AFFORDABLE</span> HOUSING AT YOUR <br> FINGER <span>TIPS</span></h1>
         </div>
 
-        <div class = 'header-input flex-row'>
-            <input type = 'text' name = 'search' placeholder="Search for your oasis..." oninput = "console.log('user searching')">
-            <div class = 'dropdown p-rel'>
+        <div class = 'header-input flex-row p-rel'>
+            <div class = 'p-rel z-1'>
+                <input class = 'p-rel z-2' type = 'text' name = 'search' placeholder="Search for your oasis..." onkeyup = "search(this.value);">
+                <div class = 'search-result p-abs full-w z-1'>
+                    <div class = 'tab'>
+                        No Result Found
+                    </div>
+                </div>
+            </div>
+            <div class = 'dropdown p-rel z-2'>
                 <div class = 'placeholder flex-row flex-around full-hw'>
                     <span class = 'value'>GUESTHOUSES</span>
                     <i class = 'bi bi-chevron-down'></i>
@@ -19,6 +26,7 @@
                     <div class = 'option full-w'>GUESTHOUSES</div>
                 </div>
             </div>
+            
         </div>
     </div>
 

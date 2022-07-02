@@ -39,13 +39,14 @@ h1 span {
 
 header .header-input {
     margin: 1.5rem 0;
-    box-shadow: 0 0 20px var(--shadow);
+    box-shadow: 0 0 20px var(--card-shadow);
     width: max-content;
     border-radius: 5rem;
 }
 
 header input {
     border-radius: 5rem 0 0 5rem;
+    box-shadow: 0 5px 20px var(--shadow);
     height: 55px;
     padding: 1rem;
     width: 600px;
@@ -58,6 +59,20 @@ header .dropdown {
     color: var(--primary-color);
     width: 200px;
     height: 55px;
+}
+
+.search-result {
+    background: var(--primary-color);
+    border-radius:0 0 20px 20px;
+    color: var(--black);
+    top: 60%;
+    left: 0;
+    padding-top: 2rem;
+    opacity: 0;
+}
+
+.search-result.active {
+    opacity: 1;
 }
 
 @media (max-width: 970px) {

@@ -5,4 +5,6 @@
 <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/general.css';?>'>
 <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/variables.css';?>'>
 <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/components/navigation.css';?>'>
+<script src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
 <script src = '<?php echo $environment_link . 'scripts/js/index.js';?>'></script>
+

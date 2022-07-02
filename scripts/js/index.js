@@ -219,8 +219,12 @@ function setType(element, target, c = 'a') {
     toggle_itm(".options");
 }
 
-// window.onscroll = () => {
-//     if(scrollY > 50) {
-//         activate('nav');
-//     }
-// }
+function select(target) {
+    return document.querySelector(target);
+}
+
+function selectAll(target) {
+    return document.querySelectorAll(target);
+}
+
+let environment_link = '';

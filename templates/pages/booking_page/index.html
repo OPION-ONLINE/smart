@@ -1,0 +1,183 @@
+
+
+<div class = 'container'>
+
+    <div class = 'description-box  p-abs full-vw z-2'>
+        <div class = 'box-heading'>
+            <div class = 'top flex-row flex-between'>
+                <h2>Evandy Hostel</h2>
+                <b>
+                    <span>GHC</span>
+                    <span class = 'value'>2000</span>
+                </b>
+            </div>
+    
+            <div class = 'price flex-row flex-between'>
+                <small>Four in a Room</small>
+                <small>per year</small>
+            </div>
+        </div>
+    
+        
+        <div class = 'txt-box'>
+
+            <h4>Description</h4>
+            <div>
+                <p>
+                    This is a fantastic hostel that is sure
+                    to leave you with the most exciting and
+                    relaxing experience of your life, equipted
+                    width smart technology and internet of things
+                    this 5 star hostel is going to 'wow' you.
+                </p>
+            </div>
+
+            <div class = 'comments-container'>
+                <h4>Comments</h4>
+                <div class = 'comment'>
+                    <div class = 'comment-name'>John Winston</div>
+                    <div class = 'comment-txt'>
+                        Wow, I had the best experience, I would definitely recommend Evandy to
+                        anyone looking for a nice stay here on campus.
+                    </div>
+                </div>
+                <div class = 'comment'>
+                    <div class = 'comment-name'>John Winston</div>
+                    <div class = 'comment-txt'>
+                        Wow, I had the best experience, I would definitely recommend Evandy to
+                        anyone looking for a nice stay here on campus.
+                    </div>
+                </div>
+                <div class = 'comment'>
+                    <div class = 'comment-name'>John Winston</div>
+                    <div class = 'comment-txt'>
+                        Wow, I had the best experience, I would definitely recommend Evandy to
+                        anyone looking for a nice stay here on campus.
+                    </div>
+                </div>
+                <div class = 'comment'>
+                    <div class = 'comment-name'>John Winston</div>
+                    <div class = 'comment-txt'>
+                        Wow, I had the best experience, I would definitely recommend Evandy to
+                        anyone looking for a nice stay here on campus.
+                    </div>
+                </div>
+
+                <div class = 'comment-btns'>
+                    <div class = 'show-more-btn flex-center'>
+                        <span>Show More</span>
+                        <i class = 'bi bi-emoji-wink-fill'></i>
+                    </div>
+                    <div class = 'comment-btn flex-center' onclick = 'activate(".new-comment-box");'>
+                        <span>Leave a Comment</span>
+                        <i class = 'bi bi-heart-fill'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = 'action-btns p-fix bottom-left full-w flex-center'>
+            <div class = 'btn' onclick = 'activate(".booking-modal");'>Book Now</div>
+        </div>
+    </div>
+    <div class = 'image-box p-abs full-vhw top-left ov-hidden z-1'>
+        <img src = '<?php echo $environment_link . 'images/opion_header_image.jpg';?>' class = 'obj-fit'>
+    
+        <div class = 'p-abs img-left type-btn sub flex-center round'>
+            <i class = 'bi bi-chevron-left'></i>
+        </div>
+        
+        <div class = 'p-abs img-right type-btn sub flex-center round'>
+            <i class = 'bi bi-chevron-right'></i>
+        </div>
+    
+        <div class = 'nav-btns flex-row flex-between p-1 p-abs top-left full-w'>
+            <div class = 'back-btn round flex-center'>
+                <i class = 'bi bi-arrow-left'></i>
+                <span>Back</span>
+            </div>
+    
+            <div class = 'expand-btn round flex-center'>
+                <i class = 'bi bi-arrows-fullscreen' onclick = 'toggle_this(this, "bi-arrows-fullscreen"); toggle_this(this, "bi-arrows-angle-contract"); toggle_itm(".description-box");'></i>
+            </div>
+        </div>
+    
+        <div class = 'room-types flex-row p-abs bottom-left full-w p-1'>
+            <div class = 'image ov-hidden'>
+                <img src =  '<?php echo $environment_link . 'images/opion_header_image.jpg';?>' class = 'obj-fit'>
+            </div>
+    
+            <div class = 'name text-center'>
+                <h4>Four In A Room</h4>
+            </div>
+    
+            <div class = 'p-abs img-left type-btn flex-center round'>
+                <i class = 'bi bi-chevron-left'></i>
+            </div>
+            <div class = 'p-abs img-right type-btn flex-center round'>
+                <i class = 'bi bi-chevron-right'></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class = 'comment-box flex-row'>
+
+    <div class = 'desktop-comment'>
+    
+    </div>
+    <div class = 'new-comment-box p-fix bottom-left full-w z-3'>
+        <textarea name = 'comment' class = 'full-w' placeholder="Type Your Comment Here..."></textarea>
+        <div class = 'btns flex-row'>
+            <div class = 'btn'>
+                <span>Leave a Comment</span>
+                <i class = 'bi bi-emoji-smile-fill'></i>
+            </div>
+            
+            <div class = 'btn' onclick = 'deactivate(".new-comment-box");'>
+                <i class = 'bi bi-arrow-right-circle'></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class = 'booking-modal full-vhw p-fix top-left z-4'>
+    <div class = 'choice-box full-hw p-rel'>
+        <h2>Choose Your Prefference</h2>
+        <div class = 'tab' onclick = 'deactivateAll(".tab"); toggle_this(this);'>
+            <span>Four In A Room</span>
+        </div>
+        <div class = 'tab radio-box flex-row flex-between' onclick = 'deactivateAll(".tab"); toggle_this(this);'>
+            <span>Four In A Room</span>
+            <div class = 'check-box flex-center round'>
+                <i class = 'bi bi-check2'></i>
+            </div>
+        </div>
+
+        <div class = 'tab flex-col input p-rel ov-hidden' onclick = 'deactivateAll(".tab"); toggle_this(this); click_itm(".start-date")'>
+            <span class = 'p-rel z-2'>Start Date</span>
+            <input type = 'date' name = 'start-date' class = 'start-date p-abs top-left full-hw z-1'>
+        </div>
+
+
+    </div>
+
+    <div class = 'p-abs top-left full-w flex-row flex-between'>
+        <div class = 'back-btn flex-center'>
+            <i class = 'bi bi-arrow-left'></i>
+        </div>
+
+        <div class = 'close-btn flex-center' onclick = 'deactivate(".booking-modal");'>
+            <i class = 'bi bi-x-lg'></i>
+        </div>
+    </div>
+</div>
+
+<script>
+    let select = (target) => {
+       return document.querySelector(target)
+    }
+    let comment = select('.comments-container').innerHTML;
+    select('.desktop-comment').innerHTML = comment;
+</script>
