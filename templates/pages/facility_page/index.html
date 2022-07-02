@@ -1,3 +1,8 @@
+<?php
+     
+
+?>
+
 <div class="container">
     <div class="sub_container">
         <div class="overlay">
@@ -24,7 +29,8 @@
                 <div class="cards_container">
 
                     
-                    <!-- <div class="card">
+                    <!--
+                         <div class="card">
                         <div class="image">
                             <img src="<?php echo $environment_link .'images/bed.jpg'; ?>">
 
@@ -54,12 +60,13 @@
                         
                     </div> -->
                     
-                    <?php 
-                        for ($i = 0; $i < 10; $i++) {
-                            facilitycard('Name', 'Location', '1223', 'images/bed.jpg', 'hostel', 4.5);
+            
 
-                        }
-                    ?>
+                    <?php
+                        foreach($result_array as $facility => $values) {
+                            facilitycard($values['facility_name'], $values['facility_location'], $values['facility_contact'], 'images/bed.jpg', $values['facility_type'], $values['rating']);
+                    }
+                     ?>
                 </div>
               
 
@@ -68,4 +75,4 @@
         </div>
     </div>
     
-</div>
+ 

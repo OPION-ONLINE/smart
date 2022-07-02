@@ -1,0 +1,8 @@
+
+$sql = 'select * from facilities order by clicks desc limit 8';
+$sql = $conn->prepare($sql);
+$sql->execute();
+$result = $sql->get_result();
+$result_array = array();
+
+
