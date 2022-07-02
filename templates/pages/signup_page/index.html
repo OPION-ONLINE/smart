@@ -4,52 +4,74 @@
 
         <div class = 'bg-image p-abs top-left full-hw ov-hidden '>
             <img src = '<?php echo $environment_link . 'images/opion_header_image.jpg';?>' class = 'obj-fit p-rel z-1'>
-            <div class = 'overlay p-abs top-left full-hw z-1 flex-row'>
+            <div class = 'overlay p-abs top-left full-hw z-1 flex-col'>
                 <h1>
                     <span>AFFORDABLE</span> <br>
                      HOUSING  <br>
-                     YOU CAN <span>TRUST</span></h1>
+                     YOU CAN <span>TRUST</span>
+                </h1>
+
+                <div class = 'btn'>
+                    Learn More
+                </div>
             </div>
         </div>
     </div>
-    <div class = 'right full-h flex-center'>
-        <form>
+    <div class = 'right full-h p-1 p-rel'>
+        <form method = 'POST' action = '<?php echo $environment_link . "conn/authentication/signup.php"; ?>'>
             <div class = 'top'>
                 <h3>Sign Up</h3>
                 <p>Create an account to start using H-CUBE</p>
             </div>
 
             <div class = 'form'>
-                <div class = 'input'>
+                <div class = 'input flex-col'>
                     <label>Full Name</label>
-                    <input>
+                    <input type = 'text' name = 'full_name' placeholder = 'Jack Sparrow..'>
                 </div>
 
-                <div class = 'input'>
+                <div class = 'input flex-col'>
                     <label>Phone Number</label>
-                    <input>
+                    <input type = 'tel' name = 'phone_number' placeholder = '+233550555055'>
                 </div>
 
-                <div class = 'input'>
+                <div class = 'input flex-col'>
                     <label>Email</label>
-                    <input>
+                    <input type = 'email' name = 'email' placeholder = 'Email..'>
                 </div>
 
-                <div class = 'input'>
+                <div class = 'input flex-col'>
                     <label>Gender</label>
-                    <input>
+                    <select name = 'gender' type="gender">
+                        <option selected>Male</option>
+                        <option>Female</option>
+                    </select>
                 </div>
 
-                <div class = 'input'>
-                    <label>Gender</label>
-                    <input>
+                <div class = 'input flex-col'>
+                    <label>Status</label>
+                    <select name = 'gender' type="gender">
+                        <option selected>Student</option>
+                        <option>Not a Student</option>
+                    </select>
                 </div>
 
-                <div class = 'input'>
-                    <label>Gender</label>
-                    <input>
+                <div class = 'input flex-col'>
+                    <label>Password</label>
+                    <input type = 'password' name = 'password' placeholder="S@m@tH!ng-H9rD">
                 </div>
+
+                <div class = 'input flex-col'>
+                    <label>Confirm Password</label>
+                    <input type = 'password' name = 'password' placeholder="S@m@tH!ng-H9rD">
+                </div>
+
+                <div class = 'input flex-col'>
+                </div>
+                
+                <button type = 'submit' style = 'visibility: hidden;'></button>
             </div>
         </form>
+        <div class = 'btn p-fix bottom-right full-w' onclick = 'click_itm("button")'>Submit</div>
     </div>
 </div>

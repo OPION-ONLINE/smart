@@ -1,12 +1,12 @@
 <?php
 
-if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
-    header('location: signup');
-}
+// if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
+//     header('location: signup');
+// }
 
-$facility_name = $GET['facility_name'];
-$facility_type = $GET['facility_type'];
-$facility_location = $GET['facility_location'];
+// $facility_name = $GET['facility_name'];
+// $facility_type = $GET['facility_type'];
+// $facility_location = $GET['facility_location'];
 
 
 ?>
