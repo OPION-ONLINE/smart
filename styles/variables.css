@@ -4,9 +4,14 @@
     --tetiary-color: #5f07cb;
     --overlay: #000000de;
     --shadow: #36363659;
+    --card-shadow: #50505034;
     --white-overlay: whitesmoke;
     --sub-header: rgb(51, 51, 51);
+    --dark-shade: #222222;
+    --icon-dark: #00000061;
+    
 }
+
 
 input {
     border: none;

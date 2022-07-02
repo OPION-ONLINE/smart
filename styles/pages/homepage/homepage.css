@@ -8,7 +8,7 @@ header {
     background: rgb(34, 33, 31);
     background-blend-mode: overlay;
     border-radius: 2rem;
-    box-shadow: 0 0 20px #36363659;
+    box-shadow: 0 0 20px var(--shadow);
 
     color: var(--primary-color);
 
@@ -25,7 +25,7 @@ header .bg-image, header .overlay {
 }
 
 header .overlay {
-    background: #000000de;
+    background: var(--overlay);
 }
 
 header h1 {
@@ -39,7 +39,7 @@ h1 span {
 
 header .header-input {
     margin: 1.5rem 0;
-    box-shadow: 0 0 20px #36363659;
+    box-shadow: 0 0 20px var(--shadow);
     width: max-content;
     border-radius: 5rem;
 }
@@ -59,6 +59,100 @@ header .dropdown {
     width: 200px;
     height: 55px;
 }
+
+@media (max-width: 970px) {
+    header input {
+        width: 50vw;
+        height: 50px;
+        font-size: 100%;
+    }
+
+    header .dropdown {
+        height: 50px;
+        width: 16.6666vw;
+
+    }
+
+    header h1 {
+        font-weight: 900;
+        font-size: 220%;
+    }
+}
+
+@media (max-width: 824px) {
+    header input {
+        width: 60vw;
+    }
+
+    header .dropdown {
+        width: 20vw;
+
+    }
+}
+
+@media (max-width: 705px) {
+
+    header h1 br {
+        display: none;
+    }
+    header h1 {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 620px) {
+    header input {
+        width: 50vw;
+    }
+
+    header .dropdown {
+        width: 30vw;
+    }
+
+    header h1 {
+        font-size: 180%;
+
+    }
+}
+
+@media (max-width: 657px) {
+    section .homecard {
+        width: 100vw;
+    }
+    body section {
+        padding: 1rem !important;
+    }
+}
+
+@media (max-width: 475px) {
+    .header-input {
+        flex-direction: column;
+    }
+
+    header input {
+        border-radius: 5rem;
+        width: 80vw;
+        margin-bottom: .5rem;
+        height: 45px;
+    }
+
+    header .dropdown {
+        border-radius: 5rem;
+        width: 80vw;
+        margin-bottom: .5rem;
+        height: 45px;
+    }
+
+    /* header h1 {
+        font-weight: 900;
+        font-size: 220%;
+    } */
+
+    header h1 br {
+        display: none;
+    }
+}
+
 
 .dropdown .options {
     background: var(--primary-color);
@@ -90,33 +184,8 @@ header .dropdown {
     transform: rotateX(180deg);
 }
 
-
-.homecard {
-    background: rgb(211, 211, 211);
-    border-radius: 20px;
-    width: 280px;
-    height: 340px;
-}
-
-.homecard .card-img {
-    background: var(--secondary-color);
-    height: 70%;
-}
-
-.homecard .card-txt {
-    padding: 1rem;
-}
-
-.homecard .card-txt > * {
-    padding: .25rem;
-}
-
-.homecard h3 {
-    font-weight: 400;
-}
-
-.homecard .card-price {
-    background: var(--secondary-color);
-    top: 10px;
-    left: 10px;
+section {
+    left: 50%;
+    margin-top: .75rem;
+    transform: translateX(-50%);
 }
