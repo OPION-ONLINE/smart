@@ -83,26 +83,15 @@ select{
 
  .cards_container{
      
-    height: 600px;
+    height: max-content;
     width: calc(100% - 160px);
     margin-bottom: 100px;
     margin-left: 80px;
+    display: flex;
+    flex-wrap: wrap;
     
  }
-
- .row{
-    width: 100%;
-    height: 360px;
-     
-    display: grid;
-    grid-template-columns: 1fr 1fr;
- }
-
- .two{
-         display: grid;
-    grid-template-columns: 1fr 1fr;
-
- }
+ 
 .card{
      
     display: grid;
@@ -113,6 +102,8 @@ select{
     border-radius: 8px;
     padding: 0px;
     height: 360px;
+    margin-right: 35px;
+    margin-bottom: 50px;
 
 
 }
@@ -218,4 +209,85 @@ select{
     padding-left: 10px;
     font-size: 15px;
     font-weight: 300;
+}
+@media (max-width: 1000px){
+
+.sub_container{
+    width: calc(100% - 30px);
+    background: rgba(255, 255, 255, 0.144);
+ 
+
+}
+
+
+.cards_container{
+     
+    height: max-content;
+    width: calc(100% - 20px);
+    margin-bottom: 100px;
+    margin-left: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    
+ }
+
+.heading{
+    padding: 60px;
+    font-size: 45px;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    margin: -40px;
+    
+}
+
+
+.heading .element h6{
+    font-weight: 200;
+    font-size: 18px;
+    color: black;
+}
+
+
+.filter_navigation{
+    width: calc(100% - 10px);
+    margin: 10px;
+    margin-top: 60px;
+     height: 30px;
+    position: relative;
+    margin-bottom: 80px;
+  }
+.featured_button{
+    width: 100px;
+    height: 90%;
+    margin-top: 3px;
+    background: var(--secondary-color);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.featured_button h6{
+    color: white;
+    font-size: 14px;
+    font-weight: 300;
+}
+select{
+     float: right;
+    background: black;
+    box-shadow: 0 1px 3px 1px rgba(20, 20, 20, 0.596);
+    height: 90%;
+    margin-top: 0px;
+    border: none;
+    width: 100px;
+    border-radius: 7px;
+    padding-left: 10px;
+    color: white;
+    outline: none;
+ }
+ option{
+    padding-left: 10px;
+ }
+
 }

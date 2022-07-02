@@ -24,7 +24,7 @@
                 <div class="cards_container">
 
                     
-                    <div class="card">
+                    <!-- <div class="card">
                         <div class="image">
                             <img src="<?php echo $environment_link .'images/bed.jpg'; ?>">
 
@@ -52,9 +52,14 @@
                             </div>
                         </div>
                         
-                    </div>
+                    </div> -->
                     
+                    <?php 
+                        for ($i = 0; $i < 10; $i++) {
+                            facilitycard('Name', 'Location', '1223', 'images/bed.jpg', 'hostel', 4.5);
 
+                        }
+                    ?>
                 </div>
               
 

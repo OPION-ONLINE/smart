@@ -1,7 +1,9 @@
 <?php
-
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 // require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
 
 $pages = $environment_link . 'templates/pages/';
 
@@ -17,7 +19,8 @@ $url .= $_SERVER['HTTP_HOST'];
 $url .= $_SERVER['REQUEST_URI'];
 
 $path = parse_url($url, PHP_URL_PATH);
-$path = str_replace('/me/newscratch', '', $path);
+$path = str_replace('/projects/hcube/smart', '', $path);
+echo $environment_link;
 
 
 $hander = [];
@@ -26,6 +29,7 @@ $handler['home_page'] = function() {
     global $pages, $environment_link;
 
     require_once $pages . 'home_page/index.php';
+    echo 'i am fine';
 };
 
 $handler['facility_page'] = function() {
