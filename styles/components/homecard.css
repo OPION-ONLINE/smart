@@ -1,0 +1,42 @@
+
+.homecard {
+    background: var(--primary-color);
+    border-radius: 20px;
+    box-shadow: 0 0 20px var(--shadow);
+    cursor: pointer;
+    width: 280px;
+    height: 340px;
+    transform: scale(.9);
+    transition: .1s ease;
+}
+
+.homecard .card-img {
+    background: var(--secondary-color);
+    height: 70%;
+}
+
+.homecard .card-txt {
+    padding: 1rem;
+}
+
+.homecard .card-txt > * {
+    padding: .25rem;
+}
+
+.homecard h3 {
+    font-weight: 400;
+}
+
+.homecard .card-price {
+    background: var(--secondary-color);
+    box-shadow: 0 0 20px var(--card-shadow);
+    border-radius: 1rem;
+    color: var(--primary-color);
+    padding: .5rem;
+    top: 10px;
+    left: 10px;
+}
+
+.homecard:hover {
+    transform: scale(.92);
+}

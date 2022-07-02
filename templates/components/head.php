@@ -5,3 +5,6 @@
 <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/general.css';?>'>
 <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/variables.css';?>'>
 <link rel = 'stylesheet' href = '<?php echo $environment_link . 'styles/components/navigation.css';?>'>
+
+
+<script src = '<?php echo $environment_link . 'scripts/js/index.js';?>'></script>
