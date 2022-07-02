@@ -1,0 +1,53 @@
+.signup-box > div {
+    --width: 30%;
+}
+
+
+
+.right {
+    background: linear-gradient(0deg, var(--secondary-color), var(--tetiary-color));
+    width: var(--width);
+}
+
+.left {
+    width: calc(100% - var(--width));
+}
+
+.overlay {
+    background: var(--overlay);
+    
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 390%;
+    padding: 2rem;
+}
+
+h1 span {
+    color: var(--secondary-color);
+}
+
+h1 span:last-of-type {
+    color: var(--tetiary-color);
+}
+
+form {
+    background: var(--primary-color);
+    box-shadow: 0 0 20px var(--shadow);
+    border-radius: 20px;
+    width: 95%;
+    min-height: 600px;
+    padding: 2rem;
+}
+
+form h3 {
+    font-size: 200%;
+    font-weight: 400;
+}
+
+form p {
+    font-size: 80%;
+    font-weight: 300;
+    color: var(--dark-fade);
+}

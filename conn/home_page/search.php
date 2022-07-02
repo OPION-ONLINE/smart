@@ -6,7 +6,7 @@ $query = $_POST['query'];
 $query = "%$query%";
 $facility_type = $_POST['type'];
 
-$sql = 'select * from facilities where (facility_name like ? or facility_location like ?) and facility_type = ?';
+$sql = 'select * from facilities where (facility_name like ? or facility_location like ?) and facility_type = ? limit 3';
 $sql = $conn->prepare($sql);
 $sql->bind_param('sss', $query, $query, $facility_type);
 $sql->execute();
