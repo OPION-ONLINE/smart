@@ -1,5 +1,5 @@
 <footer>
-    <div class = 'flex-wrap flex-center'>
+    <div class = 'flex-center'>
         <div class = 'footer-left flex-col flex-center'>
             <div class = 'logo'>H-CUBE</div>
             <div class = 'flex-row'>
