@@ -1,15 +1,9 @@
 <?php
 
-<<<<<<< HEAD
 /*
 if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
     header('location: signup');
 }
-=======
-// if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
-//     header('location: signup');
-// }
->>>>>>> 800a836b74ddb0d7537875ccdcd0c86f74f7e1a2
 
 // $facility_name = $GET['facility_name'];
 // $facility_type = $GET['facility_type'];

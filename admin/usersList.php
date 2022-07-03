@@ -44,251 +44,62 @@
 
                 </div>
 
-            <!-- User Elemnt Begins-->
-                <div class="search">
-                    <input type="text" placeholder="Search Users">
+             <!-- User Elemnt Begins-->
+             <div class="search" style="border: 1px solid black;">
+                    <input type="text" placeholder="Search " style="border: 1px solid black;">
                 </div>
 
-                 <div class="listTitle">
-                    <div class="lTitle">
-                        <h4>Name</h4>
-                    </div>
-    
-                    <div class="lTitle">
-                        <h4>Total Bookings Made</h4>
-                    </div>
-    
-                    <div class="lTitle">
-                        <h4>Date Registered</h4>
-                    </div>
+                <div class="heda">
+                    <span class="off">Manager</span>
+                    <span>Facility</span>
+                    <span class="off">Category</span>
                 </div>
-                   <div class="users uList" >
-                    <div class="uDetails" onclick='location.href="users.php"'>
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                    <div class="uDetails" onclick="location.href='users.php'">
-                        <div class="uName">
-                            <h6>N/A</h6>
-    
-                        </div>
-                        <div class="uBooked">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-                        <div class="uDate">
-                            <h6>N/A</h6>
-    
-    
-                        </div>
-    
-                    </div>
-                     
-                        
-                      
-                       
-                   </div>
+
+                <div class="users">
+
+                
+                <table>
+
+                
+
+                    
+                    <?php
+                        $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
+                        $sql = "SELECT * FROM managers";
+                        $result = $conn->query($sql);
+
+                        if ($result->num_rows > 0){
+                            while ($row = $result-> fetch_assoc()){
+                             //   echo "<tr><td>" . $row["fullname"] . /*"</td><td>" . $row["last_name(manager)"] . */"</td><td>" . $row["apartment_name"] . "</td><td>" . $row["apartment_category"] . "</td></tr>";
+                                echo "\n<br>";
+
+                                echo"<a href='managerDetails.php?ID={$row['id']}'> 
+                                <span class='three-col-grid'>
+
+                                <span class='fullname'>   {$row['full_name_manager']}              </span> 
+                                
+                                <span class='apatName'>   {$row['property_name']}        </span>
+                                
+                                <span class='category'>   {$row['property_type']}    </span>
+                                </span>
+                                </a><br>\n";
+                              }
+                        }
+
+                        else{
+                            echo "no results";
+                        }
+                        $conn->close();
+
+                    ?>
+
+                </table>
+
+                 
+                </div>
+
+
+                    
                     
                 
             

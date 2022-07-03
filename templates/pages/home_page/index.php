@@ -5,9 +5,9 @@
         require_once $environment_link . "templates/components/head.php";
         require_once $environment_link . "conn/home_page/index.php";
     ?>
-    <link rel = 'stylesheet' href = 'styles/pages/home_page/homepage.css';?>'>
-    <link rel = 'stylesheet' href = 'styles/components/homecard.css';?>'>
-    <link rel = 'stylesheet' href = 'styles/components/footer.css';?>'>
+    <link rel = 'stylesheet' href = 'styles/pages/home_page/homepage.css'>
+    <link rel = 'stylesheet' href = 'styles/components/homecard.css'>
+    <link rel = 'stylesheet' href = 'styles/components/footer.css'>
 </head>
 <body>
     <div class = 'wrapper'>

@@ -64,8 +64,8 @@
 
                     
                     <?php
-                        $conn = mysqli_connect("localhost", "root", "", "opion"); 
-                        $sql = "SELECT * FROM lease";
+                        $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
+                        $sql = "SELECT * FROM managers";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0){
@@ -74,13 +74,14 @@
                                 echo "\n<br>";
 
                                 echo"<a href='managerDetails.php?ID={$row['id']}'> 
-                                        
-                                <span class='fullname'>   {$row['fullname']}              </span> 
+                                <span class='three-col-grid'>
+
+                                <span class='fullname'>   {$row['full_name_manager']}              </span> 
                                 
-                                <span class='apatName'>   {$row['apartment_name']}        </span>
+                                <span class='apatName'>   {$row['property_name']}        </span>
                                 
-                                <span class='category'>   {$row['apartment_category']}    </span>
-                                
+                                <span class='category'>   {$row['property_type']}    </span>
+                                </span>
                                 </a><br>\n";
                               }
                         }

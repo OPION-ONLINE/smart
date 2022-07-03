@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 
  
 
-$conn = new mysqli('localhost', 'root', '', 'opion');
+$conn = new mysqli('localhost', 'root', '', 'efacility5');
 
 
  
@@ -76,8 +76,7 @@ else
                 
                      <div class="container">
                         <div class="text">
-                            <h3>Loging     border: 1px solid red;
-                            Into Opion As . . . </h3>' ; 
+                            <h3>Loging Into Opion As . . . </h3>' ; 
                
                             echo $login_role;
                 
@@ -92,8 +91,7 @@ else
                 
                 
                    '; 
-                echo $login_role;
-
+ 
                  header("refresh:5; url=index.php");
 
                 

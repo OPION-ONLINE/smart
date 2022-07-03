@@ -86,7 +86,7 @@
 
                     
                     <?php
-                        $conn = mysqli_connect("localhost", "root", "", "opion"); 
+                        $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
                         $sql = "SELECT * FROM `permissions`";
                         $result = $conn->query($sql);
 

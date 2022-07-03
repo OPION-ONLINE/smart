@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 
 if(isset($_GET['ID'])){
 
-    $conn = mysqli_connect("localhost", "root", "", "opion"); 
+    $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
     
 
 

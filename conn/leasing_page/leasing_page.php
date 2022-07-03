@@ -27,13 +27,17 @@ require_once "../conn.php";
 
 
     $stmt->execute();
+    if ($stmt){
 
-    echo '<script type= "text/javascript"> alert("Registeration Successful")</script>';
-
+        echo '<script type= "text/javascript"> alert("Registeration Successful")</script>';
+        header("refresh:1; url=../../templates/pages/leasing_page/success.php?name_manager=$name_manager&property_name=$property_name");
+    }
+    else{
+        echo '<script type= "text/javascript"> alert("Something Went Wrong, Please try again")</script>';
+        header("location: ../../");
+    }
     $stmt->close();
     $conn->close();
     
-    header("location: ../../templates/pages/leasing_page/success.php?name_manager=$name_manager&property_name=$property_name");
-
  
 ?>
