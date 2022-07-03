@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 // require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
 
 // $environment_link = str_replace('/opt/lampp/htdocs/', '', $environment_link);
 
@@ -18,7 +18,7 @@ $url .= $_SERVER['HTTP_HOST'];
 $url .= $_SERVER['REQUEST_URI'];
 
 $path = parse_url($url, PHP_URL_PATH);
-$path = str_replace('/projects/hcube/smart', '', $path);
+$path = str_replace('/me/newscratch', '', $path);
 
 
 
@@ -35,6 +35,12 @@ $handler['signup_page'] = function() {
     global $pages, $environment_link;
 
     require_once $pages . 'signup_page/index.php';
+};
+
+$handler['login_page'] = function() {
+    global $pages, $environment_link;
+
+    require_once $pages . 'login_page/index.php';
 };
 
 $handler['facility_page'] = function() {
@@ -55,12 +61,29 @@ $handler['leasing_page'] = function() {
     require_once $pages . 'leasing_page/index.php';
 };
 
+$handler['verification'] = function() {
+    global $pages, $environment_link;
+
+    require_once $pages . 'verification/index.php';
+};
+
+$handler['newpassword'] = function() {
+    global $pages, $environment_link;
+
+    require_once $pages . 'newpassword/index.php';
+};
+
+
+
 $router = [
     '/'              => $handler['home_page'],
     '/signup'              => $handler['signup_page'],
+    '/login'              => $handler['login_page'],
     '/facilities'    => $handler['facility_page'],
     '/booking'       => $handler['booking_page'],
     '/leasing'       => $handler['leasing_page'],
+    '/verification'       => $handler['verification'],
+    '/newpassword'       => $handler['newpassword'],
 
 ];
 

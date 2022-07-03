@@ -1,21 +1,20 @@
 <?php
+session_start();
 
-<<<<<<< HEAD
-/*
-if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
-    header('location: signup');
+if( !isset($_GET['facility_name']) || !isset($_GET['facility_type']) || !isset($_GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
+    // header('location: signup');
 }
-=======
-// if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
-//     header('location: signup');
-// }
->>>>>>> 800a836b74ddb0d7537875ccdcd0c86f74f7e1a2
 
-// $facility_name = $GET['facility_name'];
-// $facility_type = $GET['facility_type'];
-// $facility_location = $GET['facility_location'];
+$facility_name = $_GET['facility_name'];
+$facility_type = $_GET['facility_type'];
+$facility_location = $_GET['facility_location'];
 
-*/
+require_once $environment_link . "conn/booking_page/booking.php";
+
+foreach($result_array as $result => $facility) {
+    $facility_description = $facility['facility_description'];
+    $facility_image = $facility['cover_image'];
+}
 
 ?>
 
@@ -34,6 +33,15 @@ if( !isset($GET['facility_name']) || !isset($GET['facility_type']) || !isset($GE
         ?>
 
     </div>
+
     
+    
+    <script>
+        let facility_name     = "<?php echo $facility_name; ?>";
+        let facility_type     = "<?php echo $facility_type; ?>";
+        let facility_location = "<?php echo $facility_location; ?>";
+    </script>
+    
+    <script src = 'scripts/js/booking/book.js'></script>
 </body>
 </html>

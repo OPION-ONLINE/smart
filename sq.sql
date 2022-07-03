@@ -3,12 +3,20 @@ create table users (
     user_name varchar(100) not null,
     user_email varchar(100) not null unique key,
     user_number varchar(20) not null,
-    user_password varchar(100) not null,
+    user_password varchar(500) not null,
     user_status varchar(100) not null,
     user_gender varchar(100) not null,
     user_role varchar(100) not null default 'user',
     user_permission varchar(50) not null default 'user',
     user_date date default current_date not null
+) default charset 'utf8';
+
+create table verification (
+    id int not null auto_increment primary key,
+    user_name varchar(100) not null,
+    user_number varchar(20) not null,
+    link varchar(500) not null,
+    user_date datetime default current_datetime not null
 ) default charset 'utf8';
 
 create table facilities (
@@ -59,18 +67,31 @@ insert into facilities set facility_name = "Good Man Facility", facility_type = 
 insert into facilities set facility_name = "Good Man Facility", facility_type = "hostel", facility_contact = "0552595712", facility_description = "This is a fantastic hostel that is sure to leave you with the most exciting and relaxing experience of your life, equipted width smart technology and internet of things this 5 star hostel is going to 'wow' you. "
 , facility_location = "Ayeduase Good", cover_image = "opion_header_image.jpg";
 
+
+create table blocks (
+    id int not null auto_increment primary key,
+    facility_name varchar(200) not null,
+    facility_type varchar(200) not null,
+    facility_location varchar(200) not null,
+    facility_block varchar(200) not null,
+    block_date date default current_date not null,
+    constraint unique_block unique key (facility_name, facility_type, facility_location, facility_block)
+)
+
+insert into blocks set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA';
+
 create table floors (
     id int not null auto_increment primary key,
     facility_name varchar(200) not null,
-    foreign key (facility_name) references facilities(facility_name) on update cascade on delete cascade,
     facility_type varchar(200) not null,
+    facility_location varchar(200) not null,
     facility_block varchar(200) not null,
     floor_name varchar(200) not null,
-    index fname(floor_name),
-    number_of_rooms int not null,
     floor_date date default current_date not null,
-    constraint unique_floor unique key (facility_name, facility_type, facility_blook, floor_name)
+    constraint unique_floor unique key (facility_name, facility_type, facility_location, facility_block, floor_name)
 ) default charset 'utf8';
+
+insert into floors set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR';
 
 create table comments (
     id int not null auto_increment primary key,
@@ -107,30 +128,51 @@ create table images (
 ) default charset 'utf8';
 
 
-create table rooms {
+create table rooms (
     id int not null auto_increment primary key,
     facility_name varchar(200) not null,
     facility_type varchar(200) not null,
     facility_location varchar(200) not null,
-    floor_name varchar(200) not null,
     facility_block varchar(200) not null,
-    gender varchar(100) not null default all,
+    floor_name varchar(200) not null,
     room_type varchar(200) not null,
+    gender varchar(100) not null default 'Male',
     outer_image varchar(500) not null,
     room_image varchar(500) not null,
     lavatory_image varchar(500) not null,
     room_count int not null default 0,
-}
+    room_price int not null default 0,
+    constraint unique_room unique key (facility_name, facility_type, facility_location, facility_block, floor_name, room_type, gender),
+    room_date  date default current_date not null
+)
 
-create table plans {
+insert into rooms set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'FOUR IN A ROOM',
+outer_image = 'opion_header_image.jpg', room_image = 'opion_header_image.jpg', lavatory_image = 'opion_header_image.jpg';
+
+create table plans (
     id int not null auto_increment primary key,
     facility_name varchar(200) not null,
     facility_type varchar(200) not null,
     facility_location varchar(200) not null,
-    floor_name varchar(200) not null,
     facility_block varchar(200) not null,
-    gender varchar(100) not null default all,
+    floor_name varchar(200) not null,
     room_type varchar(200) not null,
+    gender varchar(100) not null default 'Male',
     plan_info_one varchar(200) not null, 
-    plan_info_two varchar(200) not null, 
-}
+    plan_info_two varchar(200) not null,
+    constraint unique_plan unique key (facility_name, facility_type, facility_location, facility_block, floor_name, room_type, gender, plan_info_one, plan_info_two),
+    plan_date date default current_date not null
+)
+
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
+plan_info_one = '1 year', plan_info_two = '2000';
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
+plan_info_one = '2 year', plan_info_two = '5000';
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
+plan_info_one = '3 year', plan_info_two = '8000';
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
+plan_info_one = '4 year', plan_info_two = '12000';

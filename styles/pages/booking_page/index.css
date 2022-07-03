@@ -283,7 +283,7 @@
 
 }
 
-.tab.active {
+.tab.active, .tab:hover {
     background: linear-gradient(90deg, var(--secondary-color), var(--tetiary-color));
     color: var(--primary-color);
 }
@@ -295,7 +295,7 @@
     width: var(--i);
 }
 
-.tab.active .check-box {
+.tab.active .check-box, .tab:hover .check-box {
     background: var(--secondary-color);
 }
 
@@ -308,7 +308,7 @@
     padding-top: 2.5rem;
 }
 
-.tab.active input {
+.tab.active input, .tab:hover input {
     background: linear-gradient(90deg, var(--secondary-color), var(--tetiary-color));
     color: var(--primary-color);
 }
