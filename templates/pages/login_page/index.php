@@ -13,12 +13,12 @@
     <div class = 'wrapper'>
         <?php 
             
-            require_once $environment_link . "templates/pages/signup_page/index.html";
+            require_once $environment_link . "templates/pages/login_page/index.html";
         ?>
 
     </div>
 
-    <script src = 'scripts/js/authentication/signup.js'></script>
+    <script src = 'scripts/js/authentication/login.js'></script>
 </body>
 
 </html>

@@ -1,0 +1,56 @@
+
+<div class = 'signup-box full-vhw flex-row'>
+    <div class = 'left full-h p-rel'>
+
+        <div class = 'bg-image p-abs top-left full-hw ov-hidden '>
+            <img  src = 'images/opion_header_image.jpg' class = 'obj-fit p-rel z-1'>
+            <div class = 'overlay p-abs top-left full-hw z-1 flex-col'>
+                <h1>
+                    <span>AFFORDABLE</span> <br>
+                     HOUSING  <br>
+                     YOU CAN <span>TRUST</span>
+                </h1>
+
+                <div class = 'btn'>
+                    Learn More
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = 'right full-h p-1 p-rel flex-center'>
+        <form class = 'p-rel' method = 'POST' action = '' style = 'height: max-content; min-height: auto;'>
+            <div class = 'top'>
+                <h3>VERIFY ACCOUNT</h3>
+                <p>Provide the neccessary information for verification</p>
+            </div>
+
+            <div class = 'form'>
+                <div class = 'input flex-col'>
+                    <label>Full Name</label>
+                    <input type = 'text' name = 'full_name' placeholder = 'Jack Sparrow..'>
+                </div>
+
+                <div class = 'input flex-col'>
+                    <label>Phone Number</label>
+                    <input type = 'tel' name = 'phone_number' placeholder = '+233550555055'>
+                </div>
+                
+                <button type = 'submit' style = 'visibility: hidden;'></button>
+            </div>
+            <div class = 'btn p-abs bottom-right full-w' onclick = 'click_itm("button")' style = 'width: 100% !important; border-radius: 10px;'>Verify</div>
+        </form>
+    </div>
+
+    <style>
+        @media (max-width: 450px) {
+            form {
+                box-shadow: none;
+                height: 100vh !important;
+            }
+
+            .btn{
+                border-radius: 0 !important;
+            }
+        }
+    </style>
+</div>

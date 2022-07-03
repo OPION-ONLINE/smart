@@ -50,9 +50,9 @@
                 </div>
 
                 <div class="heda">
-                    <span class="off">Manager</span>
-                    <span>Facility</span>
-                    <span class="off">Category</span>
+                    <span>Username</span>
+                    <span class="off">Status</span>
+                    <span class="off">Gender</span>
                 </div>
 
                 <div class="users">
@@ -65,7 +65,7 @@
                     
                     <?php
                         $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
-                        $sql = "SELECT * FROM managers";
+                        $sql = "SELECT * FROM users";
                         $result = $conn->query($sql);
 
                         if ($result->num_rows > 0){
@@ -73,14 +73,14 @@
                              //   echo "<tr><td>" . $row["fullname"] . /*"</td><td>" . $row["last_name(manager)"] . */"</td><td>" . $row["apartment_name"] . "</td><td>" . $row["apartment_category"] . "</td></tr>";
                                 echo "\n<br>";
 
-                                echo"<a href='managerDetails.php?ID={$row['id']}'> 
+                                echo"<a href='users.php?ID={$row['user_id']}'> 
                                 <span class='three-col-grid'>
 
-                                <span class='fullname'>   {$row['full_name_manager']}              </span> 
+                                <span class='apatName'>   {$row['user_name']}              </span> 
                                 
-                                <span class='apatName'>   {$row['property_name']}        </span>
+                                <span class='fullname'>   {$row['user_status']}        </span>
                                 
-                                <span class='category'>   {$row['property_type']}    </span>
+                                <span class='category'>   {$row['user_gender']}    </span>
                                 </span>
                                 </a><br>\n";
                               }

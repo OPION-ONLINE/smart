@@ -1,0 +1,78 @@
+<?php
+
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
+
+
+$first_name_m = $_POST['first_name_m'];
+$last_name_m = $_POST['last_name_m'];
+
+/*$first_name_m = $_POST['manager_id'];
+$first_name_m = $_POST['manager_id'];
+$first_name_m = $_POST['manager_id'];
+$first_name_m = $_POST['manager_id'];
+$first_name_m = $_POST['manager_id'];
+$first_name_m = $_POST['manager_id'];
+
+*/
+
+$conn = new mysqli('localhost', 'root', '', 'opion');
+
+
+$ID = mysqli_real_escape_string($conn, $_GET['ID']);
+
+ 
+ 
+if ($conn->connect_error){
+    die('Connection Failed : '.$conn->connect_error);
+}
+else
+{
+    
+    
+
+    if(isset($_POST['update'])){
+        if ($first_name_m != null){
+            $query = "UPDATE lease 
+            SET `first_name(manager)` = $first_name_m 
+            WHERE id = $ID";
+            $query_run = mysqli_query($conn, $query);
+
+            if($query_run){   
+                echo '<script type="text/javascript"> alert("First Name Update") </script>';
+            }
+            else{
+                echo '<script type="text/javascript"> alert("First Name  Not Updated, Something went wrong")</script>';
+            }
+            
+
+     
+        }
+
+    //    if ($last_name_m != null){
+            $query = "UPDATE `lease` SET lastname(manager) = $last_name_m WHERE id = $ID";
+            $query_run = mysqli_query($conn, $query);
+
+            if($query_run){   
+                echo '<script type="text/javascript"> alert("Last Name Update") </script>';
+            }
+            else{
+                echo '<script type="text/javascript"> alert("Last Name  Not Updated, Something went wrong")</script>';
+            }
+            
+
+     
+        }
+
+        else{
+            echo "Something Went Wrong";
+        }
+    //}
+
+
+}

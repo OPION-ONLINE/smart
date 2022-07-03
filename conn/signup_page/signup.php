@@ -27,7 +27,8 @@ empty($_POST['confirm_password'])
 ;
 
 function handle_error($error_code) {
-    header("location: ../../signup?error=$error_code");
+    // header("location: ../../signup?status=$error_code");
+    echo $error_code;
     exit();
 }
 
@@ -49,26 +50,26 @@ $sql = $conn->prepare($sql);
 
 $sql->bind_param('ss', $phone_number, $email);
 $sql->execute();
-$result = $sql->get_result()->fetch_assoc();
+$result = $sql->get_result()->fetch_assoc()['count(*)'];
 
-if(sizeof($result) > 0) handle_error('exists');
+if($result > 0) handle_error('exists');
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) handle_error('email');
 if($password !== $confirm_password) handle_error('password');
 
+$password = md5($password . 'OpionOnline@OpionOnline');
+
 $sql = 'insert into users set user_name = ?, user_email = ?, user_number = ?, user_password = ?, user_status = ?, user_gender = ?;';
 $sql = $conn->prepare($sql);
-$sql->bind_param('ssssss', $full_name, $phone_number, $confirm_password, $status, $gender);
+$sql->bind_param('ssssss', $full_name, $email, $phone_number, $password, $status, $gender);
 
 if($sql->execute()) handle_error('success');
 
 
 session_start();
 
-$_SESSION['USERNAME'] = $full_name;
-$_SESSION['EMAIL'] = $email;
-$_SESSION['NUMBER'] = $phone_number;
-$_SESSION['GENDER'] = $gender;
-$_SESSION['STATUS'] = $status;
-
-
-header('location: '. $_SERVER['HTTP_REFERER']);
+$_SESSION['USERNAME'] = $result['user_name'];
+$_SESSION['EMAIL'] = $result['user_email'];
+$_SESSION['NUMBER'] = $result['user_number'];
+$_SESSION['GENDER'] = $result['user_gender'];
+$_SESSION['STATUS'] = $result['user_status'];
+$_SESSION['LOGIN'] = true;

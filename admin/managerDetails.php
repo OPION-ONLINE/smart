@@ -83,7 +83,7 @@ else{
                             <h4>Manager's Email</h4>
                         </div>
                         <div class="lableInfo">
-                            <input type="text" name="email_manager">
+                            <input type="email" name="email_manager">
                             
                         </div>
         
@@ -117,7 +117,7 @@ else{
                             <h4>Owner's Email</h4>
                         </div>
                         <div class="lableInfo">
-                            <input type="text" name="email_owner">
+                            <input type="email" name="email_owner">
                             
                         </div>
         
