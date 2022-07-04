@@ -1,4 +1,4 @@
-<?php  session_start();
+<?php  
 
 
 /* SUPER ADMININSTRATORS CAN ACCESS 
@@ -122,7 +122,7 @@ if (home_check()){
 
 
 <?php 
-if (home_check()){
+if (booking_check()){
     echo "
 
 
@@ -203,7 +203,7 @@ if (home_check()){
 
 
 
-<div class = 'menu-item flex-row ' onclick = 'location.href = "admin.php";'>
+<div class = 'menu-item flex-row ' onclick = 'location.href = "templates/session_destroy.php";'>
     <div class = 'icon'><i class = 'bi bi-box-arrow-left'></i></div>
     <div class = 'item'>Exit</div>
 </div>

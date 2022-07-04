@@ -1,4 +1,6 @@
-<?php
+<?php require_once "templates/session.php"?>
+
+<?php 
 
 
 ini_set('display_errors', 1);

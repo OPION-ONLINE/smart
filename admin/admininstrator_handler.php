@@ -1,3 +1,5 @@
+<?php require_once "templates/session.php"?>
+
 <?php
 
 
@@ -76,7 +78,7 @@ else
                 
                      <div class="container">
                         <div class="text">
-                            <h3>Loging Into Opion As . . . </h3>' ; 
+                            <h3>Logging Into Opion As . . . </h3>' ; 
                
                             echo $login_role;
                 

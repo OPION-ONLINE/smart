@@ -1,3 +1,5 @@
+<?php require_once "templates/session.php"?>
+
 <?php
 
 
@@ -42,20 +44,11 @@ else{
 </head>
 <body>
     <div class="cover2">
-        <form action="../php/update_managers.php?ID=<?php echo $row['id']?>" method="post">
+        <form action="../php/update_users.php?ID=<?php echo $ID?>" method="post">
             <div class="userInformation">
                 <div class="userDetails">
         
-                    <div class="element">
-                        <div class="lable">
-                            <h4>User ID</h4>
-                        </div>
-                        <div class="lableInfo">
-                            <input type="text" name="user_id">
-                            
-                        </div>
-            
-                    </div>
+                   
                     
         
                     <div class="element">

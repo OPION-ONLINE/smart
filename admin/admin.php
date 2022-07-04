@@ -1,12 +1,11 @@
+ 
 <?php
 
 
-session_destroy();
+ 
+//$result_array = ['user_role' => 'super_admininstrator'];
 
-$result_array = ['user_role' => 'super_admininstrator'];
-
-session_start();
-
+ 
 $_SESSION['user_role'] = htmlspecialchars($result_array['user_role']);
 
 ?>

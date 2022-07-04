@@ -5,17 +5,16 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+ 
 
 
+$user_name = $_POST['user_name'];
+$user_email = $_POST['user_email'];
+$user_number = $_POST['user_number'];
 
-
-$full_name_manager = $_POST['full_name_manager'];
-$phone_manager = $_POST['phone_manager'];
-$email_manager = $_POST['email_manager'];
-
-$full_name_owner = $_POST['full_name_owner'];
-$phone_owner = $_POST['phone_owner'];
-$email_owner = $_POST['email_owner'];
+$user_status = $_POST['user_status'];
+$user_gender = $_POST['user_gender'];
+/*$email_owner = $_POST['email_owner'];
 
 $property_name = $_POST['property_name'];
 $property_type = $_POST['property_type'];
@@ -23,12 +22,12 @@ $property_location = $_POST['property_location'];
  
 
 
-/*$full_name_manager = $_POST['manager_id'];
-$full_name_manager = $_POST['manager_id'];
-$full_name_manager = $_POST['manager_id'];
-$full_name_manager = $_POST['manager_id'];
-$full_name_manager = $_POST['manager_id'];
-$full_name_manager = $_POST['manager_id'];
+$user_name = $_POST['manager_id'];
+$user_name = $_POST['manager_id'];
+$user_name = $_POST['manager_id'];
+$user_name = $_POST['manager_id'];
+$user_name = $_POST['manager_id'];
+$user_name = $_POST['manager_id'];
 
 */
 
@@ -50,148 +49,83 @@ else
     if(isset($_POST['update'])){
 
         // UPDATE FIRST NAME MANAGER
-        if ($full_name_manager != null){
-            $query = "update managers set `full_name_manager` = '$full_name_manager' where id = $ID";
+        if ($user_name != null){
+            $query = "update users set `user_name` = '$user_name' where user_id = $ID";
             $query_run = mysqli_query($conn, $query);
 
             if($query_run){   
-                echo '<script type="text/javascript"> alert("Manager\'s Name Updated") </script>';
+                echo '<script type="text/javascript"> alert("User Name Updated") </script>';
             }
             else{
-                echo '<script type="text/javascript"> alert("Manager\'s Name  Not Updated, Something went wrong")</script>';
+                echo '<script type="text/javascript"> alert("User Name  Not Updated, Something went wrong")</script>';
             }
             
 
      
         }
-
-        // UPDATE LAST NAME MANAGER
-        if($phone_manager != null){
-            $query = "UPDATE `managers` SET `phone_manager` = '$phone_manager' WHERE id = $ID";
+         // UPDATE LAST NAME MANAGER
+        if($user_email != null){
+            $query = "UPDATE `users` SET `user_email` = '$user_email' WHERE user_id = $ID";
             $query_run = mysqli_query($conn, $query);
 
                 if($query_run){   
-                    echo '<script type="text/javascript"> alert("Manager\'s Phone Updated") </script>';
+                    echo '<script type="text/javascript"> alert("User Email Updated") </script>';
                 }
                 else{
-                    echo '<script type="text/javascript"> alert("Manager\'s Phone  Not Updated, Something went wrong")</script>';
+                    echo '<script type="text/javascript"> alert("User Email  Not Updated, Something went wrong")</script>';
                 }
             }
  
 
         // UPDATE EMAIL MANAGER
-        if($email_manager != null){
-            $query = "UPDATE `managers` SET `email_manager` = '$email_manager' WHERE id = $ID";
+        if($user_number != null){
+            $query = "UPDATE `users` SET `user_number` = '$user_number' WHERE user_id = $ID";
             $query_run = mysqli_query($conn, $query);
 
                 if($query_run){   
-                    echo '<script type="text/javascript"> alert("Manager\'s Email Updated Update") </script>';
+                    echo '<script type="text/javascript"> alert("User Phone Updated Update") </script>';
                 }
                 else{
-                    echo '<script type="text/javascript"> alert("Manager\'s Email Not Updated, Something went wrong")</script>';
+                    echo '<script type="text/javascript"> alert("User Phone Not Updated, Something went wrong")</script>';
                 }
             }
 
       
 
         // UPDATE PHONE MANAGER
-        if($full_name_owner != null){
-            $query = "UPDATE `managers` SET `full_name_manager` = '$full_name_owner' WHERE id = $ID";
+        if($user_status != null){
+            $query = "UPDATE `users` SET `user_status` = '$user_status' WHERE user_id = $ID";
             $query_run = mysqli_query($conn, $query);
 
                 if($query_run){   
-                    echo '<script type="text/javascript"> alert("Owner\'s Name Updated") </script>';
+                    echo '<script type="text/javascript"> alert("User Status Updated") </script>';
                 }
                 else{
-                    echo '<script type="text/javascript"> alert("Owner\'s Name Not Updated, Something went wrong")</script>';
+                    echo '<script type="text/javascript"> alert("User Status Not Updated, Something went wrong")</script>';
                 }
             }
 
 
 
         // UPDATE FIRST NAME OWNER
-        if ($phone_owner != null){
-            $query = "update managers set `phone_owner` = '$phone_owner' where id = $ID";
+        if ($user_gender != null){
+            $query = "update users set `user_gender` = '$user_gender' where user_id = $ID";
             $query_run = mysqli_query($conn, $query);
 
             if($query_run){   
-                echo '<script type="text/javascript"> alert("Owner\'s Phone Updated") </script>';
+                echo '<script type="text/javascript"> alert("User Gender Updated") </script>';
             }
             else{
-                echo '<script type="text/javascript"> alert("Owner\'s Phone  Not Updated, Something went wrong")</script>';
+                echo '<script type="text/javascript"> alert("User Gender Not Updated, Something went wrong")</script>';
             }
             
 
      
         }
+
+        header("refresh:1; url=../admin/users.php?ID=$ID");
+
         // UPDATE LAST NAME OWNER
-        if($email_owner != null){
-            $query = "UPDATE `managers` SET `email_owner` = '$email_owner' WHERE id = $ID";
-            $query_run = mysqli_query($conn, $query);
-
-                if($query_run){   
-                    echo '<script type="text/javascript"> alert("Owner\'s Email Updated") </script>';
-                }
-                else{
-                    echo '<script type="text/javascript"> alert("Owner\'s Email  Not Updated, Something went wrong")</script>';
-                }
-            }
- 
-
-        // UPDATE EMAIL OWNER
-        if($property_name != null){
-            $query = "UPDATE `managers` SET `property_name` = '$property_name' WHERE id = $ID";
-            $query_run = mysqli_query($conn, $query);
-
-                if($query_run){   
-                    echo '<script type="text/javascript"> alert("Property Name Updated") </script>';
-                }
-                else{
-                    echo '<script type="text/javascript"> alert("Property Name Not Updated, Something went wrong")</script>';
-                }
-            }
-
-      
-
-        // UPDATE PHONE OWNER
-        if($property_type != null){
-            $query = "UPDATE `managers` SET `property_type` = '$property_type' WHERE id = $ID";
-            $query_run = mysqli_query($conn, $query);
-
-                if($query_run){   
-                    echo '<script type="text/javascript"> alert("Property Type Updated") </script>';
-                }
-                else{
-                    echo '<script type="text/javascript"> alert("Property Type Not Updated, Something went wrong")</script>';
-                }
-            }
- 
-
-
-             // UPDATE APARTMENT NAME
-        if($property_location != null){
-            $query = "UPDATE `managers` SET `property_location` = '$property_location' WHERE id = $ID";
-            $query_run = mysqli_query($conn, $query);
-
-                if($query_run){   
-                    echo '<script type="text/javascript"> alert("Property Location Updated") </script>';
-                }
-                else{
-                    echo '<script type="text/javascript"> alert("Property Location Not Updated, Something went wrong")</script>';
-                }
-            }
-            header("refresh:1; url=../admin/managerDetails.php?ID=$ID");
-
-
-             
-  
-        
-
-
-
- 
-        
     }
-
 
 }
