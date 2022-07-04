@@ -224,3 +224,12 @@ function setType(element, target, c = 'a') {
 //         activate('nav');
 //     }
 // }
+
+
+function select(target) {
+    return document.querySelector(target);
+}
+
+function selectAll(target) {
+    return document.querySelectorAll(target);
+}

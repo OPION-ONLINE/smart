@@ -1,0 +1,24 @@
+{
+
+    "images" : {
+        "room_view": "image url here",
+        "outer_view": "image url here",
+        "toiler_view": "image url here",
+        "gallery": ["list", "of", "urls", "here"]
+    },
+
+    "floors" : {
+        "floor_name": {
+            "room_type": {
+                "price": "price here",
+                "images": {
+                    "outer_view": "image url here",
+                    "room_view": "image url here",
+                    "lavatory_view": "image url here",
+                    "gallery": ["list", "of", "urls", "here"]
+                }
+            }
+        }
+    }
+    
+}

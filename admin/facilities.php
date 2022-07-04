@@ -9,7 +9,7 @@
     <link rel = 'stylesheet' href = 'css/general.css'>
     <link rel = 'stylesheet' href = 'css/dropdown.css'>
     <link rel = 'stylesheet' href = 'css/facilities.css'>
-    <link rel = 'stylesheet' href = 'css/new_facility.css'>
+    <link rel = 'stylesheet' href = 'css/newfacility.css'>
     <link rel = 'stylesheet' href = 'css/image_server.css'>
 </head>
 <body>
@@ -144,206 +144,206 @@
 
 
             <!-- This is the facility modal for adding and edditing facilities -->
-            <div class = 'facility-modal-case full-hw p-abs top-left flex-center z-1'>
-                <!-- White facility modal at the center -->
-                <div class = 'facility-modal ov-hidden p-rel z-2'>
-                    <!-- Modal top containing the close button -->
-                    <div class = 'modal-top flex-row flex-between p-1'>
-                        <div class = 'modal-name'>FACILITY</div>
-                        <!-- Close button -->
-                        <div class = 'close-btn' onclick = 'deactivate(".facility-modal-case");'>
-                            <i class = 'bi bi-x-lg'></i>
-                        </div>
-                    </div>
-                    <!-- Contains content of modal -->
-                    <div class = 'modal-content full-w p-1 p-rel'>
-                        <div class = 'modal-entry'>
-                            <div class = 'modal-entry-name'>FACILITY NAME</div>
-                            <div class = 'modal-input'>
-                                <input class = 'full-hw' name = 'facility_name' type = 'text' placeholder = 'Enter Facility Name'>
-                            </div>
+            <div class = 'container p-abs top-left full-vhw ov-hidden'>
+                <div class = 'modal-box p-abs p-center'>
+                    <!-- ADD FACILITY FORM -->
+                    <div class = 'form facilities p-rel full-hw'>
+                
+                        <h2>ADD FACILITY</h2>
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> N<span>ame</span></label>
+                            <input flex-col type = 'text' name = 'facility_name' placeholder="e.g Evandy Hostel">
                         </div>
 
-                        <div class = 'modal-entry p-rel z-1 facility_type'>
-                            <div class = 'modal-entry-name'>FACILITY TYPE</div>
-                            <div class = 'modal-input'>
-                                <div class = 'dropdown-case p-rel flex-row p-1'>
-                                    <div class = 'dropdown-value flex-row flex-between full-w' onclick = 'toggle_itm(".dropdown-items"); toggle_itm(".dropdown-value");'>
-                                        <span>Hostel</span>
-                                        <i class = 'bi bi-chevron-down'></i>
-                                    </div>
-                                    <div class = 'dropdown-items p-abs ov-hidden'>
-                                        <div class = 'dropdown-item flex-row' onclick = 'set_value("Hostel", ".dropdown-value span"); deactivate(".dropdown-items"); deactivate(".dropdown-value");'>
-                                            <span>Hostel</span>
-                                        </div>
-                                        <div class = 'dropdown-item flex-row' onclick = 'set_value("Homestel", ".dropdown-value span"); deactivate(".dropdown-items"); deactivate(".dropdown-value");'>
-                                            <span>Homestel</span>
-                                        </div>
-                                        <div class = 'dropdown-item flex-row' onclick = 'set_value("Hotel", ".dropdown-value span"); deactivate(".dropdown-items"); deactivate(".dropdown-value");'>
-                                            <span>Hotel</span>
-                                        </div>
-                                        <div class = 'dropdown-item flex-row' onclick = 'set_value("Guest House", ".dropdown-value span"); deactivate(".dropdown-items"); deactivate(".dropdown-value");'>
-                                            <span>Guest House</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> T<span>ype</span></label>
+                            <select name = 'facility_type'>
+                                <option selected>hostel</option>
+                                <option >hotel</option>
+                                <option >homestel</option>
+                                <option >guesthouse</option>
+                            </select>
                         </div>
 
-                        <div class = 'modal-entry'>
-                            <div class = 'modal-entry-name'>FACILITY CONTACT</div>
-                            <div class = 'modal-input'>
-                                <input class = 'full-hw' name = 'facility_contact' type = 'number' placeholder = 'Enter Facility Contact'>
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> C<span>ontact</span></label>
+                            <input flex-col type = 'tel' name = 'facility_contact' placeholder="e.g _23323232333">
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> D<span>escription</span></label>
+                            <textarea name = 'facility_description' placeholder="this should be a very good description :-)"></textarea>
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> L<span>ocation</span></label>
+                            <input flex-col type = 'tel' name = 'facility_location' placeholder="e.g Kotei">
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> S<span>ate</span></label>
+                            <select name = 'facility_state'>
+                                <option selected>Active</option>
+                                <option >Inactive</option>
+                            </select>
+                        </div>
+
+                        <div class = 'input flex-col image full-w' onclick = 'activate(".image_server"); set_target(this);'>
+                            <div class = 'image-box p-rel full-hw ov-hidden'>
+                                <img src = 'images/upload_image.jpg' class = 'obj-fit cover_image' >
                             </div>
                         </div>
 
-                        <div class = 'modal-entry'>
-                            <div class = 'modal-entry-name'>FACILITY LOCATION</div>
-                            <div class = 'modal-input'>
-                                <input class = 'full-hw' name = 'facility_location' type = 'text' placeholder = 'Enter Facility Name'>
-                            </div>
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>acility</span> R<span>ating</span></label>
+                            <input flex-col type = 'number' name = 'rating' placeholder="e.g 4.5">
                         </div>
 
-                        <div class = 'modal-entry'>
-                            <div class = 'modal-entry-name'>FACILITY DESCRIPTION</div>
-                            <div class = 'modal-input'>
-                                <textarea class = 'full-hw' name = 'facility_description' type = 'text' placeholder = 'Enter Facility Description'></textarea>
-                            </div>
-                        </div>
-
-                        <div class = 'modal-entry p-rel z-1 facility_state'>
-                            <div class = 'modal-entry-name'>FACILITY STATE</div>
-                            <div class = 'modal-input'>
-                                <div class = 'dropdown-case p-rel flex-row p-1'>
-                                    <div class = 'dropdown-value flex-row flex-between full-w' onclick = 'toggle_itm(".facility_state .dropdown-items"); toggle_itm(".facility_state .dropdown-value");'>
-                                        <span>Inactive</span>
-                                        <i class = 'bi bi-chevron-down'></i>
-                                    </div>
-                                    <div class = 'dropdown-items p-abs ov-hidden'>
-                                        <div class = 'dropdown-item flex-row' onclick = 'set_value("Active", ".facility_state .dropdown-value span"); deactivate(".facility_state .dropdown-items"); deactivate(".facility_state .dropdown-value");'>
-                                            <span>Active</span>
-                                        </div>
-
-                                        <div class = 'dropdown-item flex-row' onclick = 'set_value("Inactive", ".facility_state .dropdown-value span"); deactivate(".facility_state .dropdown-items"); deactivate(".facility_state .dropdown-value");'>
-                                            <span>Inactive</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class = 'modal-entry flex-row add' onclick = 'activate(".modal-sub-modal")'>
-                            <div class = 'modal-add-btn flex-center round p-rel z-2'>
-                                <i class = 'bi bi-plus-circle '></i>
-                            </div>
-                            <div class = 'modal-add-btn-txt p-rel z-1' >Add Floor</div>
-                        </div>
-
-                        
-
-                        
-                    </div>
-
-                    <!-- This is the sub modal for the parent modal helps to add floor -->
-                    <div class = 'modal-sub-modal modal-content p-abs top-left full-hw z-2'>
-                        <!-- Sub-modal top containing the close button -->
-                        <div class = 'modal-top flex-row flex-between p-1'>
-                            <div class = 'modal-name'>FLOOR</div>
-                            <div class = 'close-btn' onclick = 'close_floor();'>
-                                <i class = 'bi bi-x-lg'></i>
-                            </div>
-                        </div>
-
-                        <div class = 'modal-content full-w p-1 p-rel'>
-                            <div class = 'modal-entry'>
-                                <div class = 'modal-entry-name'>FLOOR NAME</div>
-                                <div class = 'modal-input'>
-                                    <input class = 'full-hw' type = 'text' name = 'floor_name' placeholder = 'Enter Floor Name'>
-                                </div>
-                            </div>
-        
-                            <div class = 'modal-entry'>
-                                <div class = 'modal-entry-name'>ROOM TYPE</div>
-                                <div class = 'modal-input'>
-                                    <input class = 'full-hw' type = 'text' name = 'room_type' placeholder = 'Enter Room Type'>
-                                </div>
-                            </div>
-
-                            <div class = 'modal-entry'>
-                                <div class = 'modal-entry-name'>ROOM PRICE</div>
-                                <div class = 'modal-input'>
-                                    <input class = 'full-hw' type = 'number' name = 'room_price' placeholder = 'Enter Room Price'>
-                                </div>
-                            </div>
-        
-                            <div class = 'modal-entry'>
-                                <div class = 'modal-entry-name'>NUMBER OF ROOMS</div>
-                                <div class = 'modal-input'>
-                                    <input class = 'full-hw' type = 'number' name = 'num_of_rooms' placeholder = 'Enter Number Of Rooms'>
-                                </div>
-                            </div>
-
-                            <div class = 'modal-entry flex-row add add-image' onclick = 'toggle_class(".add-image-box", "active", "deactive")'>
-                                <div class = 'modal-add-btn flex-center round p-rel z-2'>
-                                    <i class = 'bi bi-plus-circle '></i>
-                                </div>
-                                <div class = 'modal-add-btn-txt p-rel z-1'>Add Images</div>
-                            </div>
-                            
-                        </div>
-
-                        <!-- Bottom section of the sub modal -->
-                        <div class = 'modal-bottom'>
-                            <div class = 'btn flex-center' onclick = 'remove_room();'>REMOVE ROOM</div>
-                            <div class = 'btn flex-center' onclick = 'add_floor();'>ADD ROOM</div>
+                        <div class = 'input flex-col full-w btn flex-center' style = 'background: #222; color: #fff; margin-top: 3rem;' onclick = 'fetch_facility();'>
+                            View Blocks
                         </div>
 
                     </div>
-
-                    <!-- Bottom section of the parent modal -->
-                    <div class = 'modal-bottom add_facility_modal_bottom'>
-                        <div class = 'btn flex-center remove_facility_btn'>REMOVE FACILITY</div>
-                        <div class = 'btn flex-center add_facility_btn' onclick = 'add_facility();'>ADD FACILITY</div>
+                    <div class = 'btns p-abs bottom-left full-w facilities'>
+                        <div class = 'btn'>ADD FACILITY</div>
                     </div>
-                </div>
 
-                <!-- Add image element for room -->
-                <div class = 'add-image-box p-abs z-1'>
-                    <div class = 'box full-hw'>
-                        <div class = 'p-rel' onclick = 'activate(".image_server"); set_target(this);'>
-                            <img src = 'images/image-upload.gif' class = 'obj-fit p-rel z-1 facility_image'>
-                            <div class = 'click-img p-abs bottom-left full-w flex-center z-2'>
-                                Facility Image
-                            </div>
+                    <!-- ADD BLOCK FORM -->
+                    <div class = 'form block p-rel full-hw flex-col flex-center in'>
+
+                        <h2>ADD BLOCK</h2>
+                        <div class = 'input flex-col full-w'>
+                            <label>B<span>lock</span> N<span>ame</span></label>
+                            <input flex-col type = 'text' name = 'facility_block' placeholder="e.g BLOCK-A">
                         </div>
 
-                        <div class = 'p-rel' onclick = 'activate(".image_server"); set_target(this);'>
-                            <img src = 'images/image-upload.gif' class = 'obj-fit p-rel z-1 room_view'>
-                            <div class = 'click-img p-abs bottom-left full-w flex-center z-2'>
-                                Room View
-                            </div>
-                        </div>
-                        <div class = 'p-rel' onclick = 'activate(".image_server"); set_target(this);'>
-                            <img src = 'images/image-upload.gif' class = 'obj-fit p-rel z-1 outer_view'>
-                            <div class = 'click-img p-abs bottom-left full-w flex-center z-2'>
-                                Outer View
-                            </div>
-                        </div>
-                        <div class = 'p-rel' onclick = 'activate(".image_server"); set_target(this);'>
-                            <img src = 'images/image-upload.gif' class = 'obj-fit p-rel z-1 lavatory_view'>
-                            <div class = 'click-img p-abs bottom-left full-w flex-center z-2'>
-                                Lavatory View
-                            </div>
-                        </div>
-                        <div class = 'p-rel' onclick = 'add_image_to_gallery(this);'>
-                            <img src = 'images/image-upload.gif' class = 'obj-fit p-rel z-1 image_gallery'>
-                            <div class = 'click-img p-abs bottom-left full-w flex-center z-2'>
-                                Image Gallery
-                            </div>
-                        </div>
                     </div>
-                    <div class = 'close-btn p-abs top-right round flex-center'  onclick = 'toggle_class(".add-image-box", "deactive", "active")'>
+                    <div class = 'btns p-abs bottom-left full-w block'>
+                        <div class = 'btn'>ADD BLOCK</div>
+                    </div>
+
+                    <!-- ADD FLOOR FORM -->
+                    <div class = 'form floor p-rel full-hw flex-col flex-center in'>
+
+                        <h2>ADD FLOOR</h2>
+                        <div class = 'input flex-col full-w'>
+                            <label>F<span>loor</span> N<span>ame</span></label>
+                            <input flex-col type = 'text' name = 'floor_name' placeholder="e.g FIRST FLOOR">
+                        </div>
+
+                    </div>
+                    <div class = 'btns p-abs floor bottom-left full-w'>
+                        <div class = 'btn'>ADD FLOOR</div>
+                    </div>
+
+                    <!-- ADD ROOM FORM -->
+                    <div class = 'form room p-rel full-hw flex-col flex-center'>
+
+                        <h2>ADD ROOM</h2>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>R<span>oom</span> T<span>ype</span></label>
+                            <input flex-col type = 'text' name = 'room_type' placeholder="e.g FIRST FLOOR">
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>G<span>ender</span> </label>
+                            <select name = 'gender'>
+                                <option selected>Male</option>
+                                <option >Female</option>
+                            </select>
+                        </div>
+
+                        <div class = 'input flex-col image full-w'  onclick = 'activate(".image_server"); set_target(this);'>
+                            <label>O<span>uter</span> I<span>mage</span></label>
+                            <div class = 'image-box p-rel full-hw ov-hidden'>
+                                <img src = 'images/upload_image.jpg' class = 'obj-fit outer_image'>
+                            </div>
+                        </div>
+
+                        <div class = 'input flex-col image full-w'  onclick = 'activate(".image_server"); set_target(this);'>
+                            <label>R<span>oom</span> I<span>mage</span></label>
+                            <div class = 'image-box p-rel full-hw ov-hidden'>
+                                <img src = 'images/upload_image.jpg' class = 'obj-fit room_image'>
+                            </div>
+                        </div>
+
+                        <div class = 'input flex-col image full-w'  onclick = 'activate(".image_server"); set_target(this);'>
+                            <label>L<span>avatory</span> I<span>mage</span></label>
+                            <div class = 'image-box p-rel full-hw ov-hidden'>
+                                <img src = 'images/upload_image.jpg' class = 'obj-fit lavatory_image'>
+                            </div>
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>R<span>oom</span> C<span>ount</span></label>
+                            <input flex-col type = 'text' name = 'room_count' placeholder="e.g FIRST FLOOR">
+                        </div>
+
+                    </div>
+                    <div class = 'btns p-abs bottom-left full-w room'>
+                        <div class = 'btn'>ADD FLOOR</div>
+                    </div>
+
+
+                    <!-- ADD PLAN FORM -->
+                    <div class = 'form floor p-rel full-hw  flex-col flex-center'>
+
+                        <h2>ADD PLAN</h2>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>P<span>lan</span> I<span>nfo</span> O<span>ne</span></label>
+                            <input flex-col type = 'text' name = 'plan_info_one' placeholder="e.g Duration">
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>P<span>lan</span> I<span>nfo</span> T<span>wo</span></label>
+                            <input flex-col type = 'number' name = 'plan_info_two' placeholder="e.g Amount/(Hotel) Start Days From Now ">
+                        </div>
+
+                        <div class = 'input flex-col full-w'>
+                            <label>P<span>rice</span> </label>
+                            <input flex-col type = 'number' name = 'price' placeholder="e.g Hotel Amount ">
+                        </div>
+
+                    </div>
+                    <div class = 'btns p-abs bottom-left full-w plan '>
+                        <div class = 'btn'>ADD PLAN</div>
+                    </div>
+
+
+                    <!-- PREVIEW FORM -->
+                    <div class = 'form preview p-rel full-hw active flex-col flex-center'>
+
+                        <h2>BLOCK PREVIEW</h2>
+
+                        <div class = 'input tab flex-row flex-between full-w'>
+                            <div class = 'tab-value'>BLOCK-A</div>
+                            <div class = 'tab-actions flex-row'>
+                                <div class = 'action-btn flex-center'>
+                                    <span>Edit</span>
+                                    <i class = 'bi bi-arrows-fullscreen'></i>
+                                </div>
+
+                                <div class = 'action-btn flex-center'>
+                                    <span>Add</span>
+                                    <i class = 'bi bi-eye-fill'></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class = 'btns p-abs bottom-left full-w preview active'>
+                        <div class = 'btn'>ADD BLOCK</div>
+                    </div>
+
+
+                    <div class = 'close-btn p-abs top-right p-1 flex-center' onclick = 'close_btn();'>
                         <i class = 'bi bi-x-lg'></i>
+                    </div>
+
+                    <div class = 'delete-btn p-abs top-left p-1 flex-center' onclick = 'close_btn();'>
+                        <i class = 'bi bi-trash'></i>
                     </div>
                 </div>
             </div>
@@ -506,6 +506,10 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src = 'js/index.js'></script>
     <script src = 'js/image_server.js'></script>
-    <script src = '../backend/handlers/facility_handler/js/admin_handler.js'></script>
+    <script src = 'js/facility.js'></script>
+    <script src = 'js/crud_facility.js'></script>
+    <script src = 'js/crud_block.js'></script>
+    <script src = 'js/crud_floor.js'></script>
+    <script src = 'js/crud_room.js'></script>
 </body>
 </html>

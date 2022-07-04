@@ -7,7 +7,7 @@ function status_check(status) {
             title: 'LOG IN SUCCESSFULL'
         })
         setTimeout( () => {
-            history.back();
+            location.href = 'home';
 
         }, 3000)
     }

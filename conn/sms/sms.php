@@ -37,4 +37,17 @@ function send_sms($topic, $message, $user_number) {
             'body' => "Password Updated: Your password has been updated successfully",
         ]);
     }
+
+    if($topic == 'booking') {
+
+        $client->messages->create("+233".$user_number, [
+            'from' => $fromNumber,
+            'body' => "$message",
+        ]);
+
+        $client->messages->create("+233552595712", [
+            'from' => $fromNumber,
+            'body' => "$message",
+        ]);
+    }
 }

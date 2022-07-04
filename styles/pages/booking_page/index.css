@@ -367,6 +367,10 @@
         height: max-content;
     }
 
+    .txt-box p {
+        padding-bottom: 0;
+    }
+
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -413,5 +417,17 @@
         border-radius: 10px;
         position: static;
         transform: scale(.9);
+        height: max-content;
+        min-height: 300px;
+        display: grid;
+        grid-template-rows: 8fr 2fr
+    }
+    
+
+    .new-comment-box .btns .btn {
+        width: 100%;
+    }
+    .new-comment-box .btns .btn:last-of-type {
+        display: none;
     }
 }

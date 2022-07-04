@@ -2,7 +2,7 @@
 session_start();
 
 if( !isset($_GET['facility_name']) || !isset($_GET['facility_type']) || !isset($_GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
-    // header('location: signup');
+    header('location: signup');
 }
 
 $facility_name = $_GET['facility_name'];
@@ -40,6 +40,12 @@ foreach($result_array as $result => $facility) {
         let facility_name     = "<?php echo $facility_name; ?>";
         let facility_type     = "<?php echo $facility_type; ?>";
         let facility_location = "<?php echo $facility_location; ?>";
+        let username          = "<?php echo $_SESSION['USERNAME'] ?>";
+        let useremail         = "<?php echo $_SESSION['EMAIL'] ?>";
+        let usernumber        = "<?php echo $_SESSION['NUMBER'] ?>";
+        let current_date      = new Date("<?php echo date('yyyy-mm-dd') ?>");
+
+
     </script>
     
     <script src = 'scripts/js/booking/book.js'></script>

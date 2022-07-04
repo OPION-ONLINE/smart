@@ -82,13 +82,13 @@ function display_rooms() {
                 display_images[room['room_type']].push(room['room_image']);
                 display_images[room['room_type']].push(room['lavatory_image']);
 
-                if(facility_blocks.indexOf(room['facility_block']) < 0 )//&& room['room_count'] > 0)
+                if(facility_blocks.indexOf(room['facility_block']) < 0 && room['room_count'] > 0)
                 facility_blocks.push(room['facility_block']);
 
                 if(!(room['facility_block'] in facility_floors)) 
                     facility_floors[room['facility_block']] = [];
 
-                if(facility_floors[room['facility_block']].indexOf(room['floor_name']) < 0 )//&& room['room_count'] > 0)
+                if(facility_floors[room['facility_block']].indexOf(room['floor_name']) < 0 && room['room_count'] > 0)
                     facility_floors[room['facility_block']].push(room['floor_name']);
                 
 
@@ -128,16 +128,19 @@ let selected_block = '';
 let selected_floor = '';
 let selected_room = '';
 let selected_gender = '';
+let selected_plan = '';
+let selected_plan_two = '';
 let plan = {
     // plan_info_one: plan_info_two,
 }
+let hotel_price = 0;
 
 function book_process() {
     activate(".booking-modal");
 
     if(selected_gender.length > 0) {
+        modal_position = 'plan';
         get_plan();
-        modal_position = 'block';
         return true;
     }
 
@@ -194,7 +197,7 @@ function book_process() {
     }
 
     
-    if(facility_blocks.length > -1) {
+    if(facility_blocks.length > 1) {
         modal.innerHTML = '<h2>Choose A Block</h2>'
         facility_blocks.forEach( block => {
             let new_block = checkbox.replace('{{ tab-value }}', block).replace(' {{ tab-function }}', `selected_block = \'${block}\'; book_process();`);
@@ -220,6 +223,31 @@ function book_process() {
     
 }
 
+function prev_btn() {
+
+    if (modal_position == 'block') {
+        selected_block = '';
+        deactivate('.booking-modal');
+        
+    }
+    else if( modal_position == 'floor') {
+        selected_block = '';
+        book_process();
+    }
+    else if( modal_position == 'room') {
+        selected_floor = '';
+        book_process();
+    }
+    else if( modal_position == 'gender') {
+        selected_room = '';
+        book_process();
+    }
+    else if( modal_position == 'plan' || modal_position == 'payment') {
+        selected_gender = '';
+        book_process();
+    }
+}
+
 
 function get_plan() {
     $.ajax({
@@ -239,12 +267,208 @@ function get_plan() {
                 return false;
             }
 
-            $.each(data, (key, plan) => {
-              
-                let new_block = checkbox.replace('{{ tab-value }}', `${plan.plan_info_one}/GHC${plan.plan_info_two}`).replace(' {{ tab-function }}', `selected_plan = \'${plan.plan_info_one}\'; make_payment(); `);
-                modal.innerHTML += new_block;
-                
-            })
+            if(facility_type == 'hotel') {
+
+
+                $.each(data, (key, plan) => {
+                    if(plan.room_type == selected_room) {
+                        console.log(plan);
+                        hotel_price = plan.price;
+                        let new_block = input_tab.replace('{{ tab-value }}', `Start Date`).replace('{{ tab-function }}', `selected_plan = \'${plan.plan_info_two}\'; check_date(); `).replace('{{ tab-name }}', 'start-date').replaceAll('{{ tab-class }}', '.start-date');
+                        modal.innerHTML += new_block;
+                        new_block = input_tab.replace('{{ tab-value }}', `End Date`).replace('{{ tab-function }}', `selected_plan = \'${plan.plan_info_two}\'; check_date(); `).replace('{{ tab-name }}', 'end-date').replaceAll('{{ tab-class }}', '.end-date');
+                        modal.innerHTML += new_block;
+                    }
+                })
+            }
+            else {
+                $.each(data, (key, plan) => {
+                    let new_block = checkbox.replace('{{ tab-value }}', `${plan.plan_info_one}/GHC${plan.plan_info_two}`).replace(' {{ tab-function }}', `selected_plan = \'${plan.plan_info_two}\'; selected_plan_two = \'${plan.plan_info_one}\'; make_payment(); `);
+                    modal.innerHTML += new_block;
+                })
+            }
+
+            modal_position = 'payment';
         }
     });
 }
+
+function make_payment() {
+    paystack();
+    deactivate('.booking-modal');
+
+
+}
+
+function check_date() {
+    let start_date = select('input[name = "start-date"]').value;
+    let end_date = select('input[name = "end-date"]').value;
+        if( start_date != '' && end_date != '') {
+            make_payment();
+        }
+}
+
+function paystack() {
+    let price = parseInt(selected_plan) * 100;
+
+    if(facility_type == 'hotel') {
+        let start_date = select('input[name = "start-date"]').value;
+        start_date = new Date(start_date);
+
+        let end_date = select('input[name = "end-date"]').value;
+        end_date = new Date(end_date);
+
+        let interval = current_date.getTime() - start_date.getTime();
+        interval = interval / (1000 * 60 * 60 * 24);
+
+        if(interval > parseInt(selected_plan_two)) {
+            Swal.fire({
+                icon: 'info',
+                title: 'LONG SHEDULE TIME',
+                text: `Start date should not be longer than ${selected_plan_two} days`,
+            })
+
+            return false;
+        }
+
+        interval = start_date.getTime() - end_date.getTime();
+        interval = interval / (1000 * 60 * 60 * 24);
+
+        if(interval > parseInt(selected_plan)) {
+            Swal.fire({
+                icon: 'info',
+                title: 'LONG SHEDULE TIME',
+                text: `A customer can only stay for a maximum of ${selected_plan_two} days`,
+            })
+            return false;
+        }
+
+        price = parseInt(hotel_price) * 100;
+
+
+    }
+        
+
+    let handler = PaystackPop.setup({
+
+        key: 'pk_test_6d063cd3d7a2e36376c2c3766cefa8c9bdba645a', // Replace with your public key
+    
+        email: 'adedavid.tech@gmail.com',
+    
+        amount: price,
+        currency: 'GHS',
+    
+        ref:  Math.floor((Math.random() * 1000000000) + 1), 
+        
+        // label: "Optional string that replaces customer email"
+    
+        onClose: function(){
+    
+        //   alert('Window closed.');
+    
+        },
+    
+        callback: function(response){
+              
+            $.ajax({
+                method: 'POST',
+                url: environment_link + 'conn/payment/verify.php',
+                data: {
+                    reference: response.reference,
+                    username: username,
+                    useremail: useremail,
+                    usernumber: usernumber,
+                    facility_name: facility_name,
+                    facility_type: facility_type, 
+                    facility_location: facility_location, 
+                    selected_block: selected_block, 
+                    selected_floor: selected_floor, 
+                    selected_room: selected_room, 
+                    selected_gender: selected_gender, 
+                    selected_plan: selected_plan, 
+                    amount_paid: parseInt(selected_plan)
+                },
+                success: (data) => {
+                    console.log(data);
+                }
+    
+            });
+        },
+    })
+
+    handler.openIframe();
+
+}
+
+let start_id = 0;
+let limit = 5;
+
+function get_comment(start = '') {
+    $.ajax({
+        method: 'POST',
+        url: environment_link + 'conn/booking_page/fetch_comments.php',
+        data: {facility_name: facility_name, facility_type: facility_type, facility_location: facility_location, start_id: start_id, limit: limit},
+        success: (data) => {
+
+            let comment_box = select('.comments-container');
+            selectAll('.comment.sub').forEach( comment => {
+                comment.remove();
+            })
+
+            if(data == 'empty' && start != '') {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'THERE ARE NO COMMENTS',
+                    text: 'Oops, no comments here 😁',
+                })
+
+
+                return false;
+            }
+
+            
+        }
+    })
+}
+
+get_comment();
+
+function post_comment() {
+    if(select('textarea').value.replaceAll(' ', '') == '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'NO COMMENT MADE',
+            text: 'Oops, looks like you forgot to type your comment',
+        });
+
+        return false;
+    }
+    $.ajax({
+        method: 'POST',
+        url: environment_link + 'conn/booking_page/post_comments.php',
+        data: {comment: select('textarea').value, username: username, usernumber: usernumber, facility_name: facility_name, facility_type: facility_type, facility_location: facility_location},
+        success: (data) => {
+
+            if(data == 'success') {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'THANK YOU',
+                    text: ' Thank you, your feedback is most appreciated.😁',
+                });
+
+                return false;
+            }
+            else {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'SORRY',
+                    text: 'You have\'nt stayed here that long to give a comment',
+                });
+                return false;
+            }
+
+           
+        }
+    })
+}
+

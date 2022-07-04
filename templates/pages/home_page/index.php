@@ -20,7 +20,7 @@
         <section class = 'p-rel p-3 flex-wrap flex-center'>
             <?php
                 foreach($result_array as $facility => $values) {
-                    homecard($values['facility_name'], $values['facility_location'], $values['facility_type'], 2000, 'images/' . $values['cover_image']);
+                    homecard($values['facility_name'], $values['facility_location'], $values['facility_type'], 'image_server/' . $values['cover_image']);
                 }
             ?>
         </section>

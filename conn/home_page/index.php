@@ -2,7 +2,7 @@
 
 require_once $environment_link . "conn/conn.php";
 
-$sql = 'select * from facilities order by clicks desc limit 8';
+$sql = 'select * from facilities order by RAND() limit 8';
 $sql = $conn->prepare($sql);
 $sql->execute();
 $result = $sql->get_result();

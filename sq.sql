@@ -96,10 +96,11 @@ insert into floors set facility_name = "Good Man Facility", facility_type = "hos
 create table comments (
     id int not null auto_increment primary key,
     facility_name varchar(200) not null,
-    foreign key (facility_name) references facilities(facility_name) on update cascade on delete cascade,
     facility_type varchar(200) not null,
+    facility_location varchar(200) not null,
     comment varchar(500) not null,
     user_name varchar(100) not null,
+    user_number varchar(100) not null,
     comment_date date default current_date not null
 ) default charset 'utf8';
 
@@ -111,9 +112,12 @@ create table booking (
     facility_name varchar(200) not null,
     facility_type varchar(200) not null,
     facility_location varchar(200) not null,
+    facility_block varchar(200) not null,
     facility_floor varchar(200) not null,
     room_type varchar(200) not null,
+    gender varchar(100) not null default 'Male',
     booking_id varchar(10) not null unique key,
+    selected_plan varchar('100') not null,
     amount_paid int not null,
     payment_verification varchar(50) not null default "unverified",
     booking_state varchar(50) not null default "unapproved",
@@ -160,6 +164,7 @@ create table plans (
     gender varchar(100) not null default 'Male',
     plan_info_one varchar(200) not null, 
     plan_info_two varchar(200) not null,
+    price int not null default 0,
     constraint unique_plan unique key (facility_name, facility_type, facility_location, facility_block, floor_name, room_type, gender, plan_info_one, plan_info_two),
     plan_date date default current_date not null
 )
@@ -176,3 +181,20 @@ plan_info_one = '3 year', plan_info_two = '8000';
 
 insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
 plan_info_one = '4 year', plan_info_two = '12000';
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
+plan_info_one = '3', plan_info_two = '30', price = 5000;
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'EXECUTIVE',
+plan_info_one = '3', plan_info_two = '30';
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'VIP',
+plan_info_one = '3', plan_info_two = '30', price = 2000;
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'REGULAR',
+plan_info_one = '3', plan_info_two = '30', price = 200;
+
+insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'VIP EXECUTIVE',
+plan_info_one = '3', plan_info_two = '30', price = 9000;
+
+

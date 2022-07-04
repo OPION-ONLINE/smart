@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,600;0,700;1,900&display=swap');
+
+body {
+    background: #cbf9d7;
+    
+}
+
+.success-box {
+    background: #ffffff;
+    box-shadow: 0 0 50px #1c1b1b37;
+    border-radius: 15px;
+    width: 500px;
+    min-height: 400px;
+    padding: 2rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    font-weight: 300;
+}
+
+.logo .img {
+    --size: 30px;
+    height: var(--size);
+    width: var(--size);
+}
+
+.logo .name {
+    padding: 0 .25rem;
+}
+
+.success-title {
+    font-weight: 900;
+    font-size: 120%;
+    padding: 1rem 0;
+}
+
+.success-title h1 {
+    line-height: 1;
+    padding: 2rem 0;
+}
+
+.success-title span {
+    color: rgb(78, 239, 78);
+}
+
+.success-txt {
+    color: #111;
+    font-weight: 300;
+    letter-spacing: .51px;
+    word-spacing: .2rem;
+    line-height: 1.7;
+    padding-bottom: 2.5rem;
+}
+
+.success-btn .btn{
+    background: rgb(78, 239, 78);
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 110%;
+    padding: .85rem 1rem;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .success-box {
+        width: 85vw;
+        transform: scale(.95);
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    .success-box {
+        width: 90vw;
+        transform: scale(.9);
+        padding: 1.7rem;
+    }
+
+    .sucess-box > * {
+        transform: scale(.9);
+    }
+
+    .success-title h1 {
+        padding: 1.3rem 0;
+    }
+
+    .success-txt {
+        letter-spacing: .5px;
+        line-height: 1.5;
+        padding-bottom: 1.8rem;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .success-box {
+        width: 100vw;
+    }
+}

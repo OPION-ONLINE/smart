@@ -10,7 +10,7 @@ function status_check(status) {
             icon: 'success',
             title: 'SIGN UP SUCCESSFULL'
         })
-        history.back();
+        location.href = 'home';
     }
 
     else if(status == 'empty') {

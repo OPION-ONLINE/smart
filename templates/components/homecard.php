@@ -1,6 +1,6 @@
 <?php
 
-function homecard($facility_name, $facility_loc, $facility_type, $facility_price, $facility_image) {
+function homecard($facility_name, $facility_loc, $facility_type, $facility_image) {
     echo "
     <div class = 'homecard ov-hidden p-rel' onclick = 'location.href = \"booking?facility_name=$facility_name&facility_type=$facility_type&facility_location=$facility_loc\"'>
         <div class = 'card-img p-rel'>
@@ -11,8 +11,7 @@ function homecard($facility_name, $facility_loc, $facility_type, $facility_price
             <p>$facility_loc</p>
         </div>
         <div class = 'card-price p-abs flex-row'>
-            <div class = 'currency'>GHC</div>
-            <div class = 'value'>$facility_price</div>
+            <div class = 'value'>$facility_type</div>
         </div>
     </div>
          ";

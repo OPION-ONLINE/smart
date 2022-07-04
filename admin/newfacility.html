@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = 'stylesheet' href = 'css/general.css'>
+    <link rel = 'stylesheet' href = 'css/newfacility.css'>
+</head>
+<body>
+
+    <div class = 'container p-abs top-left full-vhw ov-hidden'>
+        <div class = 'modal-box p-abs p-center'>
+            <!-- ADD FACILITY FORM -->
+            <div class = 'form facilities p-rel full-hw'>
+
+           
+                <h2>ADD FACILITY</h2>
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> N<span>ame</span></label>
+                    <input flex-col type = 'text' name = 'facility_name' placeholder="e.g Evandy Hostel">
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> T<span>ype</span></label>
+                    <select name = 'facility_type'>
+                        <option selected>hostel</option>
+                        <option >hotel</option>
+                        <option >homestel</option>
+                        <option >guesthouse</option>
+                    </select>
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> C<span>ontact</span></label>
+                    <input flex-col type = 'tel' name = 'facility_contact' placeholder="e.g _23323232333">
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> D<span>escription</span></label>
+                    <textarea name = 'description' placeholder="this should be a very good description :-)"></textarea>
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> L<span>ocation</span></label>
+                    <input flex-col type = 'tel' name = 'facility-name' placeholder="e.g Kotei">
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> S<span>ate</span></label>
+                    <select name = 'facility_state'>
+                        <option selected>Active</option>
+                        <option >Inactive</option>
+                    </select>
+                </div>
+
+                <div class = 'input flex-col image full-w'>
+                    <div class = 'image-box p-rel full-hw ov-hidden'>
+                        <img src = 'images/upload_image.jpg' class = 'obj-fit cover_image'>
+                    </div>
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>acility</span> R<span>ating</span></label>
+                    <input flex-col type = 'number' name = 'facility_contact' placeholder="e.g 4.5">
+                </div>
+
+            </div>
+            <div class = 'btns p-abs bottom-left full-w facilities'>
+                <div class = 'btn'>ADD FACILITY</div>
+            </div>
+
+            <!-- ADD BLOCK FORM -->
+            <div class = 'form block p-rel full-hw flex-col flex-center'>
+
+                <h2>ADD BLOCK</h2>
+                <div class = 'input flex-col full-w'>
+                    <label>B<span>lock</span> N<span>ame</span></label>
+                    <input flex-col type = 'text' name = 'facility_block' placeholder="e.g BLOCK-A">
+                </div>
+
+            </div>
+            <div class = 'btns p-abs bottom-left full-w block'>
+                <div class = 'btn'>ADD BLOCK</div>
+            </div>
+
+            <!-- ADD FLOOR FORM -->
+            <div class = 'form floor p-rel full-hw flex-col flex-center'>
+
+                <h2>ADD FLOOR</h2>
+                <div class = 'input flex-col full-w'>
+                    <label>F<span>loor</span> N<span>ame</span></label>
+                    <input flex-col type = 'text' name = 'facility_floor' placeholder="e.g FIRST FLOOR">
+                </div>
+
+            </div>
+            <div class = 'btns p-abs bottom-left full-w block '>
+                <div class = 'btn'>ADD FLOOR</div>
+            </div>
+
+            <!-- ADD ROOM FORM -->
+            <div class = 'form floor p-rel full-hw flex-col flex-center'>
+
+                <h2>ADD ROOM</h2>
+
+                <div class = 'input flex-col full-w'>
+                    <label>R<span>oom</span> T<span>ype</span></label>
+                    <input flex-col type = 'text' name = 'room_type' placeholder="e.g FIRST FLOOR">
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>G<span>ender</span> </label>
+                    <select name = 'gender'>
+                        <option selected>Male</option>
+                        <option >Female</option>
+                    </select>
+                </div>
+
+                <div class = 'input flex-col image full-w'>
+                    <label>O<span>uter</span> I<span>mage</span></label>
+                    <div class = 'image-box p-rel full-hw ov-hidden'>
+                        <img src = 'images/upload_image.jpg' class = 'obj-fit outer_image'>
+                    </div>
+                </div>
+
+                <div class = 'input flex-col image full-w'>
+                    <label>R<span>oom</span> I<span>mage</span></label>
+                    <div class = 'image-box p-rel full-hw ov-hidden'>
+                        <img src = 'images/upload_image.jpg' class = 'obj-fit outer_image'>
+                    </div>
+                </div>
+
+                <div class = 'input flex-col image full-w'>
+                    <label>L<span>avatory</span> I<span>mage</span></label>
+                    <div class = 'image-box p-rel full-hw ov-hidden'>
+                        <img src = 'images/upload_image.jpg' class = 'obj-fit outer_image'>
+                    </div>
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>R<span>oom</span> C<span>ount</span></label>
+                    <input flex-col type = 'text' name = 'room_count' placeholder="e.g FIRST FLOOR">
+                </div>
+
+            </div>
+            <div class = 'btns p-abs bottom-left full-w floor'>
+                <div class = 'btn'>ADD FLOOR</div>
+            </div>
+
+
+            <!-- ADD PLAN FORM -->
+            <div class = 'form floor p-rel full-hw  flex-col flex-center'>
+
+                <h2>ADD PLAN</h2>
+
+                <div class = 'input flex-col full-w'>
+                    <label>P<span>lan</span> I<span>nfo</span> O<span>ne</span></label>
+                    <input flex-col type = 'text' name = 'plan_info_one' placeholder="e.g Duration">
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>P<span>lan</span> I<span>nfo</span> T<span>wo</span></label>
+                    <input flex-col type = 'number' name = 'plan_info_two' placeholder="e.g Amount/(Hotel) Start Days From Now ">
+                </div>
+
+                <div class = 'input flex-col full-w'>
+                    <label>P<span>rice</span> </label>
+                    <input flex-col type = 'number' name = 'price' placeholder="e.g Hotel Amount ">
+                </div>
+
+            </div>
+            <div class = 'btns p-abs bottom-left full-w floor '>
+                <div class = 'btn'>ADD PLAN</div>
+            </div>
+
+
+            <!-- PREVIEW FORM -->
+            <div class = 'form floor p-rel full-hw active flex-col flex-center'>
+
+                <h2>ADD PLAN</h2>
+
+                <div class = 'input tab flex-row flex-between full-w'>
+                    <div class = 'tab-value'>EXCLUSIVE EXECUTIVE</div>
+                    <div class = 'tab-actions flex-row'>
+                        <div class = 'action-btn flex-center'>
+                            <span>View</span>
+                            <i class = 'bi bi-eye'></i>
+                        </div>
+
+                        <div class = 'action-btn flex-center'>
+                            <span>Add</span>
+                            <i class = 'bi bi-plus-circle'></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class = 'close-btn p-abs top-right p-1 flex-center'>
+                <i class = 'bi bi-x-lg'></i>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

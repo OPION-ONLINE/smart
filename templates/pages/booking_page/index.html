@@ -31,27 +31,27 @@
             <div class = 'comments-container'>
                 <h4>Comments</h4>
                 <div class = 'comment'>
+                    <div class = 'comment-name'>H-CUBE</div>
+                    <div class = 'comment-txt'>
+                        Hear what people have to say about <?php echo $facility_name ;?>
+                        explore out amaizing products and find the oasis that is right for you
+                    </div>
+                </div>
+                <div class = 'comment sub'>
                     <div class = 'comment-name'>John Winston</div>
                     <div class = 'comment-txt'>
                         Wow, I had the best experience, I would definitely recommend Evandy to
                         anyone looking for a nice stay here on campus.
                     </div>
                 </div>
-                <div class = 'comment'>
+                <div class = 'comment sub'>
                     <div class = 'comment-name'>John Winston</div>
                     <div class = 'comment-txt'>
                         Wow, I had the best experience, I would definitely recommend Evandy to
                         anyone looking for a nice stay here on campus.
                     </div>
                 </div>
-                <div class = 'comment'>
-                    <div class = 'comment-name'>John Winston</div>
-                    <div class = 'comment-txt'>
-                        Wow, I had the best experience, I would definitely recommend Evandy to
-                        anyone looking for a nice stay here on campus.
-                    </div>
-                </div>
-                <div class = 'comment'>
+                <div class = 'comment sub'>
                     <div class = 'comment-name'>John Winston</div>
                     <div class = 'comment-txt'>
                         Wow, I had the best experience, I would definitely recommend Evandy to
@@ -60,7 +60,7 @@
                 </div>
 
                 <div class = 'comment-btns'>
-                    <div class = 'show-more-btn flex-center'>
+                    <div class = 'show-more-btn flex-center' onclick="get_comment();">
                         <span>Show More</span>
                         <i class = 'bi bi-emoji-wink-fill'></i>
                     </div>
@@ -87,7 +87,7 @@
         </div>
     
         <div class = 'nav-btns flex-row flex-between p-1 p-abs top-left full-w'>
-            <div class = 'back-btn round flex-center'>
+            <div class = 'back-btn round flex-center' onclick = 'history.back();'>
                 <i class = 'bi bi-arrow-left'></i>
                 <span>Back</span>
             </div>
@@ -124,7 +124,7 @@
     <div class = 'new-comment-box p-fix bottom-left full-w z-3'>
         <textarea name = 'comment' class = 'full-w' placeholder="Type Your Comment Here..."></textarea>
         <div class = 'btns flex-row'>
-            <div class = 'btn'>
+            <div class = 'btn' onclick = 'post_comment()'>
                 <span>Leave a Comment</span>
                 <i class = 'bi bi-emoji-smile-fill'></i>
             </div>
@@ -151,16 +151,16 @@
             </div>
         </div>
 
-        <div class = 'tab flex-col input p-rel ov-hidden {{ tab-class }}' onclick = 'deactivateAll(".tab"); toggle_this(this); click_itm(".start-date"); {{ tab-function }}' >
+        <div class = 'tab flex-col input p-rel ov-hidden {{ tab-class }}' onclick = 'deactivateAll(".tab"); toggle_this(this); click(this);' >
             <span class = 'p-rel z-2 tab-name'>{{ tab-value }}</span>
-            <input type = 'date' name = 'start-date' class = 'start-date p-abs top-left full-hw z-1'>
+            <input type = 'date' name = '{{ tab-name }}' class = 'start-date p-abs top-left full-hw z-1' oninput = '{{ tab-function }}'>
         </div>
 
 
     </div>
 
     <div class = 'p-abs top-left full-w flex-row flex-between'>
-        <div class = 'back-btn flex-center'>
+        <div class = 'back-btn flex-center' onclick = 'prev_btn();'>
             <i class = 'bi bi-arrow-left'></i>
         </div>
 
