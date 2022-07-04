@@ -1,3 +1,5 @@
+<?php require_once "templates/session.php"?>
+
 <?php
 
 
@@ -7,13 +9,13 @@ error_reporting(E_ALL);
 
 if(isset($_GET['ID'])){
 
-    $conn = mysqli_connect("localhost", "root", "", "opion"); 
+    $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
     
 
 
     $ID = mysqli_real_escape_string($conn, $_GET['ID']);
 
-    $sql = "SELECT * FROM lease WHERE id='$ID'";
+    $sql = "SELECT * FROM managers WHERE id='$ID'";
     $result = mysqli_query($conn, $sql) or die ("Unsuccessful Query");
     $row = mysqli_fetch_array($result);
 
@@ -40,213 +42,147 @@ else{
 </head>
 <body>
     <div class="cover2">
-       <form action="../php/update_managers.php?ID=<?php echo $row['id']?>" method="post">
-         <div class="userInformation">
-            <div class="userDetails">
-    
-             <div class="element">
-                 <div class="lable">
-                     <h4>Manager Id</h4>
-                 </div>
-                 <div class="lableInfo">
-                     <input type="text" name="manager_id">
-                     
-                 </div>
-    
-            </div>
-                 
-    
-                <div class="element">
-                     <div class="lable">
-                         <h4>First Name(Manager)</h4>
-                     </div>
-                     <div class="lableInfo">
-                         <input type="text" name="first_name_m">
-                         
-                     </div>
-    
-                </div>
-    
-                <div class="element">
-                 <div class="lable">
-                     <h4>Last Name (Manager)</h4>
-                 </div>
-                 <div class="lableInfo">
-                     <input type="text" name="last_name_m">
-                     
-                 </div>
-    
-            </div>
-    
-            <div class="element">
-             <div class="lable">
-                 <h4>Email Address (Manager)</h4>
-             </div>
-             <div class="lableInfo">
-                 <input type="text" name="email_m">
-                 
-             </div>
-    
-        </div>
-        <div class="element">
-             <div class="lable">
-                 <h4>Phone Number(Manager)</h4>
-             </div>
-             <div class="lableInfo">
-                 <input type="text" name="phone_m">
-                 
-             </div>
-    
-        </div>
+        <form action="../php/update_managers.php?ID=<?php echo $row['id']?>" method="post">
+            <div class="userInformation">
+                <div class="userDetails">
         
-        
-                
-                 
-            </div>
-    
-    
-            <div class="userTransactions">
-                <div class="line"></div>
-                <h3>Owner Information</h3>
-    
-                <div class="element">
-                 <div class="lable">
-                     <h4>FirstName (Owner)</h4>
-                 </div>
-                 <div class="lableInfo">
-                     <input type="text" name="first_name_o">
-                     
-                 </div>
-    
-    
-                <div class="element">
-                 <div class="lable">
-                     <h4>Last Name (Owner)</h4>
-                 </div>
-                 <div class="lableInfo">
-                     <input type="text" name="last_name_o">
-                     
-                 </div>
-                 
-
-                 
-    
-    
-    
-    
-                </div>
-
-
-                <div class="element">
-                    <div class="lable">
-                        <h4>Email Address(Owner)</h4>
-                    </div>
-                    <div class="lableInfo">
-                        <input type="text" name="email_o">
-                        
-                    </div>
-                </div>
-
-                <div class="element">
-                    <div class="lable">
-                        <h4>Phone Number (Owner)</h4>
-                    </div>
-                    <div class="lableInfo">
-                        <input type="text" name="phone_o">
-                        
-                    </div>
-                </div>
-    
-    
-            </div>
-    
-            </div>
-
-
-            <div class="userTransactions">
-                <div class="line"></div>
-                <h3>Facility Information</h3>
-    
-                <div class="element">
-                 <div class="lable">
-                     <h4>Apartment Name</h4>
-                 </div>
-                 <div class="lableInfo">
-                     <input type="text" name="apartment_name">
-                     
-                 </div>
-    
-    
-                <div class="element">
-                 <div class="lable">
-                     <h4>Apartment Category</h4>
-                 </div>
-                 <div class="lableInfo">
-                     <input type="text" name="apartment_category">
-                     
-                 </div>
-                 
-
-                 
-    
-    
-    
-    
-                </div>
-
-
-                <div class="element">
-                    <div class="lable">
-                        <h4>GPS Code</h4>
-                    </div>
-                    <div class="lableInfo">
-                        <input type="text" name="gps_code">
-                        
-                    </div>
-                </div>
-
-                <div class="element">
-                    <div class="lable">
-                        <h4>Location</h4>
-                    </div>
-                    <div class="lableInfo">
-                        <input type="text" name="location">
-                        
-                    </div>
-                </div>
-                <div class="element">
-                    <div class="lable">
-                        <h4>Available Rooms</h4>
-                    </div>
-                    <div class="lableInfo">
-                        <input type="text" name="available_rooms">
-                        
-                    </div>
-                </div>
-    
-    
-            </div>
-    
-            </div>
-    
-     
-        </div>
-
-
-        <div class="updateButton">
-             <input type="submit" value="UPDATE" class="uBtn" name="update">
+                    <div class="element">
+                        <div class="lable">
+                            <h4>Manager Id</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="text" name="manager_id">
+                            
+                        </div>
             
- 
+                    </div>
+                    
+        
+                    <div class="element">
+                        <div class="lable">
+                            <h4>Manager's Name</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="text" name="full_name_manager">
+                            
+                        </div>
+        
+                    </div>
+        
+                    <div class="element">
+                    <div class="lable">
+                        <h4>Manager' Phone</h4>
+                    </div>
+                    <div class="lableInfo">
+                        <input type="text" name="phone_manager">
+                        
+                    </div>
+        
+                    </div>
+        
+                    <div class="element">
+                        <div class="lable">
+                            <h4>Manager's Email</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="email" name="email_manager">
+                            
+                        </div>
+        
+                    </div>
+
+
+                    <div class="element">
+                        <div class="lable">
+                            <h4>Owner's Name</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="text" name="full_name_owner">
+                            
+                        </div>
+        
+                    </div>
+        
+                    <div class="element">
+                    <div class="lable">
+                        <h4>Owner's Phone</h4>
+                    </div>
+                    <div class="lableInfo">
+                        <input type="text" name="phone_owner">
+                        
+                    </div>
+        
+                    </div>
+        
+                    <div class="element">
+                        <div class="lable">
+                            <h4>Owner's Email</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="email" name="email_owner">
+                            
+                        </div>
+        
+                    </div>
+
+
+                    <div class="element">
+                        <div class="lable">
+                            <h4>Property Name</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="text" name="property_name">
+                            
+                        </div>
+        
+                    </div>
+        
+                    <div class="element">
+                    <div class="lable">
+                        <h4>Property Type</h4>
+                    </div>
+                    <div class="lableInfo">
+                        <input type="text" name="property_type">
+                        
+                    </div>
+        
+                    </div>
+        
+                    <div class="element">
+                        <div class="lable">
+                        <h4>Property Location</h4>
+                        </div>
+                        <div class="lableInfo">
+                            <input type="text" name="property_location">
+                            
+                        </div>
+        
+                    </div>
+
+
+                    
+            
+                    
+                    
+                </div>
+        
+        
             </div>
-            <div class="uBtn" onclick="toggle_items('.cover2')">
-                <h6>CANCEL</h6>
+
+            <div class="updateButton">
+                <input type="submit" value="UPDATE" class="uBtn" name="update">
+                
     
                 </div>
-        </div>
+                <div class="uBtn two" onclick="toggle_items('.cover2')">
+                    <h6>CANCEL</h6>
+        
+                </div>
+            </div>
 
-</form>
+        </form>
     
-       </div>
+    </div>
 <div class = 'wrapper'>
 
         <main class='full-vhw bg'>
@@ -303,10 +239,10 @@ else{
 
                                <div class="element">
                                     <div class="lable">
-                                        <h4>FirstName (Manager)</h4>
+                                        <h4>Manager's Name</h4>
                                     </div>
                                     <div class="lableInfo">
-                                    <p><?php echo $row['first_name(manager)']?></p>
+                                    <p><?php echo $row['full_name_manager']?></p>
                                         
                                     </div>
 
@@ -314,155 +250,95 @@ else{
 
                                <div class="element">
                                 <div class="lable">
-                                    <h4>Last Name (Manager)</h4>
+                                    <h4>Manager' Phone</h4>
                                 </div>
                                 <div class="lableInfo">
-                                <p><?php echo $row['last_name(manager)']?></p>
+                                <p><?php echo $row['phone_manager']?></p>
                                     
                                 </div>
 
-                           </div>
+                               </div>
 
-                           <div class="element">
-                            <div class="lable">
-                                <h4>Email Address (Manager)</h4>
-                            </div>
-                            <div class="lableInfo">
-                            <p><?php echo $row['email(manager)']?></p>
-                                
-                            </div>
-
-                       </div>
-                       <div class="element">
-                            <div class="lable">
-                                <h4>Phone Number(Manager)</h4>
-                            </div>
-                            <div class="lableInfo">
-                            <p><?php echo $row['phone(manager)']?></p>
-                                
-                            </div>
-
-                       </div> 
-                                
-                           </div>
-
-
-                           <div class="userTransactions">
-                               <div class="line"></div>
-                               <h3>Owner Information</h3>
-
-                               <div class="userDetails">
-                 
-    
-                                   <div class="element">
-                                        <div class="lable">
-                                            <h4>FirstName (Owner)</h4>
-                                        </div>
-                                        <div class="lableInfo">
-                                        <p><?php echo $row['first_name(owner)']?></p>
-                                            
-                                        </div>
-    
-                                   </div>
-    
-                                   <div class="element">
+                               <div class="element">
                                     <div class="lable">
-                                        <h4>Last Name (Owner)</h4>
+                                    <h4>Manager's Email</h4>
+                                    </div>
+                                    <p><?php echo $row['email_manager']?></p>
+                                    
+                               </div>
+
+
+                               <div class="element">
+                                    <div class="lable">
+                                        <h4>Owner's Name</h4>
                                     </div>
                                     <div class="lableInfo">
-                                    <p><?php echo $row['last_name(owner)']?></p>
+                                    <p><?php echo $row['full_name_owner']?></p>
                                         
                                     </div>
-    
+
                                </div>
-    
+
                                <div class="element">
                                 <div class="lable">
-                                    <h4>Email Address (Owner)</h4>
+                                    <h4>Owners's Phone</h4>
                                 </div>
                                 <div class="lableInfo">
-                                <p><?php echo $row['email(owner)']?></p>
+                                <p><?php echo $row['phone_owner']?></p>
                                     
                                 </div>
-    
-                           </div>
-                           <div class="element">
-                                <div class="lable">
-                                    <h4>Phone Number(Owner)</h4>
-                                </div>
-                                <div class="lableInfo">
-                                <p><?php echo $row['phone(owner)']?></p>
-                                    
-                                </div>
-    
-                           </div> 
 
+                               </div>
+
+                               <div class="element">
+                                    <div class="lable">
+                                    <h4>Owner's Email</h4>
+                                    </div>
+                                    <p><?php echo $row['email_owner']?></p>
+                                    
+                               </div>
+
+
+
+                               <div class="element">
+                                    <div class="lable">
+                                        <h4>Property Name</h4>
+                                    </div>
+                                    <div class="lableInfo">
+                                    <p><?php echo $row['property_name']?></p>
+                                        
+                                    </div>
+
+                               </div>
+
+                               <div class="element">
+                                <div class="lable">
+                                    <h4>Property Type</h4>
+                                </div>
+                                <div class="lableInfo">
+                                <p><?php echo $row['property_type']?></p>
+                                    
+                                </div>
+
+                               </div>
+
+                               <div class="element">
+                                    <div class="lable">
+                                    <h4>Property Location</h4>
+                                    </div>
+                                    <p><?php echo $row['property_location']?></p>
+                                    
+                               </div>
+
+                    
+                                
+                           </div>
+  
+                           
        
                                </div>
  
-                           </div>
-
-                           <div class="userTransactions">
-                            <div class="line"></div>
-                            <h3>Facility Information</h3>
-
-                            <div class="userDetails">
-              
- 
-                                <div class="element">
-                                     <div class="lable">
-                                         <h4>Apartment Name</h4>
-                                     </div>
-                                     <div class="lableInfo">
-                                     <p><?php echo $row['apartment_name']?></p>
-                                         
-                                     </div>
- 
-                                </div>
- 
-                                <div class="element">
-                                 <div class="lable">
-                                     <h4>Apartment Category</h4>
-                                 </div>
-                                 <div class="lableInfo">
-                                 <p><?php echo $row['apartment_category']?></p>
-                                     
-                                 </div>
- 
-                            </div>
- 
-                            <div class="element">
-                             <div class="lable">
-                                 <h4>GPS Code</h4>
-                             </div>
-                             <div class="lableInfo">
-                             <p><?php echo $row['gps_code']?></p>
-                                 
-                             </div>
- 
-                        </div>
-                        <div class="element">
-                             <div class="lable">
-                                 <h4>Location</h4>
-                             </div>
-                             <div class="lableInfo">
-                             <p><?php echo $row['location']?></p>
-                                 
-                             </div>
- 
-                        </div> 
-
-                        <div class="element">
-                            <div class="lable">
-                                <h4>Available Rooms</h4>
-                            </div>
-                            <div class="lableInfo">
-                            <p><?php echo $row['available_rooms']?></p>
-                                
-                            </div>
-
-                       </div> 
-
+                   
     
                             </div>
 

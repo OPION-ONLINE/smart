@@ -4,6 +4,8 @@
     <?php require_once $environment_link . "templates/components/head.php";?>
     <link rel = 'stylesheet' href = 'styles/pages/homepage/homepage.css'>
     <link rel = 'stylesheet' href = 'styles/pages/facility_page/index.css'>
+    <link rel = 'stylesheet' href = 'styles/components/footer.css'>
+
 
 </head>
 <body>
@@ -21,3 +23,5 @@
     
 </body>
 </html>
+
+ 

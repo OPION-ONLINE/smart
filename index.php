@@ -2,8 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-// require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
+ require_once $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/templates/configuration.php';
+//require_once $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/templates/configuration.php';
 
 // $environment_link = str_replace('/opt/lampp/htdocs/', '', $environment_link);
 
@@ -18,7 +18,9 @@ $url .= $_SERVER['HTTP_HOST'];
 $url .= $_SERVER['REQUEST_URI'];
 
 $path = parse_url($url, PHP_URL_PATH);
-$path = str_replace('/me/newscratch', '', $path);
+//$path = str_replace('/me/newscratch', '', $path);
+$path = str_replace('/projects/hcube/smart', '', $path);
+
 
 
 

@@ -1,3 +1,5 @@
+<?php require_once "templates/session.php"?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,7 +88,7 @@
 
                     
                     <?php
-                        $conn = mysqli_connect("localhost", "root", "", "opion"); 
+                        $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
                         $sql = "SELECT * FROM `passwords`";
                         $result = $conn->query($sql);
 

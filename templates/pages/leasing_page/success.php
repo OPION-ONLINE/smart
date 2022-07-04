@@ -18,8 +18,8 @@
 
     <div class="container">
         <div class="navigation">
-                 <h4 onclick="location.href='../index.html'">BACK TO HOMEPAGE</h4>
-                <h4 onclick="location.href='../search.html'">SEARCH A PROPERTY</h4>
+                 <h4 onclick="location.href='../../../'">BACK TO HOMEPAGE</h4>
+                <h4 onclick="location.href='../../../'">SEARCH A PROPERTY</h4>
              
         </div>
 

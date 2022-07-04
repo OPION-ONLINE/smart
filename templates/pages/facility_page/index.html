@@ -1,7 +1,4 @@
-<?php
-     
-
-?>
+ 
 
 <div class="container">
     <div class="sub_container">
@@ -17,9 +14,11 @@
 
             <div class="filter_navigation">
                 <select>
-                    <option>NAME</option>
-                    <option>DATE</option>
-                    <option>LOCATION</option>
+                    <option>SORT BY</option>
+                    <option>HOSTELS</option>
+                    <option>HOMESTELS</option>
+                    <option>HOTEL</option>
+ 
                 </select>
                 <div class="featured_button">
                      <h6>FEATURED</h6>
@@ -64,15 +63,15 @@
 
                     <?php
                         foreach($result_array as $facility => $values) {
-                            facilitycard($values['facility_name'], $values['facility_location'], $values['facility_contact'], 'images/bed.jpg', $values['facility_type'], $values['rating']);
+                            facilitycard($values['facility_name'], $values['facility_location'], $values['facility_state'], 'images/bed.jpg', $values['facility_type'], $values['rating']);
                     }
                      ?>
                 </div>
               
 
-            </div>
-
         </div>
+
     </div>
+</div>
     
  

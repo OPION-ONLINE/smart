@@ -1,4 +1,6 @@
-<?php
+<?php require_once "templates/session.php"?>
+
+<?php 
 
 
 ini_set('display_errors', 1);
@@ -7,7 +9,7 @@ error_reporting(E_ALL);
 
 if(isset($_GET['ID'])){
 
-    $conn = mysqli_connect("localhost", "root", "", "opion"); 
+    $conn = mysqli_connect("localhost", "root", "", "efacility5"); 
     
 
 

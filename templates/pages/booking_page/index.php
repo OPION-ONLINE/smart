@@ -2,7 +2,9 @@
 session_start();
 
 if( !isset($_GET['facility_name']) || !isset($_GET['facility_type']) || !isset($_GET['facility_location']) || !isset($_SESSION['LOGIN'])) {
+
     header('location: signup');
+
 }
 
 $facility_name = $_GET['facility_name'];

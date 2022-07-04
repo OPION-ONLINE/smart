@@ -182,6 +182,7 @@ plan_info_one = '3 year', plan_info_two = '8000';
 insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
 plan_info_one = '4 year', plan_info_two = '12000';
 
+<<<<<<< HEAD
 insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
 plan_info_one = '3', plan_info_two = '30', price = 5000;
 
@@ -198,3 +199,44 @@ insert into plans set facility_name = "Good Man Facility", facility_type = "hote
 plan_info_one = '3', plan_info_two = '30', price = 9000;
 
 
+=======
+
+
+
+
+
+
+create table passwords (
+    id int not null auto_increment primary key,
+    `role` varchar(200) not null,
+    `password` varchar(200) not null
+ )default charset 'utf8';
+
+
+
+
+create table permissions (
+    id int not null auto_increment primary key,
+    admin_name varchar(200) not null,
+    `role` varchar(200) not null
+ )default charset 'utf8';
+
+
+
+create table managers(
+    id int not null auto_increment primary key,
+    `full_name_manager` varchar(100) not null,
+    `phone_manager` varchar(200) not null,
+    `email_manager` varchar(200) not null,
+
+    `full_name_owner` varchar(100) not null,
+    `phone_owner` varchar(200) not null,
+    `email_owner` varchar(200) not null,
+ 
+    `property_name` varchar(200) not null,
+    `property_type` varchar(200) not null,
+    `property_location` varchar(200) not null
+     
+
+) default charset 'utf8';
+>>>>>>> 1c01d6605bbddc2aa8eb18b1c7c481d9bad2b59d

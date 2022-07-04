@@ -1,6 +1,6 @@
 <?php
 
-function facilitycard($facility_name, $facility_loc, $facility_price, $facility_image, $type, $rating) {
+function facilitycard($facility_name, $facility_loc, $facility_state, $facility_image, $type, $rating) {
     echo "
     <div class='card' onclick = 'location.href = \"booking?facility_name=$facility_name&facility_type=$type&facility_location=$facility_loc\"'>
     <div class='image'>
@@ -15,7 +15,7 @@ function facilitycard($facility_name, $facility_loc, $facility_price, $facility_
         </div>
         <div class='price'>
             <div class='box'>
-                <h6>$facility_price <br><span>GHC</span></h6>
+                <h6>$facility_state</h6>
             </div>
 
         </div>

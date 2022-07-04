@@ -1,9 +1,11 @@
+ 
 <?php
 
-$result_array = ['user_role' => 'super_admininstrator'];
 
-session_start();
+ 
+//$result_array = ['user_role' => 'super_admininstrator'];
 
+ 
 $_SESSION['user_role'] = htmlspecialchars($result_array['user_role']);
 
 ?>
@@ -44,7 +46,7 @@ $_SESSION['user_role'] = htmlspecialchars($result_array['user_role']);
                 </form>
             </div>
 
-            <div class="options" onclick="location.href='../index.html'">
+            <div class="options" onclick="location.href='../'">
                 <h6> back to homepage</h6>
             </div>
         </div>

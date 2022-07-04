@@ -1,0 +1,61 @@
+<?php
+
+
+
+
+$manger_id = $_POST['manager_id'];
+
+
+$conn = new mysqli('localhost', 'root', '', 'opion');
+
+
+$ID = mysqli_real_escape_string($conn, $_GET['ID']);
+
+
+
+
+ 
+if ($conn->connect_error){
+    die('Connection Failed : '.$conn->connect_error);
+}
+else
+{
+    
+    
+
+    if(isset($_POST['update'])){
+        if ($manger_id != null){
+
+            $query = "UPDATE `lease` SET id = $manger_id WHERE id = $ID";
+            $query_run = mysqli_query($conn, $query);
+
+            if($query_run){   
+                echo '<script type="text/javascript"> 
+                
+                        alert("Data Updated")
+            
+                      </script>';
+            }
+
+            else{
+
+                echo '<script type="text/javascript"> 
+
+                        alert("Data Not Updated, Something went wrong")
+            
+                      </script>';
+
+
+            }
+            
+
+     
+        }
+
+        else{
+            echo "field is empty";
+        }
+    }
+
+
+}

@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php require_once "templates/session.php"?>
+
+ 
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

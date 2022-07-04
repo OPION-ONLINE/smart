@@ -39,7 +39,8 @@
     font-weight: 200;
     font-size: 19px;
     color: black;
-}
+    padding-left: 5px;
+ }
 
 .filter_navigation{
     width: calc(100% - 160px);
@@ -149,27 +150,27 @@ select{
 }
 
 .box{
-    height: 50px;
+    height: 20px;
     width: 50px;
-    border: 2px solid var(--secondary-color);
+    border: 2px solid rgb(250, 93, 93);
     display: flex;
     align-items: center;
-    margin-top: -7px;
+    margin-top: -37px;
     justify-content: center;
     border-radius: 4px;
 }
 
 .box h6{
-    color: rgb(233, 61, 49);
+    color: rgb(250, 93, 93);
     font-size: 14px;
     font-weight: 300;
-}
+ }
 
 .box span{
-    color: black;
+    color: rgb(250, 93, 93);
     font-size: 13px;
     font-weight: 400;
-}
+ }
 
 
 .sub{
@@ -178,7 +179,7 @@ select{
     align-items: center;
     font-size: 14px;
     font-weight: 300;
-    color: rgb(233, 61, 49);
+    color: rgb(250, 93, 93);
 
 }
 
@@ -199,7 +200,7 @@ select{
 }
 
 .rating i{
-    color: gold;
+    color: rgb(250, 143, 93);
     margin-top: -5px;
     padding-right: 5px;
     
