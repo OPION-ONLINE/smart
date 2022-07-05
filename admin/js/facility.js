@@ -14,6 +14,9 @@ let selected = {
     floors: {},
     rooms: {},
     room_type: '',
+    plans: {},
+    plan: '',
+    gender: '',
 }
 
 let tracker = {
@@ -21,6 +24,7 @@ let tracker = {
     start_date: '1888-11-11',
     end_date:   `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`,
     position: 'root',
+    search_id: 0,
 }
 
 let entry_table = select('.table'); // select facility table
@@ -60,6 +64,10 @@ function display_facilities(data) {
         entry_table.appendChild(table_entry);
         
     });
+}
+
+function show_more() {
+    fetch_facilities(10);
 }
 
 function fetch_facilities(limit) {
@@ -131,6 +139,10 @@ function close_btn() {
     else if( tracker.position == 'room') {
         deactivateAll('.form');
         display_room();
+    }
+    else if( tracker.position == 'plan') {
+        deactivateAll('.form');
+        display_plan();
     }
 }
 

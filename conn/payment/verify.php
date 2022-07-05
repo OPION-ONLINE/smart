@@ -1,6 +1,8 @@
 <?php
 
 require_once "../conn.php";
+require_once "../backend/.php";
+$dataman = new Dataman();
 
 $reference            = $_POST['reference'];
 $username             = $_POST['username'];
@@ -18,6 +20,13 @@ $amount_paid          = $_POST['amount_paid'];
 
 // echo "$username, $useremail, $usernumber, $facility_name, $facility_type, $facility_location, $facility_floor, $room_type, $reference, $amount_paid";
 
+// if($dataman->make_booking($username, $useremail, $usernumber, $facility_name, $facility_type, $facility_location, $selected_block,  $selected_floor, $selected_room, $selected_gender, $reference, $amount_paid)) {
+//   // echo "booking made";
+// }
+// else {
+//   echo "not made";
+//   exit();
+// }
 
 
 if ($reference == '') {

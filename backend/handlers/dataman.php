@@ -6,7 +6,7 @@ declare(strict_types = 1);
 $hostname = 'localhost';
 $username = 'root';
 $password = '';
-$database = 'efacility4';
+$database = 'efacility5';
 $dbconnection = new mysqli($hostname, $username, $password, $database); //connect to the database
 
 //return error if failed to connect to the database
@@ -177,9 +177,9 @@ class Dataman {
 
         global $dbconnection;
 
-        $sql           = "select * from booking where (user_name like ? or user_email like ? or user_number like ? or facility_name like ? or facility_type like ? or facility_location like ? or facility_floor like ? or room_type like ? or booking_id like ? or amount_paid like ? or payment_verification like ? or booking_state like ? or booking_date like ?) and id > ? and booking_date >= ? and booking_date <= ? limit ?;";
+        $sql           = "select * from booking where (user_name like ? or user_email like ? or user_number like ? or facility_name like ? or facility_type like ? or facility_location like ? or facility_floor like ? or room_type like ? or booking_id like ? or amount_paid like ? or gender like ? or payment_verification like ? or booking_state like ? or booking_date like ?) and id > ? and booking_date >= ? and booking_date <= ? limit ?;";
         $command       = $dbconnection->prepare($sql);
-        $command->bind_param('ssssssssissssissi', $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $start_id, $start_date, $end_date, $limit);
+        $command->bind_param('ssssssssisssssissi', $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query, $search_query,  $search_query, $search_query, $search_query, $start_id, $start_date, $end_date, $limit);
         $command->execute();
 
         $result_array = array();
@@ -377,7 +377,7 @@ class Dataman {
         
     }
 
-    function make_booking(string $username, string $useremail, string $usernumber, string $facility_name, string $facility_type, string $facility_location, string $facility_floor, string $room_type, string $booking_id, int $amount_paid) {
+    function make_booking(string $username, string $useremail, string $usernumber, string $facility_name, string $facility_type, string $facility_location, string $facility_block, string $facility_floor, string $room_type, string $gender, string $booking_id, int $amount_paid) {
         global $dbconnection;
         $username               = self::clean_param($username);
         $useremail              = self::clean_param($useremail);
@@ -389,10 +389,10 @@ class Dataman {
         $room_type              = self::clean_param($room_type);
         $booking_id             = self::clean_param($booking_id);
 
-        $sql = "INSERT INTO booking SET user_name = ?, user_email = ?, user_number = ?, facility_name = ?, facility_type = ?, facility_location = ?, facility_floor = ?, room_type = ?, booking_id = ?, amount_paid = ?;";
+        $sql = "INSERT INTO booking SET user_name = ?, user_email = ?, user_number = ?, facility_name = ?, facility_type = ?, facility_location = ?, facility_block = ?, facility_floor = ?, room_type = ?, gender = ? booking_id = ?, amount_paid = ?;";
 
         $sql = $dbconnection->prepare($sql);
-        $sql->bind_param('sssssssssi', $username, $useremail, $usernumber, $facility_name, $facility_type, $facility_location, $facility_floor, $room_type, $booking_id, $amount_paid);
+        $sql->bind_param('sssssssssssi', $username, $useremail, $usernumber, $facility_name, $facility_type, $facility_location, $facility_block, $facility_floor, $room_type, $facility_gener, $booking_id, $amount_paid);
         
         if($sql->execute()) {
             $sql->close();

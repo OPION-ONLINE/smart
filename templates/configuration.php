@@ -1,2 +1,2 @@
 <?php
-$environment_link = $_SERVER['DOCUMENT_ROOT'] . '/projects/hcube/smart/';
+$environment_link = $_SERVER['DOCUMENT_ROOT'] . '/me/newscratch/';

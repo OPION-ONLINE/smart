@@ -55,7 +55,7 @@
                 </div>
 
                 <div class = 'tool-bar flex-row flex-around flex-wrap'>
-                    <div class = 'add-btn flex-row flex-center' onclick = 'add_new_facility_btn();'>
+                    <div class = 'add-btn flex-row flex-center' onclick = 'open_add()'>
                         <div class = 'icon'>
                             <i class = 'bi bi-plus-circle'></i>
                         </div>
@@ -169,7 +169,7 @@
                             <input flex-col type = 'number' name = 'rating' placeholder="e.g 4.5">
                         </div>
 
-                        <div class = 'input flex-col full-w btn flex-center' style = 'background: #222; color: #fff; margin-top: 3rem;' onclick = 'fetch_facility();'>
+                        <div class = 'input flex-col full-w btn flex-center view-btn' style = 'background: #222; color: #fff; margin-top: 3rem;' onclick = 'fetch_facility();'>
                             View Blocks
                         </div>
 
@@ -257,7 +257,7 @@
 
 
                     <!-- ADD PLAN FORM -->
-                    <div class = 'form floor p-rel full-hw  flex-col flex-center'>
+                    <div class = 'form plan p-rel full-hw  flex-col flex-center'>
 
                         <h2>ADD PLAN</h2>
 
@@ -481,5 +481,7 @@
     <script src = 'js/crud_block.js'></script>
     <script src = 'js/crud_floor.js'></script>
     <script src = 'js/crud_room.js'></script>
+    <script src = 'js/crud_plan.js'></script>
+    <script src = 'js/search.js'></script>
 </body>
 </html>

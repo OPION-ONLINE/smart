@@ -65,7 +65,7 @@ function display_room() {
     
             preview_tab.querySelector('.tab-value').innerHTML = room;
             preview_tab.querySelector('.action-btn:first-of-type').setAttribute('onclick', `edit_room("${room}")`);
-            preview_tab.querySelector('.action-btn:last-of-type').setAttribute('onclick', `open_plans("${room}")`)
+            preview_tab.querySelector('.action-btn:last-of-type').setAttribute('onclick', `open_plans("${room}", "${selected.rooms[room].gender}")`)
     
             preview_form.innerHTML += preview_tab.outerHTML;
     
@@ -98,6 +98,8 @@ function open_room() {
 
     select('.room.btns .btn').setAttribute('onclick', 'add_room()');
     select('.room.btns .btn').innerHTML = 'ADD ROOM';
+    select('.floor h2').innerHTML = 'ADD ROOM';
+
     tracker.position = 'room';
 }
 
@@ -244,12 +246,13 @@ function update_room(room, gender) {
                         icon: 'success',
                         title: 'ROOM UPDATED SUCCESSFULLY'
                     }).then(() => {
+                        selected.rooms[new_room] = selected.rooms[room];
+                        delete selected.floors[room];
+                        selected.rooms[new_room].gender = new_gender;
                         close_btn();
                     })
 
-                    selected.rooms[new_room] = selected.rooms[room];
-                    delete selected.floors[room];
-                    selected.rooms[new_room].gender = new_gender;
+
                 }
                 else {
                     Swal.fire({

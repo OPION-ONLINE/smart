@@ -91,6 +91,8 @@ function open_floor() {
 
     select('.floor.btns .btn').setAttribute('onclick', 'add_floor()');
     select('.floor.btns .btn').innerHTML = 'ADD FLOOR';
+    select('.floor h2').innerHTML = 'ADD FLOOR';
+
     tracker.position = 'floor';
 }
 

@@ -338,7 +338,7 @@
 @media (min-width: 840px) {
     .image-box {
         position: relative;
-        height: auto;
+        height: 65vh;
         width: auto;
     }
 

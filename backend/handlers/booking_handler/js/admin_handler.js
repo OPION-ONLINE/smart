@@ -5,7 +5,9 @@ let booking_object = {
     facility_name:              '',
     facility_type:              '',
     facility_location:          '',
+    facility_block:             '',
     facility_floor:             '',
+    facility_gender:             '',
     room_type:                  '',
     booking_id:                 '',
     amount_paid:                '',
@@ -60,7 +62,9 @@ display = {
     name: select('.fname'),
     type: select('.ftype'),
     location: select('.floc'),
+    block: select('.fblock'),
     floor: select('.ffloor'),
+    gender: select('.fgender'),
     room: select('.froom'),
     booking_id: select('.bid'),
     booking_state: select('.bstate'),
@@ -87,8 +91,10 @@ function edit_booking(booking_id) {
                     facility_name:                booking.facility_name,
                     facility_type:                booking.facility_type,
                     facility_location:            booking.facility_location,
+                    facility_block:               booking.facility_block,
                     facility_floor:               booking.facility_floor,
                     room_type:                    booking.room_type,
+                    gender:                    booking.gender,
                     booking_id:                   booking.booking_id,
                     amount_paid:                  booking.amount_paid,
                     payment_verification:         booking.payment_verification,
@@ -100,8 +106,10 @@ function edit_booking(booking_id) {
             display.name.innerHTML              = booking_object.facility_name;
             display.type.innerHTML              = booking_object.facility_type;
             display.location.innerHTML          = booking_object.facility_location;
+            display.block.innerHTML             = booking_object.facility_block;
             display.floor.innerHTML             = booking_object.facility_floor;
             display.room.innerHTML              = booking_object.room_type;
+            display.gender.innerHTML              = booking_object.gender;
             display.booking_id.innerHTML        = booking_object.booking_id;
             display.booking_state.innerHTML     = booking_object.booking_state;
             display.scheduled_date.innerHTML    = booking_object.booking_date;
@@ -120,6 +128,12 @@ function approve_booking() {
     if(booking_object.payment_verification == 'unverified') {
         verify_payment(booking_object.booking_id);
         location.href = 'verify.html?booking_id='+ booking_object.booking_id;
+    }
+    else {
+        Swal.fire({
+            icon: 'success',
+            title: 'TRANSACTION VERIFIED',
+          })
     }
 }
 

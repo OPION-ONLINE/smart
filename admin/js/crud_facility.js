@@ -56,6 +56,94 @@ function activate_facility() {
     tracker.position = 'root';
 }
 
+function open_add() {
+    deactivateAll('.form');
+    deactivateAll('.btns');
+    activateAll('.facilities');
+    empty_input();
+    deactivate('.delete-btn');
+    
+    select('.facilities.btns .btn').setAttribute('onclick', 'add_facility()');
+    select('.facilities.btns .btn').innerHTML = 'ADD FACILITY';
+    select('.view-btn').setAttribute('style', 'display: none');
+    activate('.container');
+    tracker.position = 'root';
+}
+
+function add_facility() {
+    let facility_name   =          select('input[name = "facility_name"]').value.toLowerCase();
+    let facility_location   =      select('input[name = "facility_location"]').value.toLowerCase();
+    let facility_contact  =        select('input[name = "facility_contact"]').value;
+    let facility_description  =    select('textarea[name = "facility_description"]').value.toLowerCase()
+    let facility_state  =          select('select[name = "facility_state"]').value.toLowerCase();
+    let facility_type  =          select('select[name = "facility_type"]').value.toLowerCase();
+    let cover_image  =             select('.cover_image').src.replaceAll(path + 'image_server/', '');
+    console.log(cover_image);
+    let rating  =                  select('input[name = "rating"]').value.toLowerCase()
+
+    let empty = (
+        facility_name.replaceAll(' ', '').length <= 0 ||
+        facility_location.replaceAll(' ', '').length <= 0 ||
+        facility_contact.replaceAll(' ', '').length <= 0 ||
+        facility_description.replaceAll(' ', '').length <= 0 ||
+        facility_state.replaceAll(' ', '').length <= 0 ||
+        cover_image.replaceAll(' ', '').length <= 0 ||
+        rating.replaceAll(' ', '').length <= 0
+    );
+
+    if(!empty) {
+        $.ajax({
+            method: 'POST',
+            url: 'php/add_facility.php',
+            data: {
+                facility_name:          facility_name, 
+                facility_location:      facility_location,
+                facility_type:          facility_type,
+                facility_contact:       facility_contact,
+                facility_description:   facility_description,
+                facility_state:         facility_state,
+                cover_image:            cover_image, 
+                rating:                 rating, 
+                
+
+            },
+            success: (data) => {
+                console.log(data);
+                if(data == 'success'){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'FACILITY UPDATED SUCCESSFULLY'
+                    })
+
+                    selected.facility_name        = facility_name;
+                    selected.facility_location    = facility_location;
+                    selected.facility_description = facility_description;
+                    selected.facility_contact     = facility_contact;
+                    selected.facility_state       = facility_state;
+                    selected.cover_image          = cover_image;
+                    selected.rating               = rating;
+
+                    select('.view-btn').setAttribute('style', 'display: flex;');
+                }
+                else {
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'FACILITY ALREADY EXISTS',
+                        text: 'If you cant access facility, please contact Opion tech support',
+                    })
+                }
+            }
+        })
+    }
+    else {
+        Swal.fire({
+            icon: 'error',
+            title: 'EMPTY INPUT',
+            text: 'Please type in all details and try again',
+        })
+    }
+}
+
 function update_facility() {
 
     let facility_name   =          select('input[name = "facility_name"]').value.toLowerCase();

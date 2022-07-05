@@ -1,71 +1,72 @@
 
-function open_rooms(floor) {
-    selected.floor_name = floor;
+function open_plans(plan, gender) {
+    selected.plan = plan;
+    selected.gender = gender;
 
     deactivateAll('.form');
     deactivateAll('.btns');
     activateAll('.preview');
 
-    fetch_room();
+    fetch_plan();
     
 }
 
-function fetch_room() {
-
+function fetch_plan() {
+    console.log(selected.gender);
     $.ajax({
         method: 'POST',
-        url: 'php/fetch_room.php',
+        url: 'php/fetch_plan.php',
         data: {
             facility_name:          selected.facility_name, 
             facility_type:          selected.facility_type, 
             facility_location:      selected.facility_location,
             facility_block:         selected.facility_block,
             floor_name:             selected.floor_name,
+            room_type:              selected.room_type,
+            gender:                 selected.gender,
         },
         success: (data) => {
             console.log(data);
             if(data == 'empty') {
-                selected.rooms = {};
-                display_room();
+                selected.plans = {};
+                display_plan();
                 return false;
             }
             else {
-                $.each(data, (key, room) => {
-                    if( !(room.room_type in selected.rooms)) 
-                        selected.rooms[room.room_type] = {
-                            room_count:             room.room_count,
-                            gender:                 room.gender,
-                            outer_image:            room.outer_image,
-                            room_image:             room.room_image,
-                            lavatory_image:         room.lavatory_image,
+                $.each(data, (key, plan) => {
+                    if( !(plan.plan_info_one in selected.plans)) 
+                        selected.plans[plan.plan_info_one] = {
+                            plan_info_one:             plan.plan_info_one,
+                            plan_info_two:                 plan.plan_info_two,
+                            price:            plan.price
                         };
                 })
-                display_room();
+                display_plan();
             }
                         
         },
     });
 }
 
-function display_room() {
-    let rooms = Object.keys(selected.rooms);
+function display_plan() {
+    let plans = Object.keys(selected.plans);
 
 
     let preview_form = select('.form.preview');
-    preview_form.innerHTML = '<h2>ROOMS\' LIST</h2>';
+    preview_form.innerHTML = '<h2>PLANS\' LIST</h2>';
 
     deactivateAll('.form');
     deactivateAll('.btns');
     activateAll('.preview');
 
-    if(rooms.length > 0) {
+    if(plans.length > 0) {
 
-        rooms.forEach( room => {
+        plans.forEach( plan => {
             let preview_tab = tab;
     
-            preview_tab.querySelector('.tab-value').innerHTML = room;
-            preview_tab.querySelector('.action-btn:first-of-type').setAttribute('onclick', `edit_room("${room}")`);
-            preview_tab.querySelector('.action-btn:last-of-type').setAttribute('onclick', `open_plans("${room}")`)
+            preview_tab.querySelector('.tab-value').innerHTML = plan;
+            preview_tab.querySelector('.action-btn:first-of-type').setAttribute('onclick', `edit_plan("${plan}")`);
+            preview_tab.querySelector('.action-btn:last-of-type').setAttribute('onclick', `close_btn();`)
     
             preview_form.innerHTML += preview_tab.outerHTML;
     
@@ -81,63 +82,57 @@ function display_room() {
     deactivate('.delete-btn');
     select('.delete-btn').setAttribute('onclick', ``);
 
-    select('.preview.btns .btn').innerHTML = 'ADD ROOM';
-    select('.preview.btns .btn').setAttribute('onclick', 'open_room()');
+    select('.preview.btns .btn').innerHTML = 'ADD PLAN';
+    select('.preview.btns .btn').setAttribute('onclick', 'open_plan()');
 
     activate('.container');
-    tracker.position = 'floor';
-
-}
-
-function open_room() {
-    select('.form.preview').setAttribute('style', '');
-    deactivateAll('.form');
-    deactivateAll('.btns');
-    activateAll('.room');
-
-    select('.room.btns .btn').setAttribute('onclick', 'add_room()');
     tracker.position = 'room';
+
 }
 
-function edit_room(room) {
+function open_plan() {
+    select('.form.preview').setAttribute('style', '');
+    deactivateAll('.form');
+    deactivateAll('.btns');
+    activateAll('.plan');
+
+    select('.plan.btns .btn').setAttribute('onclick', 'add_plan()');
+    select('.plan.btns .btn').innerHTML = 'ADD PLAN';
+    select('.plan h2').innerHTML = 'ADD PLAN';
+    tracker.position = 'plan';
+}
+
+function edit_plan(plan) {
 
     select('.form.preview').setAttribute('style', '');
     deactivateAll('.form');
     deactivateAll('.btns');
-    activateAll('.room');
+    activateAll('.plan');
 
-    select('input[name = "room_type"]').value = room;
-    select('input[name = "room_count"]').value = selected.rooms[room].room_count;                 
-    select('select[name = "gender"] option[selected]').innerHTML    = selected.rooms[room].gender;                 
-    select('.outer_image').src =       path + 'image_server/' + selected.rooms[room].outer_image;
-    select('.room_image').src  =       path + 'image_server/' + selected.rooms[room].room_image;
-    select('.lavatory_image').src  =   path + 'image_server/' + selected.rooms[room].lavatory_image;
+    select('input[name = "plan_info_one"]').value = plan;
+    select('input[name = "plan_info_two"]').value = selected.plans[plan].plan_info_two;                 
+    select('input[name = "price"]').value    = selected.plans[plan].price;                 
 
-    select('.room.btns .btn').setAttribute('onclick', `update_room("${room}", "${selected.rooms[room].gender}")`);
-    select('.room.btns .btn').innerHTML = 'UPDATE ROOM';
-    select('.room h2').innerHTML = 'UPDATE ROOM';
+
+    select('.plan.btns .btn').setAttribute('onclick', `update_plan("${plan}", "${selected.plans[plan].plan_info_two}")`);
+    select('.plan.btns .btn').innerHTML = 'UPDATE PLAN';
+    select('.plan h2').innerHTML = 'UPDATE PLAN';
 
     activate('.delete-btn');
-    select('.delete-btn').setAttribute('onclick', `delete_room("${room}", "${selected.rooms[room].gender}")`);
+    select('.delete-btn').setAttribute('onclick', `delete_plan("${plan}", "${selected.plans[plan].plan_info_two}")`);
 
-    tracker.position = 'room';
+    tracker.position = 'plan';
 }
 
-function add_room() {
-    let room = select('input[name = "room_type"]').value.toUpperCase();
-    let room_count = select('input[name = "room_count"]').value.toUpperCase();
-    let gender = select('select[name = "gender"]').value.toUpperCase();
-    let outer_image = select('.outer_image').src.replaceAll(path + 'image_server/', '');
-    let room_image = select('.room_image').src.replaceAll(path + 'image_server/', '');
-    let lavatory_image = select('.lavatory_image').src.replaceAll(path + 'image_server/', '');
+function add_plan() {
+    let plan_info_one = select('input[name = "plan_info_one"]').value.toUpperCase();
+    let plan_info_two = select('input[name = "plan_info_two"]').value.toUpperCase();
+    let price = select('input[name = "price"]').value.toUpperCase();
 
     let empty = (
-        room.replaceAll(' ', '').length <= 0                                      ||
-        room_count.replaceAll(' ', '').length <= 0                                ||
-        gender.replaceAll(' ', '').length <= 0                                    ||
-        outer_image.replaceAll(' ', '').length == 'upload_image.jpg'              ||
-        room_image.replaceAll(' ', '').length == 'upload_image.jpg'               ||
-        lavatory_image.replaceAll(' ', '').length == 'upload_image.jpg'          
+        plan_info_one.replaceAll(' ', '').length <= 0                                      ||
+        plan_info_two.replaceAll(' ', '').length <= 0                                ||
+        price.replaceAll(' ', '').length <= 0                                          
                    
     );
 
@@ -145,19 +140,18 @@ function add_room() {
 
         $.ajax({
             method: 'POST',
-            url: 'php/add_room.php',
+            url: 'php/add_plan.php',
             data: {
                 facility_name:          selected.facility_name, 
                 facility_type:          selected.facility_type, 
                 facility_location:      selected.facility_location,
                 facility_block:         selected.facility_block,
                 floor_name:             selected.floor_name,
-                room_type:              room,
-                room_count:             room_count,
-                gender:                 gender,
-                outer_image:            outer_image,
-                room_image:             room_image,
-                lavatory_image:         lavatory_image,
+                room_type:              selected.room_type,
+                gender:                 selected.gender,
+                plan_info_one:             plan_info_one,
+                plan_info_two:                 plan_info_two,
+                price:            price
 
             },
             success: (data) => {
@@ -165,21 +159,19 @@ function add_room() {
                 if(data == 'success'){
                     Swal.fire({
                         icon: 'success',
-                        title: 'ROOM ADDED SUCCESSFULLY'
+                        title: 'plan ADDED SUCCESSFULLY'
                     })
 
-                    selected.rooms[room_type] = {
-                        room_count:             room_count,
-                        gender:                 gender,
-                        outer_image:            outer_image,
-                        room_image:             room_image,
-                        lavatory_image:         lavatory_image,
+                    selected.plans[plan_info_one] = {
+                        plan_info_two:             plan_info_two,
+                        plan_info_one:                 plan_info_one,
+                        price:            price
                     };
                 }
                 else {
                     Swal.fire({
                         icon: 'info',
-                        title: 'ROOM ALREADY EXISTS',
+                        title: 'plan ALREADY EXISTS',
                         text: 'If you cant access block, please contact Opion tech support',
                     })
                 }
@@ -197,42 +189,35 @@ function add_room() {
 
 }
 
-function update_room(room, gender) {
+function update_plan(plan, plan_two) {
 
-    let new_room = select('input[name = "room_type"]').value.toUpperCase();
-    let room_count = select('input[name = "room_count"]').value.toUpperCase();
-    let new_gender = select('select[name = "gender"]').value.toUpperCase();
-    let outer_image = select('.outer_image').src.replaceAll(path + 'image_server/', '');
-    let room_image = select('.room_image').src.replaceAll(path + 'image_server/', '');
-    let lavatory_image = select('.lavatory_image').src.replaceAll(path + 'image_server/', '');
+    let new_plan_info_one = select('input[name = "plan_info_one"]').value.toUpperCase();
+    let new_plan_info_two = select('input[name = "plan_info_two"]').value.toUpperCase();
+    let price = select('input[name = "price"]').value.toUpperCase();
 
     let empty = (
-        room.replaceAll(' ', '').length <= 0                                      ||
-        room_count.replaceAll(' ', '').length <= 0                                ||
-        gender.replaceAll(' ', '').length <= 0                                    ||
-        outer_image.replaceAll(' ', '').length == 'upload_image.jpg'              ||
-        room_image.replaceAll(' ', '').length == 'upload_image.jpg'               ||
-        lavatory_image.replaceAll(' ', '').length == 'upload_image.jpg'          
+        new_plan_info_one.replaceAll(' ', '').length <= 0                                      ||
+        new_plan_info_two.replaceAll(' ', '').length <= 0                                ||
+        price.replaceAll(' ', '').length <= 0         
                    
     );
     if(!empty) {
         $.ajax({
             method: 'POST',
-            url: 'php/update_room.php',
+            url: 'php/update_plan.php',
             data: {
                 facility_name:          selected.facility_name, 
                 facility_type:          selected.facility_type, 
                 facility_location:      selected.facility_location,
                 facility_block:         selected.facility_block,
                 floor_name:             selected.floor_name,
-                room_type:              new_room,
-                old_room:               room,
-                room_count:             room_count,
-                old_gender:             gender,
-                gender:                 new_gender,
-                outer_image:            outer_image,
-                room_image:             room_image,
-                lavatory_image:         lavatory_image,
+                room_type:              selected.room_type,
+                plan_info_one:          new_plan_info_one,
+                plan_info_two:                 new_plan_info_two,
+                price:            price,
+                old_plan_one:           plan,
+                old_plan_two:           plan_two,
+                gender:         selected.gender,
 
             },
             success: (data) => {
@@ -240,19 +225,21 @@ function update_room(room, gender) {
                 if(data == 'success'){
                     Swal.fire({
                         icon: 'success',
-                        title: 'ROOM UPDATED SUCCESSFULLY'
+                        title: 'plan UPDATED SUCCESSFULLY'
                     }).then(() => {
                         close_btn();
                     })
 
-                    selected.rooms[new_room] = selected.rooms[room];
-                    delete selected.floors[room];
-                    selected.roooms[new_room].gener = new_gender;
+                    selected.plans[new_plan_info_one] = selected.plans[plan];
+                    delete selected.rooms[plan];
+                    selected.plans[new_plan_info_one].plan_info_two = new_plan_info_two;
+                    selected.plans[new_plan_info_one].plan_info_one = new_plan_info_one;
+                    selected.plans[new_plan_info_one].price = price;
                 }
                 else {
                     Swal.fire({
                         icon: 'info',
-                        title: 'ROOM ALREADY EXISTS',
+                        title: 'plan ALREADY EXISTS',
                         text: 'If you cant access block, please contact Opion tech support',
                     })
                 }
@@ -268,7 +255,7 @@ function update_room(room, gender) {
     }
 }
 
-function delete_room(room, gender) {
+function delete_plan(plan, plan_two) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -280,18 +267,20 @@ function delete_room(room, gender) {
       }).then((result) => {
         if (result.isConfirmed) {
 
-          if(floor.replaceAll(' ', '').length > 0 && gender.replaceAll(' ', '').length > 0) {
+          if(plan.replaceAll(' ', '').length > 0 && plan_two.replaceAll(' ', '').length > 0) {
             $.ajax({
                 method: 'POST',
-                url: 'php/delete_room.php',
+                url: 'php/delete_plan.php',
                 data: {
                     facility_name:          selected.facility_name, 
                     facility_type:          selected.facility_type, 
                     facility_location:      selected.facility_location,
                     facility_block:         selected.facility_block,
                     floor_name:             selected.floor_name,
-                    old_room:               room,
-                    old_gender:             gender,
+                    room_type:              selected.room_type,
+                    old_plan_one:               plan,
+                    old_plan_two:             plan_two,
+                    gender:                 selected.gender,
     
                 },
                 success: (data) => {
@@ -299,17 +288,17 @@ function delete_room(room, gender) {
                     if(data == 'success'){
                         Swal.fire(
                             'Deleted!',
-                            `${room} for ${gender} has been deleted.`,
+                            `${plan} for ${plan_two} has been deleted.`,
                             'success'
                         ).then(() => {
                             close_btn();
                         })
-                        delete selected.floors[floor];
+                        delete selected.plans[plan];
                     }
                     else {
                         Swal.fire({
                             icon: 'error',
-                            title: 'ERROR DELETING ROOM',
+                            title: 'ERROR DELETING PLAN',
                             text: 'If you cant access block, please contact Opion tech support',
                         })
                     }

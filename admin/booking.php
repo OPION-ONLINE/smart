@@ -144,8 +144,18 @@
                         </div>
 
                         <div class = 'modal-detail'>
+                            <div class = 'detail-name'>Selected Block</div>
+                            <div class = 'detail-content fblock'>First Floor</div>
+                        </div>
+
+                        <div class = 'modal-detail'>
                             <div class = 'detail-name'>Selected Floor</div>
                             <div class = 'detail-content ffloor'>First Floor</div>
+                        </div>
+
+                        <div class = 'modal-detail'>
+                            <div class = 'detail-name'>Selected Gender</div>
+                            <div class = 'detail-content fgender'>First Floor</div>
                         </div>
 
                         <div class = 'modal-detail'>

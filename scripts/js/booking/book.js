@@ -26,11 +26,12 @@ let facility_floors = {
 
 let room_gender = [];
 
-let image_path = 'images/'
+let image_path = 'image_server/'
 
 let display_pos;
 let room_type;
 let room_type_size;
+let image_pos = 0;
 
 let checkbox = select('.tab.radio-box').outerHTML;
 let tab = select('.tab.normal').outerHTML;
@@ -102,12 +103,15 @@ function display_rooms() {
             room_type = Object.keys(display_images);
             room_type_size = room_type.length;
 
+
             display_next();
         }
     })
 }
 
 display_rooms();
+
+
 
 function display_next(direction = 'right') {
 
@@ -121,6 +125,19 @@ function display_next(direction = 'right') {
     })
 
     select('.room-type-name').innerText = Object.keys(display_images)[display_pos];
+}
+
+
+function image_next(direction = 'right') {
+
+    if ( direction == 'right' && image_pos < 2) image_pos++;
+    if ( direction == 'left' && image_pos > 0) image_pos--;
+    if ( image_pos < 0) image_pos = 0;
+
+    selectAll('.facility-image.big').forEach( image_box => {
+        image_box.src = image_path + display_images[room_type[display_pos]][image_pos];
+        console.log('did it big')
+    })
 }
 
 let modal_position = '';
@@ -148,7 +165,7 @@ function book_process() {
         modal.innerHTML = '<h2>Choose Your Gender</h2>';
 
         $.each(rooms, (key, room) => {
-            if(room.facility_block == selected_block && room.floor_name == selected_floor && room.room_type == selected_room && room.gender == 'Male') {
+            if(room.facility_block == selected_block && room.floor_name == selected_floor && room.room_type == selected_room && room.gender == 'MALE') {
                 let new_block = checkbox.replace('{{ tab-value }}', room.gender).replace(' {{ tab-function }}', `selected_gender = \'${room.gender}\'; book_process(); `);
                 modal.innerHTML += new_block;
                 return true;
@@ -156,7 +173,7 @@ function book_process() {
         })
 
         $.each(rooms, (key, room) => {
-            if(room.facility_block == selected_block && room.floor_name == selected_floor && room.room_type == selected_room && room.gender == 'Female') {
+            if(room.facility_block == selected_block && room.floor_name == selected_floor && room.room_type == selected_room && room.gender == 'FEMALE') {
                 let new_block = checkbox.replace('{{ tab-value }}', room.gender).replace(' {{ tab-function }}', `selected_gender = \'${room.gender}\'; book_process(); `);
                 modal.innerHTML += new_block;
                 return true;
