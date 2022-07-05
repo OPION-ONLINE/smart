@@ -128,4 +128,18 @@ function close_btn() {
         deactivateAll('.form');
         display_floor();
     }
+    else if( tracker.position == 'room') {
+        deactivateAll('.form');
+        display_room();
+    }
+}
+
+function empty_input() {
+    selectAll('input').forEach( input => {
+        input.value = '';
+    })
+
+    selectAll('textarea').forEach( textarea => {
+        textarea.value = '';
+    })
 }

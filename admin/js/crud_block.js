@@ -68,12 +68,14 @@ function fetch_facility() {
 }
 
 function open_block() {
+    empty_input();
     select('.form.preview').setAttribute('style', '');
     deactivateAll('.form');
     deactivateAll('.btns');
     activateAll('.block');
 
-    select('.block.btns .btn').setAttribute('onclick', 'add_block()');
+    select('.floor.btns .btn').setAttribute('onclick', 'add_floor()');
+    select('.block.btns .btn').innerHTML = 'ADD BLOCK';
     tracker.position = 'block';
 }
 
@@ -96,6 +98,7 @@ function edit_block(block) {
 }
 
 function add_block() {
+    empty_input();
     let block = select('input[name = "facility_block"]').value.toUpperCase();
     if(block.replaceAll(' ', '').length > 0) {
 

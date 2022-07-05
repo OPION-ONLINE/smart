@@ -90,14 +90,12 @@ function display_room() {
 }
 
 function open_room() {
-    empty_input();
     select('.form.preview').setAttribute('style', '');
     deactivateAll('.form');
     deactivateAll('.btns');
     activateAll('.room');
 
     select('.room.btns .btn').setAttribute('onclick', 'add_room()');
-    select('.room.btns .btn').innerHTML = 'ADD ROOM';
     tracker.position = 'room';
 }
 
@@ -111,9 +109,9 @@ function edit_room(room) {
     select('input[name = "room_type"]').value = room;
     select('input[name = "room_count"]').value = selected.rooms[room].room_count;                 
     select('select[name = "gender"] option[selected]').innerHTML    = selected.rooms[room].gender;                 
-    select('.outer_image').src =       path + 'image_server/' + selected.rooms[room].outer_image.replaceAll(path + 'image_server/', '');
-    select('.room_image').src  =       path + 'image_server/' + selected.rooms[room].room_image.replaceAll(path + 'image_server/', '');
-    select('.lavatory_image').src  =   path + 'image_server/' + selected.rooms[room].lavatory_image.replaceAll(path + 'image_server/', '');
+    select('.outer_image').src =       path + 'image_server/' + selected.rooms[room].outer_image;
+    select('.room_image').src  =       path + 'image_server/' + selected.rooms[room].room_image;
+    select('.lavatory_image').src  =   path + 'image_server/' + selected.rooms[room].lavatory_image;
 
     select('.room.btns .btn').setAttribute('onclick', `update_room("${room}", "${selected.rooms[room].gender}")`);
     select('.room.btns .btn').innerHTML = 'UPDATE ROOM';
@@ -170,7 +168,7 @@ function add_room() {
                         title: 'ROOM ADDED SUCCESSFULLY'
                     })
 
-                    selected.rooms[room] = {
+                    selected.rooms[room_type] = {
                         room_count:             room_count,
                         gender:                 gender,
                         outer_image:            outer_image,
@@ -249,7 +247,7 @@ function update_room(room, gender) {
 
                     selected.rooms[new_room] = selected.rooms[room];
                     delete selected.floors[room];
-                    selected.rooms[new_room].gender = new_gender;
+                    selected.roooms[new_room].gener = new_gender;
                 }
                 else {
                     Swal.fire({
@@ -282,7 +280,7 @@ function delete_room(room, gender) {
       }).then((result) => {
         if (result.isConfirmed) {
 
-          if(room.replaceAll(' ', '').length > 0 && gender.replaceAll(' ', '').length > 0) {
+          if(floor.replaceAll(' ', '').length > 0 && gender.replaceAll(' ', '').length > 0) {
             $.ajax({
                 method: 'POST',
                 url: 'php/delete_room.php',

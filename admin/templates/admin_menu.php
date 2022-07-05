@@ -1,26 +1,26 @@
 <?php  
 
 
-/* SUPER ADMININSTRATORS CAN ACCESS 
+/* SUPER administratorS CAN ACCESS 
         ~all admin tabs
 
-    SITE ADMININSTRATORS CAN ACCESS
+    SITE administratorS CAN ACCESS
         ~all admin tabs except the [PERMISSIONS TAB]
 
-    FACILITY ADMININSTRATORS CAN ACCESS
+    FACILITY administratorS CAN ACCESS
         ~only the [FACILITY TAB]
 
-    USER ADMININSTRATORS CAN ACCESS
+    USER administratorS CAN ACCESS
         ~the USERS TAB
         ~the MANAGERS TAB
         ~the EMAIL TAB
 
 
     The user roles are
-        super_admininstrator
-        site_admininstrator
-        facility_admininstrator
-        user_admininstrator
+        super_administrator
+        site_administrator
+        facility_administrator
+        user_administrator
 
     
 */
@@ -30,13 +30,13 @@ if (!isset($_SESSION['user_role'])){
     header("Location: admin.php");
 }
 
-else echo $_SESSION['user_role'];
+// else echo $_SESSION['user_role'];
  
 function facility_check(){
     if (isset($_SESSION['user_role'])                 &&
-    ($_SESSION['user_role'] == 'super_admininstrator' || 
-    $_SESSION['user_role'] == 'site_admininstrator'   || 
-    $_SESSION['user_role'] == 'facility_admininstrator') 
+    ($_SESSION['user_role'] == 'super_administrator' || 
+    $_SESSION['user_role'] == 'site_administrator'   || 
+    $_SESSION['user_role'] == 'facility_administrator') 
     ){
         return true;
     }
@@ -47,8 +47,8 @@ function facility_check(){
 
 function home_check(){
     if (isset($_SESSION['user_role'])                 &&
-    ($_SESSION['user_role'] == 'super_admininstrator'  ||
-    $_SESSION['user_role'] == 'site_admininstrator')
+    ($_SESSION['user_role'] == 'super_administrator'  ||
+    $_SESSION['user_role'] == 'site_administrator')
     ){
         return true;
     }
@@ -60,9 +60,9 @@ function home_check(){
 
 function booking_check(){
     if (isset($_SESSION['user_role'])                 &&
-    ($_SESSION['user_role'] == 'super_admininstrator'  ||
-    $_SESSION['user_role'] == 'site_admininstrator')   ||
-    $_SESSION['user_role'] == 'booking_admininstrator'
+    ($_SESSION['user_role'] == 'super_administrator'  ||
+    $_SESSION['user_role'] == 'site_administrator')   ||
+    $_SESSION['user_role'] == 'booking_administrator'
     ){
         return true;
     }
@@ -76,9 +76,9 @@ function booking_check(){
 
 function users_check(){
     if (isset($_SESSION['user_role'])                 &&
-    ($_SESSION['user_role'] == 'super_admininstrator'  ||
-    $_SESSION['user_role'] == 'site_admininstrator')   ||
-    $_SESSION['user_role'] == 'user_admininstrator'
+    ($_SESSION['user_role'] == 'super_administrator'  ||
+    $_SESSION['user_role'] == 'site_administrator')   ||
+    $_SESSION['user_role'] == 'user_administrator'
     ){
         return true;
     }
@@ -91,7 +91,7 @@ function users_check(){
 
 function permissions_check(){
     if (isset($_SESSION['user_role'])                 &&
-     $_SESSION['user_role'] == 'super_admininstrator'
+     $_SESSION['user_role'] == 'super_administrator'
      ){
         return true;
     }

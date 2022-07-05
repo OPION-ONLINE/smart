@@ -83,12 +83,14 @@ function display_floor() {
 }
 
 function open_floor() {
+    empty_input();
     select('.form.preview').setAttribute('style', '');
     deactivateAll('.form');
     deactivateAll('.btns');
     activateAll('.floor');
 
     select('.floor.btns .btn').setAttribute('onclick', 'add_floor()');
+    select('.floor.btns .btn').innerHTML = 'ADD FLOOR';
     tracker.position = 'floor';
 }
 
@@ -111,6 +113,7 @@ function edit_floor(floor) {
 }
 
 function add_floor() {
+    
     let floor = select('input[name = "floor_name"]').value.toUpperCase();
     if(floor.replaceAll(' ', '').length > 0) {
 

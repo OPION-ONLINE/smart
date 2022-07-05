@@ -59,7 +59,7 @@ else
 
             if ($role_password == $admin_password){
                 echo "<script> alert('Login Successful') </script>";
-                session_start();
+                
                 $_SESSION['user_role'] = $login_role;
                 //pass session token
 

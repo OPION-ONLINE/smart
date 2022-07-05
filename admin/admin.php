@@ -1,12 +1,12 @@
  
 <?php
 
-
+session_start();
  
 //$result_array = ['user_role' => 'super_admininstrator'];
 
  
-$_SESSION['user_role'] = htmlspecialchars($result_array['user_role']);
+// $_SESSION['user_role'] = htmlspecialchars($result_array['user_role']);
 
 ?>
 

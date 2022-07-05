@@ -28,10 +28,15 @@ if($result->num_rows > 0 && $old_gender != $gender && $old_room != $room_type) {
     exit();
 }
 
-$sql = 'update rooms set room_type = ?, room_count = ?, gender = ?, outer_image = ?, room_image = ?, lavatory_image = ?,
+$sql = 'update  plans set room_type = ? where facility_name = ? and facility_type = ? and facility_location = ? and facility_block = ? and floor_name = ? and room_type = ? and gender = ?';
+$sql = $conn->prepare($sql);
+$sql->bind_param('ssssssss', $room_type, $facility_name, $facility_type, $facility_location, $facility_block, $floor_name, $old_room, $old_gender);
+$sql->execute();
+
+$sql = 'update rooms set room_type = ?, room_count = ?, gender = ?, outer_image = ?, room_image = ?, lavatory_image = ?
  where facility_block = ? and facility_name = ? and facility_type = ? and facility_location = ? and floor_name = ? and room_type = ? and gender = ?';
 $sql = $conn->prepare($sql);
-$sql->bind_param('sssssssssssss', $room_type, $room_count, $gender, $outer_image, $room_image, $lavatory_image, $floor_name, $facility_block, $facility_name, $facility_type, $facility_location, $floor_name, $old_room, $old_gender);
+$sql->bind_param('sssssssssssss', $room_type, $room_count, $gender, $outer_image, $room_image, $lavatory_image, $facility_block, $facility_name, $facility_type, $facility_location, $floor_name, $old_room, $old_gender);
 
 if($sql->execute()) {
     echo 'success';

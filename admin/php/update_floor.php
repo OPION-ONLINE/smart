@@ -21,6 +21,11 @@ if($result->num_rows > 0) {
     exit();
 }
 
+$sql = 'update  plans set floor_name = ? where facility_name = ? and facility_type = ? and facility_location = ? and facility_block = ? and floor_name = ?';
+$sql = $conn->prepare($sql);
+$sql->bind_param('ssssss', $floor_name, $facility_name, $facility_type, $facility_location, $facility_block, $old_floor);
+$sql->execute();
+
 $sql = 'update floors set floor_name = ? where facility_block = ? and facility_name = ? and facility_type = ? and facility_location = ? and floor_name = ?';
 $sql = $conn->prepare($sql);
 $sql->bind_param('ssssss',  $floor_name, $facility_block, $facility_name, $facility_type, $facility_location, $old_floor);

@@ -18,7 +18,13 @@ $result = $sql->get_result();
 if($result->num_rows > 0) {
     echo "error";
     exit();
+    
 }
+
+$sql = 'update  plans set facility_block = ? where facility_name = ? and facility_type = ? and facility_location = ? and facility_block = ?';
+$sql = $conn->prepare($sql);
+$sql->bind_param('sssss', $facility_block, $facility_name, $facility_type, $facility_location, $old_block);
+$sql->execute();
 
 $sql = 'update blocks set facility_block = ? where facility_block = ? and facility_name = ? and facility_type = ? and facility_location = ?';
 $sql = $conn->prepare($sql);
@@ -33,6 +39,8 @@ $sql->execute();
 $sql = 'update rooms set facility_block = ? where facility_block = ? and facility_name = ? and facility_type = ? and facility_location = ?';
 $sql = $conn->prepare($sql);
 $sql->bind_param('sssss',  $facility_block, $old_block, $facility_name, $facility_type, $facility_location);
+
+
 
 if($sql->execute()) {
     echo 'success';

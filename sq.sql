@@ -182,24 +182,6 @@ plan_info_one = '3 year', plan_info_two = '8000';
 insert into plans set facility_name = "Good Man Facility", facility_type = "hostel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
 plan_info_one = '4 year', plan_info_two = '12000';
 
-<<<<<<< HEAD
-insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'THREE IN A ROOM',
-plan_info_one = '3', plan_info_two = '30', price = 5000;
-
-insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'EXECUTIVE',
-plan_info_one = '3', plan_info_two = '30';
-
-insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'VIP',
-plan_info_one = '3', plan_info_two = '30', price = 2000;
-
-insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'REGULAR',
-plan_info_one = '3', plan_info_two = '30', price = 200;
-
-insert into plans set facility_name = "Good Man Facility", facility_type = "hotel", facility_location = "Ayeduase Good", facility_block = 'BLOCKA', floor_name = 'FIRST FLOOR', room_type = 'VIP EXECUTIVE',
-plan_info_one = '3', plan_info_two = '30', price = 9000;
-
-
-=======
 
 
 
@@ -239,4 +221,3 @@ create table managers(
      
 
 ) default charset 'utf8';
->>>>>>> 1c01d6605bbddc2aa8eb18b1c7c481d9bad2b59d
