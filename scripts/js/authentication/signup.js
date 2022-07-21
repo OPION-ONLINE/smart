@@ -45,6 +45,14 @@ function status_check(status) {
         })
     }
     
+    else if(status == 'weak') {
+        Swal.fire({
+            icon: 'error',
+            title: 'PASSWORD IS WEAK',
+            text: 'Password should contain  at least 8 characters, a number, uppercase , lowercase, and a special character(eg. @&!),  ',
+        })
+    }
+    
 }
 
 select('form').addEventListener('submit', submit, false);

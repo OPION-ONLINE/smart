@@ -56,6 +56,13 @@ if($result > 0) handle_error('exists');
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)) handle_error('email');
 if($password !== $confirm_password) handle_error('password');
 
+$number = preg_match('@[0-9]@', $password);
+$uppercase = preg_match('@[A-Z]@', $password);
+$lowercase = preg_match('@[a-z]@', $password);
+$specialChars = preg_match('@[^\w]@', $password);
+ 
+if(strlen($password) < 8 || !$number || !$uppercase || !$lowercase || !$specialChars) handle_error('weak');
+
 $password = md5($password . 'OpionOnline@OpionOnline');
 
 $sql = 'insert into users set user_name = ?, user_email = ?, user_number = ?, user_password = ?, user_status = ?, user_gender = ?;';
